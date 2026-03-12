@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CNN</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/fonts.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+
+<!-- =========================
+ VTURB
+========================= -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6988f0ee27efa9d18cdd58be/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+<!-- =========================
+ VTURB
+========================= -->
+  
+<!-- redtrack--> 
+<script type="text/javascript" src="https://rtk.aprendeahoraya.online/track.js"></script>
+ <!-- redtrack--> 
+
+ <!-- clickbank--> 
+  <script>
+  window.clickbank = {
+    vendor: "crstrenght"
+  };
+</script>
+<script src="https://scripts.clickbank.net/hop.min.js" defer></script>
+  <!-- clickbank--> 
+
+</head>
+
+<body>
+
+<!-- =========================
+ LIVE BAR (Topo “Ao vivo”)
+ - Mostra: AO VIVO + viewers + “Última hora” + aviso
+ - Editável via atributos no <div class="livebar">
+========================= -->
+<div class="livebar"
+     data-viewers-start="2680"
+     data-viewers-min="1234"
+     data-viewers-max="9204"
+     data-viewers-interval="1500"
+     data-viewers-step-min="1"
+     data-viewers-step-max="7">
+  <div class="livebar__inner">
+    <div class="livebar__left">
+      <button class="livebar__menu" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="livebar__brand" aria-label="Brand">
+        <span class="livebar__brandBox">CNN</span>
+      </div>
+    </div>
+
+    <div class="livebar__right">
+      <div class="livebar__badge" aria-label="Ao vivo">
+        <span class="livebar__dot" aria-hidden="true"></span>
+        <span class="livebar__badgeText">LIVE</span>
+      </div>
+
+      <div class="livebar__viewers" aria-label="Pessoas assistindo agora">
+        <span class="livebar__viewersNum" id="liveViewers">—</span>
+        <span class="livebar__viewersLabel">people watching now</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="livebar__ticker" role="status" aria-live="polite">
+    <span class="livebar__tickerStrong">LATEST NEWS:</span>
+    <strong>DO YOU FEEL YOUR BODY SORE AND WORN OUT?</strong>
+  </div>
+</div>
+
+<style>
+  /* ===== LIVE BAR styles ===== */
+  .livebar{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #0b0f16;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  .livebar__inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:12px 16px;
+  }
+  .livebar__left{display:flex;align-items:center;gap:12px;}
+  .livebar__menu{
+    width:44px;height:36px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:4px;
+    cursor:pointer;
+  }
+  .livebar__menu span{
+    display:block;
+    width:18px;height:2px;
+    background:#fff;
+    margin:0 auto;
+    opacity:.9;
+  }
+
+  .livebar__brandBox{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 10px;
+    border-radius:10px;
+    background: linear-gradient(135deg, #d61f26, #7a0c0f);
+    font-weight:800;
+    letter-spacing:.8px;
+  }
+
+  .livebar__right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end;}
+  .livebar__badge{
+    display:flex;align-items:center;gap:8px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);
+    font-weight:700;
+  }
+  .livebar__dot{
+    width:10px;height:10px;border-radius:50%;
+    background:#ff2b2b;
+    box-shadow:0 0 10px rgba(255,43,43,.85);
+    animation: livePulse 1.2s ease-in-out infinite;
+  }
+  @keyframes livePulse{
+    0%,100%{transform:scale(1);opacity:1}
+    50%{transform:scale(1.35);opacity:.75}
+  }
+
+  .livebar__viewers{
+    display:flex;align-items:baseline;gap:8px;
+    padding:8px 10px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);
+  }
+  .livebar__viewersNum{
+    font-weight:900;
+    font-size:16px;
+    letter-spacing:.2px;
+  }
+  .livebar__viewersLabel{
+    font-size:12px;
+    opacity:.85;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+  }
+
+  .livebar__ticker{
+    padding:10px 16px;
+    border-top:1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.03);
+    font-size:13px;
+    opacity:.95;
+  }
+  .livebar__tickerStrong{
+    font-weight:900;
+    margin-right:6px;
+    color:#ffd166;
+  }
+
+  /* Responsivo */
+  @media (max-width: 520px){
+    .livebar__inner{padding:10px 12px}
+    .livebar__viewersLabel{display:none}
+  }
+</style>
+
+<script>
+  // ===== LIVE BAR: contador de viewers (editável via data-attrs) =====
+  (function(){
+    const bar = document.querySelector('.livebar');
+    if(!bar) return;
+
+    const el = document.getElementById('liveViewers');
+    const start = parseInt(bar.dataset.viewersStart || '120', 10);
+    const minV  = parseInt(bar.dataset.viewersMin   || '80', 10);
+    const maxV  = parseInt(bar.dataset.viewersMax   || '380', 10);
+    const interval = parseInt(bar.dataset.viewersInterval || '1500', 10);
+    const stepMin = parseInt(bar.dataset.viewersStepMin || '1', 10);
+    const stepMax = parseInt(bar.dataset.viewersStepMax || '6', 10);
+
+    let v = Math.max(minV, Math.min(maxV, start));
+    const clamp = (n)=> Math.max(minV, Math.min(maxV, n));
+    const randInt = (a,b)=> Math.floor(Math.random()*(b-a+1))+a;
+
+    const render = ()=> { el.textContent = v.toLocaleString('en-US'); };
+    render();
+
+    setInterval(()=>{
+      // sobe e desce levemente (mais natural)
+      const dir = Math.random() < 0.78 ? 1 : -1;
+      v = clamp(v + dir * randInt(stepMin, stepMax));
+      render();
+    }, interval);
+  })();
+</script>
+
+
+    <div class="topbar">
+      <div class="brand">
+        <!-- Replace with YOUR logo (do not use a real TV network logo) -->
+        <img src="https://dc79r36mj3c9w.cloudfront.net/prod/filer_public/pbsabout-bento-live-pbs/0a0c8d6b54_PBS_wblue_rgb.png" alt="Your Brand" />
+      </div>
+
+      <!-- Scrolling header ticker (you asked for this copy) -->
+      <div class="ticker" aria-label="Daily updates">
+        <div class="track" aria-hidden="true">
+          <span class="pill"><span class="spark"></span> DAILY UPDATES ON WELLNESS AND HEALTH</span>
+          <span class="pill"><span class="spark"></span> DAILY UPDATES ON WELLNESS AND HEALTH</span>
+          <span class="pill"><span class="spark"></span> DAILY UPDATES ON WELLNESS AND HEALTH</span>
+          <span class="pill"><span class="spark"></span> DAILY UPDATES ON WELLNESS AND HEALTH</span>
+        </div>
+      </div>
+    </div>
+
+            <!-- ===== TEXTO DE URGÊNCIA ACIMA DO VÍDEO ===== -->
+<!-- =========================
+  URGÊNCIA ACIMA DA VSL (BRANCO + "TODAY" AMARELO)
+  - Cole este bloco IMEDIATAMENTE ACIMA do seu player/VSL
+  - A data atualiza automaticamente todo dia
+  - Efeito: pulse + glow no "TODAY" + leve slide-in
+========================= -->
+<div class="vslUrgency" role="status" aria-live="polite">
+  This video will be taken down <span class="vslUrgency__today">TODAY</span>
+  (<span id="todayDate">—</span>). Watch now.
+</div>
+
+<style>
+  /* ===== Layout do texto (acima do vídeo) ===== */
+  .vslUrgency{
+    text-align:center;
+    color:#ffffff;                /* texto branco */
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    font-size:18px;
+    line-height:1.35;
+    font-weight:600;
+    margin:18px 0 18px 0;         /* espaço acima/abaixo do player */
+    letter-spacing:.2px;
+    opacity:0;
+    transform:translateY(8px);
+    animation:vslUrgencyIn .45s ease-out forwards;
+  }
+  @keyframes vslUrgencyIn{
+    to{opacity:1; transform:translateY(0)}
+  }
+
+  /* ===== Destaque "TODAY" (amarelo + glow + pulse) ===== */
+  .vslUrgency__today{
+    color:#ffd700;
+    font-weight:900;
+    letter-spacing:.9px;
+    text-transform:uppercase;
+    text-shadow:0 0 10px rgba(255,215,0,.35);
+    animation:todayPulse 1.15s ease-in-out infinite;
+  }
+  @keyframes todayPulse{
+    0%,100%{transform:translateY(0) scale(1); filter:brightness(1)}
+    50%{transform:translateY(-1px) scale(1.04); filter:brightness(1.15)}
+  }
+
+  /* Responsivo */
+  @media (max-width:520px){
+    .vslUrgency{font-size:16px; margin:14px 0 14px 0;}
+  }
+</style>
+
+<script>
+  // ===== Data automática (atualiza todo dia ao abrir a página) =====
+  (function(){
+    const el = document.getElementById('todayDate');
+    if(!el) return;
+
+    const now = new Date();
+    const formatted = new Intl.DateTimeFormat('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: '2-digit'
+    }).format(now);
+
+    el.textContent = formatted;
+  })();
+</script>
+
+            <!-- ↓↓↓ EMBED JAVA, VTURB AQUI ↓↓↓ -->
+            <vturb-smartplayer id="vid-69b1cace6b51229fda23a9ea" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/69b1cace6b51229fda23a9ea/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+<!-- ↓↓↓ EMBED JAVA, VTURB AQUI ↓↓↓ -->
+
+    <section id="sales-block" class="sales esconder">
+      <div class="container pt-5 pb-5">
+        <div class="row align-items-center">
+          <div class="col-md-4 pb-4 pb-md-0">
+            <div class="hes3b-offer-box">
+              <div class="hes3b-offer-header">JOINT HEALTH KIT</div>
+              <div class="hes3b-offer-body">
+                <img class="img-fluid" src="./assets/imgs/OV-6bottles-49e-1.png" alt="HESURGE 3 Bottles">
+                <div class="oneBottle-bullet-container">
+                  <div style="text-align:center; font-family: 'Figtree', sans-serif; font-weight:600; font-size: 18px; margin: 10px 0;">
+                    <i class="fa-truck fas" style="margin-right:5px;color:#000"></i>
+                    <span id="hes3bDeliveryBullet">Carregando data...</span>
+                  </div>
+                </div>
+                <div class="hes3b-btn-container">
+                  <div class="hes3b-btn-wrapper">
+                    <a href="https://crstrenght.pay.clickbank.net/?cbitems=CRSG06FE&cbfid=62245&template=co" class="a-b-a a-btn"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cart-shopping" class="fa-cart-shopping svg-inline--fa" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg><span>BUY NOW</span></a>                   
+                  </div>
+                  <div style="margin-top:15px">
+                    <div style="font-weight:600;color:#000;margin-bottom:5px"><i class="fa-lock fas" style="color:#000;margin-right:5px"></i> Secure Checkout</div>
+                    <div><img src="./assets/imgs/payment-logo.png" alt="We accept Visa, MasterCard, and more" style="max-width:200px"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 pb-4 pb-md-0">
+            <div class="a-i-cont a-cont a-s-d-9n365e">
+              <div class="a-c-cont-8219fb7 a-s-d-cl9rbs a-r a-c-cont">
+                <div class="a-e-cont atomicat-element-container-8219fb7 a-html atomicat-html a-r a-html-8219fb7">
+                  <div class="a-i-e-cont">
+                    <meta charset="UTF-8">
+                    <title>1 Bottle (HES2) - Set #1</title>
+                    <div class="oneBottle-offer-box">
+                      <div class="oneBottle-offer-box-body">
+                        <img class="img-fluid" src="./assets/imgs/OV-3bottles-72e-min.png" alt="1 Bottle Supply">
+                        <div class="oneBottle-bullet-container">
+                          <div style="text-align:center; font-family: 'Figtree', sans-serif; font-weight:600; font-size: 18px; margin: 10px 0;">
+                            <i class="fa-truck fas" style="margin-right:5px;color:#000"></i>
+                            <span id="hes3bDeliveryBullet">Carregando data...</span>
+                          </div>
+                        </div>
+
+                        <a href="https://crstrenght.pay.clickbank.net/?cbitems=CRSG03FE&cbfid=62245&template=cc" class="a-btn a-b-a"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cart-shopping" class="svg-inline--fa fa-cart-shopping" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg><span>BUY NOW</span></a>
+                        
+                        <div style="margin-top:15px; text-align: center;">
+                          <div style="font-weight:600;color:#000;margin-bottom:5px"><i class="fa-lock fas" style="color:#000;margin-right:5px"></i> Secure Checkout</div>
+                          <div><img src="./assets/imgs/payment-logo.png" alt="We accept Visa, MasterCard, and more" style="max-width:200px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 pb-4 pb-md-0">
+            <div class="a-i-cont a-cont a-s-d-9n365e">
+              <div class="a-c-cont-8219fb7 a-s-d-cl9rbs a-r a-c-cont">
+                <div class="a-e-cont atomicat-element-container-8219fb7 a-html atomicat-html a-r a-html-8219fb7">
+                  <div class="a-i-e-cont">
+                    <meta charset="UTF-8">
+                    <title>1 Bottle (HES2) - Set #1</title>
+                    <div class="oneBottle-offer-box">
+                      <div class="oneBottle-offer-box-body">
+                        <img class="img-fluid" src="./assets/imgs/OV-2bottles-89e-min.png" alt="1 Bottle Supply">
+                        <div class="oneBottle-bullet-container">
+                          <div style="text-align:center; font-family: 'Figtree', sans-serif; font-weight:600; font-size: 18px; margin: 10px 0;">
+                            <i class="fa-truck fas" style="margin-right:5px;color:#000"></i>
+                            <span id="hes3bDeliveryBullet">Carregando data...</span>
+                          </div>
+                        </div>
+
+                        <a href="https://crstrenght.pay.clickbank.net/?cbitems=CRSG02FE&cbfid=62245&template=co" class="a-btn a-b-a"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cart-shopping" class="svg-inline--fa fa-cart-shopping" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg><span>BUY NOW</span></a>
+                        
+                        <div style="margin-top:15px; text-align: center;">
+                          <div style="font-weight:600;color:#000;margin-bottom:5px"><i class="fa-lock fas" style="color:#000;margin-right:5px"></i> Secure Checkout</div>
+                          <div><img src="./assets/imgs/payment-logo.png" alt="We accept Visa, MasterCard, and more" style="max-width:200px"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+
+  // ============================================================
+  // CONFIG: informe o tempo do pitch (hh:mm:ss OU mm:ss OU segundos)
+  // ============================================================
+  var TIME_TO_DISPLAY = "00:33:05"; // exemplo: "12:30" | "00:12:30" | 750
+
+  // ============================================================
+  // FUNÇÃO: converte tempo para segundos
+  // ============================================================
+  function convertTimeToSeconds(time) {
+    if (typeof time === "number") return time;
+    if (typeof time !== "string") return 0;
+
+    const parts = time.split(":").map(p => parseInt(p, 10));
+    if (parts.length === 2) { // mm:ss
+      const [m, s] = parts;
+      return (m * 60) + s;
+    }
+    if (parts.length === 3) { // hh:mm:ss
+      const [h, m, s] = parts;
+      return (h * 3600) + (m * 60) + s;
+    }
+    return 0;
+  }
+
+  var SECONDS_TO_DISPLAY = convertTimeToSeconds(TIME_TO_DISPLAY);
+
+  // ============================================================
+  // CONFIG: id do bloco de vendas (deve existir no HTML)
+  // Ex.: <div id="sales-block" style="display:none">...</div>
+  // ============================================================
+  var SALES_BLOCK_ID = "sales-block";
+
+  // ============================================================
+  // CONFIG: cache (dias) para não esconder de novo depois
+  // ============================================================
+  var EXPIRATION_DAYS = 14;
+  var alreadyDisplayedKey = "alreadyElsDisplayed_" + SECONDS_TO_DISPLAY;
+
+  // ============================================================
+  // STORAGE (com expiração)
+  // ============================================================
+  class StorageHandler {
+    static expiryTime = EXPIRATION_DAYS * 86400000;
+
+    static set(key, value) {
+      localStorage.setItem(
+        key,
+        JSON.stringify({ value, expiry: Date.now() + this.expiryTime })
+      );
+    }
+
+    static get(key) {
+      var item = localStorage.getItem(key);
+      if (!item) return null;
+
+      var parsed = JSON.parse(item);
+      if (!parsed || typeof parsed !== "object") return null;
+
+      var value = parsed.value;
+      var expiry = parsed.expiry;
+
+      if (Date.now() > expiry) {
+        localStorage.removeItem(key);
+        return null;
+      }
+      return value;
+    }
+  }
+
+  // ============================================================
+  // REVEAL + AUTO-SCROLL (NOVO)
+  // - mostra o bloco
+  // - rola automaticamente até ele
+  // ============================================================
+  function revealAndScrollToSalesBlock() {
+    const el = document.getElementById(SALES_BLOCK_ID);
+    if (!el) return;
+
+    // evita executar várias vezes
+    if (el.dataset.revealed === "1") return;
+    el.dataset.revealed = "1";
+
+    // mostra o bloco
+    el.style.display = "block";
+    el.hidden = false;
+    el.setAttribute("aria-hidden", "false");
+
+    // salva para próximas visitas (não esconder de novo)
+    StorageHandler.set(alreadyDisplayedKey, true);
+
+    // rola até o bloco (com delay pequeno para layout assentar)
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 200);
+  }
+
+  // ============================================================
+  // FUNÇÃO chamada quando chega no tempo (mantém o nome do seu código)
+  // ============================================================
+  var showHiddenElements = function () {
+    revealAndScrollToSalesBlock();
+  };
+
+  // ============================================================
+  // WATCH PROGRESS DO VÍDEO (Smartplayer)
+  // ============================================================
+  var attempts = 0;
+
+  var startWatchVideoProgress = function () {
+    // espera o smartplayer carregar
+    if (typeof smartplayer === "undefined" || !(smartplayer.instances && smartplayer.instances.length)) {
+      if (attempts >= 10) return;
+      attempts++;
+      return setTimeout(startWatchVideoProgress, 1000);
+    }
+
+    // escuta o tempo do vídeo
+    smartplayer.instances[0].on("timeupdate", () => {
+      // se já mostrou, não faz nada
+      const sales = document.getElementById(SALES_BLOCK_ID);
+      if (sales && sales.dataset.revealed === "1") return;
+
+      // se ainda não chegou no tempo, sai
+      if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+
+      // chegou no tempo: mostra + rola
+      showHiddenElements();
+    });
+  };
+
+  // ============================================================
+  // INÍCIO: se já foi mostrado antes (dentro do prazo), mostra direto
+  // ============================================================
+  var alreadyElsDisplayed = StorageHandler.get(alreadyDisplayedKey);
+
+  if (alreadyElsDisplayed) {
+    setTimeout(showHiddenElements, 100);
+  } else {
+    startWatchVideoProgress();
+  }
+});
+</script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configuração: 3 dias úteis
+            const diasParaEntrega = 3; 
+
+            function getDeliveryDate(businessDays) {
+                let date = new Date();
+                while (businessDays > 0) {
+                    date.setDate(date.getDate() + 1);
+                    const day = date.getDay();
+                    // Pula Sábado (6) e Domingo (0)
+                    if (day !== 0 && day !== 6) businessDays--; 
+                }
+                return date;
+            }
+
+            function formatDate(dateObj) {
+                // Formato em Inglês (ex: Fri, Dec 5)
+                const options = { weekday: 'short', month: 'short', day: 'numeric' };
+                return dateObj.toLocaleDateString('en-US', options);
+            }
+
+            // Executa o cálculo
+            const targetDate = getDeliveryDate(diasParaEntrega);
+            const dateStr = formatDate(targetDate);
+            
+            // ATUALIZA TODAS AS CAIXAS COM O ID 'hes3bDeliveryBullet'
+            // Usamos querySelectorAll com colchetes para garantir que pegue duplicatas se houver
+            const elementos = document.querySelectorAll('[id="hes3bDeliveryBullet"]');
+            
+            elementos.forEach(function(elemento) {
+                 elemento.innerHTML = `Order now & receive by <span style="font-weight:bold; color:#BE0807;">${dateStr}</span>!`;
+            });
+        });
+    </script>
+</body>
+</html>
