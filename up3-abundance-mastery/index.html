@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abundance Mastery — Advanced Energy & Financial Strategy Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --pink: #D4537E; --pink-light: #F4C0D1; --pink-dark: #72243E; --ink: #0D0508; --cream: #FDF0F5; --muted: #7A4D5E; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--cream); overflow-x: hidden; }
+
+  .hero { min-height: 100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:6rem 2rem 4rem; position:relative; background:radial-gradient(ellipse 80% 50% at 50% 20%, #1a0510 0%, var(--ink) 70%); }
+  .hero::before { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23D4537E' fill-opacity='0.06'/%3E%3C/svg%3E"); }
+  .bump-banner { display:inline-block; background:var(--pink); color:var(--cream); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; padding:6px 20px; margin-bottom:2rem; animation:fadeUp 0.6s 0.1s both; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5.5rem); font-weight:300; line-height:1.05; color:var(--cream); margin-bottom:1rem; animation:fadeUp 0.8s 0.3s both; }
+  .hero-title em { font-style:italic; color:var(--pink-light); }
+  .hero-subtitle { font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,2.5vw,1.5rem); font-weight:300; font-style:italic; color:var(--muted); max-width:560px; line-height:1.7; margin-bottom:2.5rem; animation:fadeUp 0.8s 0.5s both; }
+  .btn-pink { display:inline-block; background:var(--pink); color:var(--cream); font-size:15px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; padding:1.1rem 3rem; text-decoration:none; transition:background 0.2s,transform 0.2s; animation:fadeUp 0.8s 0.7s both; }
+  .btn-pink:hover { background:var(--pink-light); color:var(--ink); transform:translateY(-2px); }
+  .btn-skip { display:block; margin-top:1rem; font-size:12px; color:var(--muted); text-decoration:underline; cursor:pointer; animation:fadeUp 0.8s 0.8s both; }
+
+  .divider { display:flex; align-items:center; gap:1.5rem; max-width:400px; margin:0 auto; padding:2.5rem 2rem; opacity:0.35; }
+  .divider-line { flex:1; height:1px; background:var(--pink); }
+  section { max-width:760px; margin:0 auto; padding:4rem 2rem; }
+  .section-label { font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--pink); margin-bottom:1.5rem; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:300; line-height:1.2; color:var(--cream); margin-bottom:1.5rem; }
+  .section-title em { font-style:italic; color:var(--pink-light); }
+
+  .modules-list { list-style:none; }
+  .module-item { display:flex; gap:1.5rem; padding:1.5rem 0; border-bottom:1px solid rgba(212,83,126,0.12); }
+  .module-item:last-child { border-bottom:none; }
+  .module-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:rgba(212,83,126,0.3); line-height:1; flex-shrink:0; width:50px; }
+  .module-content { flex:1; }
+  .module-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--cream); margin-bottom:0.4rem; }
+  .module-desc { font-size:14px; color:var(--muted); line-height:1.7; }
+
+  .bridge-block { border:1px solid rgba(212,83,126,0.25); padding:2rem; background:rgba(212,83,126,0.04); margin:2rem 0; }
+  .bridge-block p { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; font-weight:300; color:var(--cream); line-height:1.7; }
+  .bridge-block p strong { color:var(--pink-light); font-style:normal; }
+
+  .pricing-box { border:1px solid rgba(212,83,126,0.4); padding:3rem 2rem; text-align:center; background:linear-gradient(180deg,rgba(212,83,126,0.06) 0%,transparent 100%); }
+  .price-value { font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:300; color:var(--pink-light); line-height:1; margin-bottom:0.5rem; }
+  .price-value sup { font-size:2rem; vertical-align:super; }
+  .price-desc { font-size:13px; color:var(--muted); margin-bottom:2rem; }
+  .price-includes { text-align:left; margin:1.5rem auto; max-width:340px; list-style:none; }
+  .price-includes li { font-size:14px; color:var(--muted); padding:0.35rem 0 0.35rem 1.5rem; position:relative; }
+  .price-includes li::before { content:'✦'; position:absolute; left:0; color:var(--pink); font-size:10px; top:0.5rem; }
+  .guarantee-note { margin-top:2rem; font-size:12px; color:var(--muted); border-top:1px solid rgba(212,83,126,0.15); padding-top:1.5rem; }
+
+  footer { text-align:center; padding:3rem 2rem; border-top:1px solid rgba(212,83,126,0.1); font-size:12px; color:var(--muted); line-height:2; }
+  footer a { color:var(--muted); text-decoration:underline; }
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s,transform 0.7s; }
+  .reveal.visible { opacity:1; transform:none; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;} }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="bump-banner">Advanced Program</div>
+  <h1 class="hero-title"><em>Abundance</em><br/>Mastery</h1>
+  <p class="hero-subtitle">The advanced workbook where spiritual energy meets real-world financial strategy — creating transformation that is both inner and outer, permanent and measurable.</p>
+  <a href="#order" class="btn-pink">Yes! Unlock Abundance Mastery — $47 →</a>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span style="color:var(--pink);font-size:18px;">✦</span><div class="divider-line"></div></div>
+
+<section class="reveal">
+  <p class="section-label">The missing piece</p>
+  <div class="bridge-block">
+    <p>Spiritual alignment without <strong>strategic action</strong> is wishful thinking. Strategic action without <strong>spiritual alignment</strong> is exhausting hustle. Abundance Mastery is where these two worlds unite — creating a complete system for wealth that works from the inside out.</p>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span style="color:var(--pink);font-size:18px;">✦</span><div class="divider-line"></div></div>
+
+<section class="reveal">
+  <p class="section-label">Course curriculum</p>
+  <h2 class="section-title">8 modules.<br/><em>Complete transformation.</em></h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:2rem;">Each module combines deep conceptual frameworks with guided exercises, reflections, and action steps — designed to be worked through at your own pace, with full space for journaling and personal application.</p>
+  <ul class="modules-list">
+    <li class="module-item"><span class="module-num">01</span><div class="module-content"><p class="module-title">The Architecture of Abundance</p><p class="module-desc">Understand the energetic and psychological structures that determine your financial reality — and how to rebuild them from the foundation.</p></div></li>
+    <li class="module-item"><span class="module-num">02</span><div class="module-content"><p class="module-title">Chakra-Money Alignment Method</p><p class="module-desc">Map each of your 7 chakras to specific financial patterns and learn targeted practices to clear, balance, and activate each energy center for wealth flow.</p></div></li>
+    <li class="module-item"><span class="module-num">03</span><div class="module-content"><p class="module-title">Debt Release Energy Protocol</p><p class="module-desc">A comprehensive spiritual and practical system to shift your relationship with debt from shame and fear to power and momentum.</p></div></li>
+    <li class="module-item"><span class="module-num">04</span><div class="module-content"><p class="module-title">Abundance Identity Construction</p><p class="module-desc">Build a new self-concept — at the identity level — that makes wealth a natural expression of who you are, not something you chase.</p></div></li>
+    <li class="module-item"><span class="module-num">05</span><div class="module-content"><p class="module-title">Entrepreneur Prosperity Blueprint</p><p class="module-desc">Specific strategies for business owners: pricing from abundance, attracting aligned clients, and building offers that reflect your true energetic worth.</p></div></li>
+    <li class="module-item"><span class="module-num">06</span><div class="module-content"><p class="module-title">The Universal Laws of Financial Flow</p><p class="module-desc">Deep-dive into the laws of reciprocity, circulation, and expansion — and how to work with them consciously in every financial decision.</p></div></li>
+    <li class="module-item"><span class="module-num">07</span><div class="module-content"><p class="module-title">Relationships & Money Energy</p><p class="module-desc">Examine how family patterns, partnerships, and generational beliefs about money are shaping your current financial reality — and how to break the cycle.</p></div></li>
+    <li class="module-item"><span class="module-num">08</span><div class="module-content"><p class="module-title">The Abundant Life: Integration & Expansion</p><p class="module-desc">Bring it all together. Create your personal Abundance Mastery plan — a living document that keeps your energy, mindset, and strategy aligned for life.</p></div></li>
+  </ul>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span style="color:var(--pink);font-size:18px;">✦</span><div class="divider-line"></div></div>
+
+<section class="reveal" id="order">
+  <div class="pricing-box">
+    <p class="section-label">Full program access</p>
+    <p class="price-value"><sup>$</sup>47</p>
+    <p class="price-desc">One-time payment · Instant PDF download · Lifetime access</p>
+    <ul class="price-includes">
+      <li>Full Abundance Mastery Workbook (PDF — 8 modules)</li>
+      <li>Chakra-Money Alignment exercises & reflection space</li>
+      <li>Debt Release Energy Protocol guide</li>
+      <li>Entrepreneur Prosperity Blueprint</li>
+      <li>Personal Abundance Mastery Plan template</li>
+      <li>Lifetime access — including all future updates</li>
+    </ul>
+  <div style="max-width: 800px; margin: auto; text-align: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+  <!-- Botão verde -->
+<a href="https://hotmart.com/es" target="_blank">
+  <button style="
+    background-color: #04B404;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 20px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  ">
+    ✅ I Want This Product For: $47,00
+  </button>
+</a>
+
+<!-- Botão vermelho -->
+<a href="https://hotmart.com/es" target="_blank">
+  <button style="
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto 30px;
+    text-align: center;
+  ">
+    ❌ I don't want it
+  </button>
+</a>
+    <p class="guarantee-note">🔒 Covered by the same 60-day money-back guarantee. If you don't feel a shift in your relationship with money, you get a full refund — no questions asked.</p>
+  </div>
+</section>
+
+<!-- Seção de Garantia -->
+ <footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
+  <div style="max-width: 800px; margin: auto; text-align: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+      <h3 style="color: #003366;">60 DAYS MONEY BACK GUARANTEE 100% SATISFACTION GUARANTEED</h3>
+
+      <p style="font-size: 16px; color: #333; max-width: 600px;">
+       We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
+      </p>
+    </div>
+
+    <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
+      <p style="color: #555;">©© 2026 The Prosperity Code · All rights reserved</p>
+      <p style="margin-top: 10px;">
+        <a href="https://capacitaciononline.online/privac-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Privacy policy</a> |
+        <a href="https://capacitaciononline.online/terminos-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Terms and Conditions</a> |
+        <a href="https://capacitaciononline.online/contact-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Contacts</a> |
+        <a href="https://capacitaciononline.online/responsabilidad-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Disclaimer of liability</a>
+      </p>
+    </div>
+  </div>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => e.forEach(r => { if(r.isIntersecting) r.target.classList.add('visible'); }), {threshold:0.1});
+  reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
