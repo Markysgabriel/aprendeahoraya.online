@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sacred Wealth Rituals — The Complete Manifestation Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --amber: #BA7517; --amber-light: #FAC775; --amber-dark: #633806; --ink: #0D0900; --cream: #FDF8F0; --muted: #7A6840; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--cream); overflow-x: hidden; }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; background: radial-gradient(ellipse 80% 50% at 50% 20%, #1a0f00 0%, var(--ink) 70%); }
+  .hero::before { content:''; position:absolute; inset:0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(186,117,23,0.02) 40px, rgba(186,117,23,0.02) 41px); }
+  .bump-banner { display:inline-block; background:var(--amber); color:var(--ink); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; padding:6px 20px; margin-bottom:2rem; animation:fadeUp 0.6s 0.1s both; }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5.5rem); font-weight:300; line-height:1.05; color:var(--cream); margin-bottom:1rem; animation:fadeUp 0.8s 0.3s both; }
+  .hero-title em { font-style:italic; color:var(--amber-light); }
+  .hero-subtitle { font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,2.5vw,1.5rem); font-weight:300; font-style:italic; color:var(--muted); max-width:520px; line-height:1.7; margin-bottom:2.5rem; animation:fadeUp 0.8s 0.5s both; }
+  .btn-amber { display:inline-block; background:var(--amber); color:var(--ink); font-size:15px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; padding:1.1rem 3rem; text-decoration:none; transition:background 0.2s,transform 0.2s; animation:fadeUp 0.8s 0.7s both; }
+  .btn-amber:hover { background:var(--amber-light); transform:translateY(-2px); }
+  .btn-skip { display:block; margin-top:1rem; font-size:12px; color:var(--muted); text-decoration:underline; cursor:pointer; animation:fadeUp 0.8s 0.8s both; }
+
+  .divider { display:flex; align-items:center; gap:1.5rem; max-width:400px; margin:0 auto; padding:2.5rem 2rem; opacity:0.35; }
+  .divider-line { flex:1; height:1px; background:var(--amber); }
+  section { max-width:760px; margin:0 auto; padding:4rem 2rem; }
+  .section-label { font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--amber); margin-bottom:1.5rem; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:300; line-height:1.2; color:var(--cream); margin-bottom:1.5rem; }
+  .section-title em { font-style:italic; color:var(--amber-light); }
+
+  .tools-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem; margin:2rem 0; }
+  .tool-card { border:1px solid rgba(186,117,23,0.2); padding:1.5rem; background:rgba(186,117,23,0.03); transition:border-color 0.2s; }
+  .tool-card:hover { border-color:rgba(186,117,23,0.5); }
+  .tool-icon { font-size:28px; margin-bottom:0.75rem; }
+  .tool-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--cream); margin-bottom:0.4rem; }
+  .tool-desc { font-size:13px; color:var(--muted); line-height:1.6; }
+
+  .pricing-box { border:1px solid rgba(186,117,23,0.4); padding:3rem 2rem; text-align:center; background:linear-gradient(180deg,rgba(186,117,23,0.06) 0%,transparent 100%); }
+  .price-value { font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:300; color:var(--amber-light); line-height:1; margin-bottom:0.5rem; }
+  .price-value sup { font-size:2rem; vertical-align:super; }
+  .price-desc { font-size:13px; color:var(--muted); margin-bottom:2rem; }
+  .price-includes { text-align:left; margin:1.5rem auto; max-width:340px; list-style:none; }
+  .price-includes li { font-size:14px; color:var(--muted); padding:0.35rem 0 0.35rem 1.5rem; position:relative; }
+  .price-includes li::before { content:'✦'; position:absolute; left:0; color:var(--amber); font-size:10px; top:0.5rem; }
+  .guarantee-note { margin-top:2rem; font-size:12px; color:var(--muted); border-top:1px solid rgba(186,117,23,0.15); padding-top:1.5rem; }
+
+  footer { text-align:center; padding:3rem 2rem; border-top:1px solid rgba(186,117,23,0.1); font-size:12px; color:var(--muted); line-height:2; }
+  footer a { color:var(--muted); text-decoration:underline; }
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s,transform 0.7s; }
+  .reveal.visible { opacity:1; transform:none; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;} }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="bump-banner">Unique Opportunity</div>
+  <h1 class="hero-title"><em>Sacred Wealth</em><br/>Rituals</h1>
+  <p class="hero-subtitle">The complete manifestation toolkit — daily rituals, sacred tools, and energetic practices to make prosperity inevitable.</p>
+  <a href="#order" class="btn-amber">Yes! Add — $37 →</a>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span style="color:var(--amber);font-size:18px;">✦</span><div class="divider-line"></div></div>
+
+<section class="reveal">
+  <p class="section-label">Why most people don't manifest</p>
+  <h2 class="section-title">Knowledge without practice<br/><em>creates no results.</em></h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;">The Prosperity Code gave you the blueprint. But blueprints don't build houses — tools do. The Sacred Wealth Rituals toolkit gives you everything you need to turn those principles into daily practice, sacred ceremony, and unstoppable momentum.</p>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span style="color:var(--amber);font-size:18px;">✦</span><div class="divider-line"></div></div>
+
+<section class="reveal">
+  <p class="section-label">What you receive</p>
+  <h2 class="section-title" style="text-align:center;">5 powerful tools.<br/><em>One complete practice.</em></h2>
+  <div class="tools-grid">
+    <div class="tool-card"><div class="tool-icon">🃏</div><p class="tool-title">Wealth Affirmation Card Deck</p><p class="tool-desc">54 printable PDF cards with high-frequency affirmations aligned to each of the 7 prosperity keys.</p></div>
+    <div class="tool-card"><div class="tool-icon">🌕</div><p class="tool-title">Moon Cycle Money Planner</p><p class="tool-desc">12-month lunar planner to align your financial intentions, launches, and decisions with moon energy.</p></div>
+    <div class="tool-card"><div class="tool-icon">🖼️</div><p class="tool-title">Vision Board Template Kit</p><p class="tool-desc">10 beautifully designed Canva-compatible templates to create a powerful visual abundance anchor.</p></div>
+    <div class="tool-card"><div class="tool-icon">📓</div><p class="tool-title">Daily Abundance Journal</p><p class="tool-desc">365 guided journal prompts to maintain your prosperity consciousness every single day.</p></div>
+    <div class="tool-card"><div class="tool-icon">🌬️</div><p class="tool-title">Energy Clearing Checklist</p><p class="tool-desc">Weekly and monthly rituals to clear stagnant financial energy from your space and mindset.</p></div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span style="color:var(--amber);font-size:18px;">✦</span><div class="divider-line"></div></div>
+
+<section class="reveal" id="order">
+  <div class="pricing-box">
+    <p class="section-label">Complete your toolkit</p>
+    <p class="price-value"><sup>$</sup>37</p>
+    <p class="price-desc">One-time payment · All items delivered as instant downloads</p>
+    <ul class="price-includes">
+      <li>Wealth Affirmation Card Deck (54 cards, PDF)</li>
+      <li>Moon Cycle Money Planner (12 months, PDF)</li>
+      <li>Vision Board Template Kit (10 Canva templates)</li>
+      <li>Daily Abundance Journal (365 prompts, PDF)</li>
+      <li>Energy Clearing Checklist (PDF)</li>
+    </ul>
+   <div style="max-width: 800px; margin: auto; text-align: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+  <!-- Botão verde -->
+<a href="https://hotmart.com/es" target="_blank">
+  <button style="
+    background-color: #04B404;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 20px 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  ">
+    ✅ I Want This Product For: $37,00
+  </button>
+</a>
+
+<!-- Botão vermelho -->
+<a href="https://hotmart.com/es" target="_blank">
+  <button style="
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto 30px;
+    text-align: center;
+  ">
+    ❌ I don't want it
+  </button>
+</a>
+    <p class="guarantee-note">🔒 Covered by the same 60-day money-back guarantee. If you don't feel a shift in your relationship with money, you get a full refund — no questions asked.</p>
+  </div>
+</section>
+
+<!-- Seção de Garantia -->
+ <footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
+  <div style="max-width: 800px; margin: auto; text-align: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+      <h3 style="color: #003366;">60 DAYS MONEY BACK GUARANTEE 100% SATISFACTION GUARANTEED</h3>
+
+      <p style="font-size: 16px; color: #333; max-width: 600px;">
+       We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
+      </p>
+    </div>
+
+    <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
+      <p style="color: #555;">©© 2026 The Prosperity Code · All rights reserved</p>
+      <p style="margin-top: 10px;">
+        <a href="https://capacitaciononline.online/privac-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Privacy policy</a> |
+        <a href="https://capacitaciononline.online/terminos-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Terms and Conditions</a> |
+        <a href="https://capacitaciononline.online/contact-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Contacts</a> |
+        <a href="https://capacitaciononline.online/responsabilidad-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Disclaimer of liability</a>
+      </p>
+    </div>
+  </div>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(e => e.forEach(r => { if(r.isIntersecting) r.target.classList.add('visible'); }), {threshold:0.1});
+  reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
