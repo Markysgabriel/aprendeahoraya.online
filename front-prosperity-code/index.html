@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Prosperity Code — Unlock Your Abundance Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8A6A1F;
+    --ink: #0E0C0A;
+    --cream: #FAF7F0;
+    --cream-dark: #F0EAD6;
+    --muted: #6B6355;
+    --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, #1a1508 0%, var(--ink) 70%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1.1rem 3rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-note { font-size: 12px; color: var(--muted); }
+
+  /* DIVIDER */
+  .divider {
+    display: flex; align-items: center; gap: 1.5rem;
+    max-width: 400px; margin: 0 auto; padding: 3rem 2rem;
+    opacity: 0.4;
+  }
+  .divider-line { flex: 1; height: 1px; background: var(--gold); }
+  .divider-symbol { color: var(--gold); font-size: 18px; }
+
+  /* SECTIONS */
+  section { max-width: 760px; margin: 0 auto; padding: 4rem 2rem; }
+
+  /* PAIN */
+  .pain-section { text-align: center; }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+  }
+  .pain-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 300; line-height: 1.2;
+    color: var(--cream); margin-bottom: 2rem;
+  }
+  .pain-title em { font-style: italic; color: var(--gold-light); }
+  .pain-list { list-style: none; text-align: left; display: inline-block; }
+  .pain-list li {
+    font-size: 16px; color: var(--muted); line-height: 1.7;
+    padding: 0.5rem 0 0.5rem 2rem; position: relative;
+  }
+  .pain-list li::before {
+    content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.6;
+  }
+
+  /* PROMISE */
+  .promise-block {
+    background: linear-gradient(135deg, #1a1508 0%, #0E0C0A 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 3rem 2.5rem;
+    margin: 2rem 0;
+    position: relative;
+  }
+  .promise-block::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem; line-height: 1;
+    color: var(--gold); opacity: 0.15;
+    position: absolute; top: 0.5rem; left: 1.5rem;
+  }
+  .promise-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-style: italic; font-weight: 300;
+    line-height: 1.6; color: var(--cream);
+    position: relative; z-index: 1;
+  }
+
+  /* WHAT YOU GET */
+  .deliverables-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem; margin: 2rem 0;
+  }
+  .deliverable-card {
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.2s;
+  }
+  .deliverable-card:hover { border-color: rgba(201,168,76,0.4); }
+  .deliverable-icon { font-size: 24px; margin-bottom: 0.75rem; }
+  .deliverable-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400;
+    color: var(--cream); margin-bottom: 0.4rem;
+  }
+  .deliverable-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* FOR WHOM */
+  .for-whom-list { list-style: none; }
+  .for-whom-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid rgba(201,168,76,0.1);
+    font-size: 15px; color: var(--cream); line-height: 1.6;
+  }
+  .for-whom-list li:last-child { border-bottom: none; }
+  .check { color: var(--gold); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* PRICING */
+  .pricing-box {
+    border: 1px solid rgba(201,168,76,0.35);
+    padding: 3rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(201,168,76,0.05) 0%, transparent 100%);
+    position: relative;
+  }
+  .price-original { font-size: 16px; color: var(--muted); text-decoration: line-through; margin-bottom: 0.25rem; }
+  .price-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 300; color: var(--gold);
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+  .price-value sup { font-size: 2rem; vertical-align: super; }
+  .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
+  .price-includes { text-align: left; margin: 2rem auto; max-width: 340px; }
+  .price-includes li {
+    list-style: none; font-size: 14px; color: var(--muted);
+    padding: 0.35rem 0 0.35rem 1.5rem; position: relative;
+  }
+  .price-includes li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 10px; top: 0.5rem; }
+  .guarantee-note {
+    margin-top: 2rem; font-size: 12px; color: var(--muted);
+    border-top: 1px solid rgba(201,168,76,0.1); padding-top: 1.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 3rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    font-size: 12px; color: var(--muted); line-height: 2;
+  }
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Spiritual · Energetic · Transformational</p>
+  <h1 class="hero-title">The<br/><em>Prosperity Code</em></h1>
+  <p class="hero-subtitle">Unlock the ancient energetic blueprint that rewires your relationship with abundance — and activates the flow of wealth in just 7 days.</p>
+  <div class="hero-cta">
+    <a href="#order" class="btn-primary">Get Instant Access — $37</a>
+    <span class="btn-note">(Digital Product)</span>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-symbol">✦</span><div class="divider-line"></div></div>
+
+<!-- PAIN -->
+<section class="pain-section reveal">
+  <p class="section-label">Does this sound familiar?</p>
+  <h2 class="pain-title">You work hard. You pray.<br/>You try. Yet <em>money never stays.</em></h2>
+  <ul class="pain-list">
+    <li>You feel an invisible wall between you and financial freedom</li>
+    <li>You've tried budgeting, side hustles, affirmations — nothing sticks</li>
+    <li>Money comes in... and disappears just as fast</li>
+    <li>Deep down, you believe wealth is for "other people"</li>
+    <li>Debt feels like a spiritual weight you can't shake off</li>
+  </ul>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-symbol">✦</span><div class="divider-line"></div></div>
+
+<!-- PROMISE -->
+<section class="reveal">
+  <p class="section-label">The real problem</p>
+  <div class="promise-block">
+    <p class="promise-text">The gap between you and abundance isn't your income, your education, or your circumstances. It's an energetic code — a hidden set of beliefs and vibrational patterns — that was programmed into you long before you were old enough to question it.</p>
+  </div>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-top:1.5rem;">
+    The Prosperity Code was designed to identify, dissolve, and reprogram those patterns using a fusion of ancient energetic wisdom and modern manifestation principles. This is not another budgeting book. This is a complete energetic reset.
+  </p>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-symbol">✦</span><div class="divider-line"></div></div>
+
+<!-- WHAT YOU GET -->
+<section class="reveal">
+  <p class="section-label">What's inside</p>
+  <h2 class="pain-title" style="text-align:center;">Everything you need to<br/><em>shift your abundance frequency</em></h2>
+  <div class="deliverables-grid">
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🔑</div>
+      <p class="deliverable-title">The 7 Prosperity Keys</p>
+      <p class="deliverable-desc">Ancient energetic principles that activate the abundance flow in your daily life.</p>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🌀</div>
+      <p class="deliverable-title">Money Mindset Reset</p>
+      <p class="deliverable-desc">Identify and dissolve the 12 most common limiting beliefs blocking your wealth.</p>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">✨</div>
+      <p class="deliverable-title">Abundance Rituals</p>
+      <p class="deliverable-desc">21 daily rituals aligned with universal law to magnetize prosperity into your life.</p>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🌙</div>
+      <p class="deliverable-title">Law of Attraction Framework</p>
+      <p class="deliverable-desc">A step-by-step system to align your thoughts, emotions, and actions with wealth.</p>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">💫</div>
+      <p class="deliverable-title">Debt-to-Abundance Journey</p>
+      <p class="deliverable-desc">Energetic and practical protocols to transform financial struggle into flow.</p>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">📖</div>
+      <p class="deliverable-title">180+ Pages of Wisdom</p>
+      <p class="deliverable-desc">Beautifully structured, immediately downloadable PDF you'll return to again and again.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-symbol">✦</span><div class="divider-line"></div></div>
+
+<!-- FOR WHOM -->
+<section class="reveal">
+  <p class="section-label">This is for you if...</p>
+  <ul class="for-whom-list">
+    <li><span class="check">✦</span> You're stuck in a cycle of debt and want to break free energetically and practically</li>
+    <li><span class="check">✦</span> You believe in the law of attraction but haven't seen real financial results yet</li>
+    <li><span class="check">✦</span> You're an entrepreneur seeking to align your business with a prosperity mindset</li>
+    <li><span class="check">✦</span> You want to shift from scarcity thinking to an abundance consciousness — permanently</li>
+    <li><span class="check">✦</span> You're ready to do the inner work that creates outer wealth</li>
+  </ul>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-symbol">✦</span><div class="divider-line"></div></div>
+
+<!-- PRICING -->
+<section class="reveal" id="order">
+  <div class="pricing-box">
+    <p class="section-label">Your investment</p>
+    <p class="price-original">Value: $97</p>
+    <p class="price-value"><sup>$</sup>37</p>
+    <p class="price-desc">One-time payment · Instant access · No subscriptions</p>
+    <ul class="price-includes">
+      <li>The Prosperity Code — Full 180+ page PDF e-book</li>
+      <li>The 7 Prosperity Keys framework</li>
+      <li>21 Daily Abundance Rituals guide</li>
+      <li>Money Mindset Reset workbook</li>
+      <li>Law of Attraction Action Blueprint</li>
+      <li>Debt-to-Abundance Energy Protocol</li>
+    </ul>
+<div style="max-width: 800px; margin: auto; text-align: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+    <a href="#" class="btn-primary" style="display:inline-block;">Yes, I'm Ready to Unlock Abundance →</a>
+    <p class="guarantee-note">🔒 Protected by a 60-day money-back guarantee. If you don't feel a shift in your energy and mindset, you get a full refund — no questions asked.</p>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><span class="divider-symbol">✦</span><div class="divider-line"></div></div>
+
+
+<!-- Seção de Garantia -->
+ <footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
+  <div style="max-width: 800px; margin: auto; text-align: center;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+      <h3 style="color: #003366;">60 DAYS MONEY BACK GUARANTEE 100% SATISFACTION GUARANTEED</h3>
+
+      <p style="font-size: 16px; color: #333; max-width: 600px;">
+       We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
+      </p>
+    </div>
+
+    <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
+      <p style="color: #555;">©© 2026 The Prosperity Code · All rights reserved</p>
+      <p style="margin-top: 10px;">
+        <a href="https://capacitaciononline.online/privac-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Privacy policy</a> |
+        <a href="https://capacitaciononline.online/terminos-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Terms and Conditions</a> |
+        <a href="https://capacitaciononline.online/contact-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Contacts</a> |
+        <a href="https://capacitaciononline.online/responsabilidad-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Disclaimer of liability</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
