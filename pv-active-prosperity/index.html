@@ -1,0 +1,1399 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Proverbs Profits</title>
+
+        <!-- Preconnect to critical origins (TCP+TLS handshake ahead of time) -->
+        <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/69fe2f41d350624835bc9f45/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+        <!-- Preload critical vturb player script -->
+
+        <link
+            rel="preload"
+            href="https://scripts.converteai.net/6f49acda-9a31-4c06-8cd8-ee4a2fb166db/ab-test/69b759624601d16cb06eab48/player.js"
+            as="script"
+            fetchpriority="high"
+        />
+        <link
+            rel="preload"
+            href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js"
+            as="script"
+            fetchpriority="high"
+        />
+
+        <!-- Load Google Fonts non-render-blocking -->
+        <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript
+            ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+        /></noscript>
+
+        <!-- Critical CSS - inlined for instant first paint -->
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background: #f0f2f5;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .fb-wrap {
+                max-width: 500px;
+                margin: 0 auto;
+                background: #fff;
+                min-height: 100vh;
+            }
+            @media (min-width: 501px) {
+                .fb-wrap {
+                    border-radius: 8px;
+                    min-height: auto;
+                    margin: 16px auto;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                }
+            }
+            @media (min-width: 768px) {
+                .fb-wrap {
+                    max-width: 600px;
+                }
+            }
+
+            .fb-hdr {
+                display: flex;
+                align-items: center;
+                padding: 12px 16px 8px;
+                gap: 10px;
+            }
+            .fb-hdr-avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #4267b2;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 700;
+                flex-shrink: 0;
+            }
+            .fb-hdr-info {
+                flex: 1;
+            }
+            .fb-hdr-name {
+                font-size: 15px;
+                font-weight: 600;
+                color: #050505;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .fb-verified {
+                display: inline-flex;
+                width: 15px;
+                height: 15px;
+                background: #1877f2;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            .fb-verified svg {
+                width: 10px;
+                height: 10px;
+                fill: #fff;
+            }
+            .fb-hdr-meta {
+                font-size: 13px;
+                color: #65676b;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                margin-top: 1px;
+                flex-wrap: wrap;
+            }
+            .fb-hdr-dots {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: #65676b;
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+            .fb-hdr-dots:hover {
+                background: #f0f2f5;
+            }
+
+            .fb-live-tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                background: #e41e3f;
+                color: #fff;
+                font-size: 11px;
+                font-weight: 700;
+                padding: 2px 6px;
+                border-radius: 3px;
+                letter-spacing: 0.5px;
+            }
+            .fb-live-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #fff;
+                animation: blink 1.2s infinite;
+            }
+            @keyframes blink {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.3;
+                }
+            }
+
+            .fb-desc {
+                padding: 0 16px 8px;
+                font-size: 15px;
+                line-height: 1.4;
+                color: #050505;
+            }
+
+            .fb-player {
+                position: relative;
+                background: #000;
+                overflow: hidden;
+            }
+            .fb-player vturb-smartplayer {
+                --player-vertical-width: 100% !important;
+            }
+            .fb-player-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 10px 12px;
+                z-index: 99999;
+                pointer-events: none;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 100%);
+            }
+            .fb-player-left {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .fb-player-live-badge {
+                background: rgba(228, 30, 63, 0.95);
+                color: #fff;
+                font-size: 11px;
+                font-weight: 700;
+                padding: 3px 8px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            .fb-player-live-badge .dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #fff;
+                animation: blink 1.2s infinite;
+            }
+            .fb-player-viewers {
+                background: rgba(0, 0, 0, 0.55);
+                color: #fff;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 3px 8px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .fb-player-viewers svg {
+                width: 14px;
+                height: 14px;
+                fill: #fff;
+            }
+
+            .fb-float-wrap {
+                position: absolute;
+                bottom: 30px;
+                right: 8px;
+                width: 50px;
+                height: 200px;
+                pointer-events: none;
+                z-index: 99998;
+                overflow: hidden;
+            }
+            .fb-float-emoji {
+                position: absolute;
+                bottom: 0;
+                font-size: 26px;
+                animation: floatUp 3s ease-out forwards;
+                opacity: 0;
+            }
+            @keyframes floatUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(0) scale(0.5);
+                }
+                10% {
+                    opacity: 1;
+                    transform: translateY(-20px) scale(1);
+                }
+                90% {
+                    opacity: 0.6;
+                    transform: translateY(-170px) scale(0.9);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-200px) scale(0.7);
+                }
+            }
+
+            .fb-react-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 16px;
+                font-size: 13px;
+                color: #65676b;
+            }
+            .fb-react-left {
+                display: flex;
+                align-items: center;
+            }
+            .fb-react-emoji {
+                display: inline-flex;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                border: 2px solid #fff;
+                margin-right: -4px;
+                position: relative;
+            }
+            .fb-react-emoji:nth-child(1) {
+                z-index: 3;
+            }
+            .fb-react-emoji:nth-child(2) {
+                z-index: 2;
+            }
+            .fb-react-emoji:nth-child(3) {
+                z-index: 1;
+            }
+            .fb-react-emoji.like {
+                background: #1877f2;
+            }
+            .fb-react-emoji.love {
+                background: #e41e3f;
+            }
+            .fb-react-emoji.wow {
+                background: #f7b928;
+            }
+            .fb-react-count {
+                margin-left: 8px;
+                color: #65676b;
+            }
+
+            .fb-actions {
+                display: flex;
+                border-top: 1px solid #e4e6eb;
+                border-bottom: 1px solid #e4e6eb;
+                margin: 0 16px;
+                padding: 2px 0;
+            }
+            .fb-act-btn {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 7px;
+                border: none;
+                background: none;
+                color: #65676b;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                border-radius: 4px;
+                font-family: inherit;
+            }
+            .fb-act-btn:hover {
+                background: #f0f2f5;
+            }
+            .fb-act-btn svg {
+                width: 18px;
+                height: 18px;
+                fill: #65676b;
+            }
+
+            .fb-comments-section {
+                padding: 8px 16px 4px;
+            }
+            .fb-comment-sort {
+                font-size: 14px;
+                font-weight: 600;
+                color: #050505;
+                padding: 4px 0 10px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .fb-comment-sort span {
+                color: #65676b;
+                font-size: 12px;
+                font-weight: 400;
+            }
+            .fb-comment {
+                display: flex;
+                gap: 8px;
+                margin-bottom: 10px;
+                animation: slideIn 0.35s ease;
+            }
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-8px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .fb-c-avatar {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 11px;
+                font-weight: 700;
+            }
+            .fb-c-body {
+                flex: 1;
+                min-width: 0;
+            }
+            .fb-c-bubble {
+                background: #f0f2f5;
+                border-radius: 18px;
+                padding: 8px 12px;
+                display: inline-block;
+                max-width: 100%;
+            }
+            .fb-c-name {
+                font-size: 13px;
+                font-weight: 600;
+                color: #050505;
+            }
+            .fb-c-city {
+                font-size: 11px;
+                color: #65676b;
+                font-weight: 400;
+            }
+            .fb-c-text {
+                font-size: 14px;
+                color: #050505;
+                line-height: 1.35;
+                margin-top: 2px;
+                word-wrap: break-word;
+            }
+            .fb-c-meta {
+                font-size: 12px;
+                color: #65676b;
+                padding: 2px 0 0 12px;
+                display: flex;
+                gap: 12px;
+            }
+            .fb-c-meta span {
+                cursor: pointer;
+            }
+            .fb-c-meta span:hover {
+                text-decoration: underline;
+            }
+
+            .fb-typing {
+                display: none;
+                gap: 8px;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            .fb-typing-dots {
+                display: flex;
+                gap: 3px;
+                background: #f0f2f5;
+                border-radius: 18px;
+                padding: 12px 16px;
+            }
+            .fb-typing-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #65676b;
+                animation: bounce 0.6s infinite;
+            }
+            .fb-typing-dot:nth-child(2) {
+                animation-delay: 0.15s;
+            }
+            .fb-typing-dot:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+            @keyframes bounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                    opacity: 0.4;
+                }
+                50% {
+                    transform: translateY(-4px);
+                    opacity: 1;
+                }
+            }
+
+            .fb-ci {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 16px 20px;
+                border-top: 1px solid #e4e6eb;
+                background: #fff;
+            }
+            .fb-ci-avatar {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                border-radius: 50%;
+                background: #e4e6eb;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #65676b;
+                font-size: 13px;
+            }
+            .fb-ci-field {
+                flex: 1;
+                height: 36px;
+                border: 1px solid #e4e6eb;
+                border-radius: 20px;
+                padding: 0 12px;
+                font-size: 14px;
+                color: #65676b;
+                background: #f0f2f5;
+                outline: none;
+                font-family: inherit;
+            }
+            .fb-ci-field:focus {
+                border-color: #1877f2;
+                background: #fff;
+            }
+
+            footer {
+                background-color: #f0f0f0;
+                padding: 250px 20px;
+                font-size: 15px;
+                color: #b8b8b8;
+                text-align: center;
+                font-family: "Montserrat", sans-serif;
+            }
+            footer a {
+                color: #188bf6;
+            }
+        </style>
+
+        <!-- Performance timestamp (tiny, non-blocking) -->
+        <script data-cfasync="false">
+            !(function (i, n) {
+                i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now());
+            })(window, performance);
+        </script>
+        <script src="js/player.js" async=""></script>
+
+<!-- Meta Pixel Code -->
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '755134515416819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=755134515416819&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '831889901057786');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=831889901057786&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+<!-- UTMIFY -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+
+    </head>
+
+    <body>
+       
+        <div class="fb-wrap">
+            <div class="fb-hdr">
+                <div class="fb-hdr-avatar">✝</div>
+                <div class="fb-hdr-info">
+                    <div class="fb-hdr-name">
+                        Proverbs Profits
+                        <span class="fb-verified"
+                            ><svg viewBox="0 0 12 12">
+                                <path
+                                    d="M10.17 2.29L4.5 7.96 1.83 5.29a1 1 0 00-1.41 1.42l3.38 3.38a1 1 0 001.41 0l6.36-6.36a1 1 0 00-1.4-1.44z"
+                                ></path></svg
+                        ></span>
+                    </div>
+                    <div class="fb-hdr-meta">
+                        <span id="timeAgo">22m</span> ·
+                        <span class="fb-live-tag"><span class="fb-live-dot"></span> Live</span>
+                        · 🌎
+                    </div>
+                </div>
+                <div class="fb-hdr-dots">⋯</div>
+            </div>
+
+            <div class="fb-desc">
+                If you prayed for a financial breakthrough this week — God led you to this page. This is not a
+                coincidence.<br /><br />
+                🔴 This 60-second wifi trick is the answer thousands of believers already received. You were not
+                supposed to scroll past this.<br /><br />
+                Press play before this gets taken down 👇🙏
+            </div>
+
+            <div class="fb-player" id="playerWrap">
+                <div class="fb-player-overlay" id="playerOverlay">
+                    <div class="fb-player-left">
+                        <div class="fb-player-live-badge">
+                            <span
+                                class="dot"
+                                style="
+                                    width: 6px;
+                                    height: 6px;
+                                    border-radius: 50%;
+                                    background: #fff;
+                                    animation: blink 1.2s infinite;
+                                "
+                            ></span>
+                            LIVE
+                        </div>
+                        <div class="fb-player-viewers">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                                ></path>
+                            </svg>
+                            <span id="viewerCount">3,755</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="fb-float-wrap" id="floatReactions"></div>
+<!-- VSL AQUI-->
+               <vturb-smartplayer id="ab-69fe2f41d350624835bc9f45" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/69fe2f41d350624835bc9f45/player.js", s.async=!0,document.head.appendChild(s); </script>
+<!-- VSL AQUI--> 
+            </div>
+
+            <div class="fb-react-bar">
+                <div class="fb-react-left">
+                    <span class="fb-react-emoji like">👍</span>
+                    <span class="fb-react-emoji love">❤️</span>
+                    <span class="fb-react-emoji wow">😮</span>
+                    <span class="fb-react-count" id="likeCount">4.4K</span>
+                </div>
+                <div><span id="commentCountDisplay">811 Comments</span> · <span id="shareCount">1.4K Shares</span></div>
+            </div>
+
+            <div class="fb-actions">
+                <button class="fb-act-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                        ></path>
+                    </svg>
+                    Like
+                </button>
+                <button class="fb-act-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"></path>
+                    </svg>
+                    Comment
+                </button>
+                <button class="fb-act-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"
+                        ></path>
+                    </svg>
+                    Share
+                </button>
+            </div>
+
+            <div class="fb-comments-section">
+                <div class="fb-comment-sort">Most relevant <span>▾</span></div>
+                <div id="commentsFeed">
+                    <div class="fb-comment">
+                        <div class="fb-c-avatar" style="background: #e46a2e">CB</div>
+                        <div class="fb-c-body">
+                            <div class="fb-c-bubble">
+                                <div class="fb-c-name">Cindy Butler</div>
+                                <div class="fb-c-text">
+                                    I prayed all week and nothing. Then this video. Then what he shows. Then I ugly
+                                    cried in my kitchen
+                                </div>
+                            </div>
+                            <div class="fb-c-meta"><span>4m</span><span>Like</span><span>Reply</span></div>
+                        </div>
+                    </div>
+                    <div class="fb-comment">
+                        <div class="fb-c-avatar" style="background: #dc2626">JW</div>
+                        <div class="fb-c-body">
+                            <div class="fb-c-bubble">
+                                <div class="fb-c-name">Jerome Williams</div>
+                                <div class="fb-c-text">
+                                    I screamed so loud my dog started barking. You'll understand why when you get to
+                                    that part
+                                </div>
+                            </div>
+                            <div class="fb-c-meta"><span>10m</span><span>Like</span><span>Reply</span></div>
+                        </div>
+                    </div>
+                    <div class="fb-comment">
+                        <div class="fb-c-avatar" style="background: #e41e3f">JL</div>
+                        <div class="fb-c-body">
+                            <div class="fb-c-bubble">
+                                <div class="fb-c-name">Janet Long</div>
+                                <div class="fb-c-text">
+                                    I asked God to show me a sign. Then this video popped up. And then what he shows at
+                                    minute 9... Lord have mercy
+                                </div>
+                            </div>
+                            <div class="fb-c-meta"><span>11m</span><span>Like</span><span>Reply</span></div>
+                        </div>
+                    </div>
+                    <div class="fb-comment">
+                        <div class="fb-c-avatar" style="background: #e46a2e">PR</div>
+                        <div class="fb-c-body">
+                            <div class="fb-c-bubble">
+                                <div class="fb-c-name">Patricia Reynolds</div>
+                                <div class="fb-c-text">
+                                    I paused this 3 times because I thought it couldn't get better. IT KEEPS GETTING
+                                    BETTER.
+                                </div>
+                            </div>
+                            <div class="fb-c-meta"><span>10m</span><span>Like</span><span>Reply</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="typingIndicator" class="fb-typing">
+                    <div
+                        class="fb-c-avatar"
+                        style="background: #e4e6eb; width: 32px; height: 32px; min-width: 32px; border-radius: 50%"
+                    ></div>
+                    <div class="fb-typing-dots">
+                        <div class="fb-typing-dot"></div>
+                        <div class="fb-typing-dot"></div>
+                        <div class="fb-typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fb-ci">
+                <div class="fb-ci-avatar">👤</div>
+                <input class="fb-ci-field" placeholder="Write a comment..." readonly="" />
+            </div>
+        </div>
+
+        <img
+            src="https://i.jvzoo.com/115735/434895/99"
+            alt=""
+            border="0"
+            width="1"
+            height="1"
+            style="display: none"
+            loading="lazy"
+        />
+
+    
+        <script>
+            (function () {
+                var whiteNames = [
+                    "Karen Mitchell",
+                    "Linda Harper",
+                    "Susan Bailey",
+                    "Debra Foster",
+                    "Patricia Reynolds",
+                    "Nancy Coleman",
+                    "Barbara Watson",
+                    "Donna Simmons",
+                    "Carol Jenkins",
+                    "Sharon Tucker",
+                    "Tammy Baker",
+                    "Brenda Perry",
+                    "Judy Crawford",
+                    "Cindy Butler",
+                    "Diane West",
+                    "Janet Long",
+                    "Sandra Gray",
+                    "Kathy Price",
+                    "Peggy Ross",
+                    "Wanda Morrison",
+                    "Robert Harrison",
+                    "James Tucker",
+                    "Steve Palmer",
+                    "Danny Price",
+                    "Gary Freeman",
+                    "Bill Henderson",
+                    "Larry Watson",
+                    "Randy Morrison",
+                    "Mike Crawford",
+                    "Doug Bailey",
+                ];
+                var blackNames = [
+                    "Tanya Brown",
+                    "LaShonda Williams",
+                    "Keisha Jackson",
+                    "Denise Washington",
+                    "Crystal Harris",
+                    "Monique Lewis",
+                    "Latoya Robinson",
+                    "Shawna Thomas",
+                    "Angela Moore",
+                    "Yolanda White",
+                    "Darlene King",
+                    "Tonya Wright",
+                    "Sheila Carter",
+                    "Tamika Edwards",
+                    "Gloria Bennett",
+                    "Felicia Howard",
+                    "Jasmine Scott",
+                    "Ebony Marshall",
+                    "Cheryl Douglas",
+                    "Wanda Green",
+                    "Marcus Johnson",
+                    "Darnell Brown",
+                    "Terrence Davis",
+                    "Jerome Williams",
+                    "Lamar Robinson",
+                    "Anthony Washington",
+                    "Tyrone Clark",
+                    "Cedric Moore",
+                    "Reginald Thomas",
+                    "DeShawn Harris",
+                ];
+                var avatarColors = [
+                    "#4267B2",
+                    "#45bd62",
+                    "#e41e3f",
+                    "#f7b928",
+                    "#a040a0",
+                    "#1877f2",
+                    "#e46a2e",
+                    "#7c3aed",
+                    "#059669",
+                    "#d97706",
+                    "#dc2626",
+                    "#2563eb",
+                    "#c026d3",
+                    "#0891b2",
+                ];
+
+                var citiesByState = {
+                    Alabama: [
+                        "Huntsville",
+                        "Montgomery",
+                        "Mobile",
+                        "Tuscaloosa",
+                        "Hoover",
+                        "Dothan",
+                        "Auburn",
+                        "Decatur",
+                    ],
+                    Georgia: ["Savannah", "Augusta", "Macon", "Athens", "Columbus", "Valdosta", "Albany", "Dalton"],
+                    Tennessee: [
+                        "Memphis",
+                        "Knoxville",
+                        "Chattanooga",
+                        "Clarksville",
+                        "Murfreesboro",
+                        "Johnson City",
+                        "Jackson",
+                        "Franklin",
+                    ],
+                    Mississippi: [
+                        "Jackson",
+                        "Gulfport",
+                        "Southaven",
+                        "Hattiesburg",
+                        "Biloxi",
+                        "Meridian",
+                        "Tupelo",
+                        "Olive Branch",
+                    ],
+                    "South Carolina": [
+                        "Charleston",
+                        "Columbia",
+                        "Greenville",
+                        "Rock Hill",
+                        "Sumter",
+                        "Spartanburg",
+                        "Florence",
+                        "Goose Creek",
+                    ],
+                    "North Carolina": [
+                        "Charlotte",
+                        "Raleigh",
+                        "Greensboro",
+                        "Durham",
+                        "Winston-Salem",
+                        "Fayetteville",
+                        "Wilmington",
+                        "High Point",
+                    ],
+                    Louisiana: [
+                        "New Orleans",
+                        "Baton Rouge",
+                        "Shreveport",
+                        "Lafayette",
+                        "Lake Charles",
+                        "Monroe",
+                        "Alexandria",
+                        "Kenner",
+                    ],
+                    Texas: [
+                        "Houston",
+                        "Dallas",
+                        "San Antonio",
+                        "Austin",
+                        "Fort Worth",
+                        "El Paso",
+                        "Arlington",
+                        "Corpus Christi",
+                    ],
+                    Florida: [
+                        "Jacksonville",
+                        "Tampa",
+                        "Orlando",
+                        "St. Petersburg",
+                        "Tallahassee",
+                        "Fort Lauderdale",
+                        "Pensacola",
+                        "Gainesville",
+                    ],
+                    Virginia: [
+                        "Virginia Beach",
+                        "Norfolk",
+                        "Richmond",
+                        "Chesapeake",
+                        "Newport News",
+                        "Lynchburg",
+                        "Hampton",
+                        "Roanoke",
+                    ],
+                    Kentucky: [
+                        "Louisville",
+                        "Lexington",
+                        "Bowling Green",
+                        "Owensboro",
+                        "Covington",
+                        "Hopkinsville",
+                        "Richmond",
+                        "Florence",
+                    ],
+                    Arkansas: [
+                        "Little Rock",
+                        "Fort Smith",
+                        "Fayetteville",
+                        "Springdale",
+                        "Jonesboro",
+                        "Conway",
+                        "Rogers",
+                        "Pine Bluff",
+                    ],
+                    Oklahoma: [
+                        "Oklahoma City",
+                        "Tulsa",
+                        "Norman",
+                        "Broken Arrow",
+                        "Edmond",
+                        "Lawton",
+                        "Moore",
+                        "Midwest City",
+                    ],
+                    Missouri: [
+                        "Kansas City",
+                        "Springfield",
+                        "Columbia",
+                        "Independence",
+                        "St. Joseph",
+                        "Joplin",
+                        "Jefferson City",
+                        "Cape Girardeau",
+                    ],
+                };
+                var fallbackCities = [
+                    "Nashville",
+                    "Charlotte",
+                    "Jacksonville",
+                    "Memphis",
+                    "Birmingham",
+                    "Savannah",
+                    "Charleston",
+                    "Raleigh",
+                    "Richmond",
+                    "Tampa",
+                    "Louisville",
+                    "Knoxville",
+                    "Mobile",
+                    "Chattanooga",
+                    "Greenville",
+                    "Augusta",
+                    "Macon",
+                    "Huntsville",
+                    "Columbia",
+                    "Pensacola",
+                ];
+                var userCities = fallbackCities.slice();
+
+                // HEAVY on curiosity/retention teasers + prayer framing
+                // ~40% pure curiosity hooks, ~30% faith-framed curiosity, ~15% social proof, ~15% urgency
+                var comments = [
+                    // === PURE CURIOSITY HOOKS (make them NEED to keep watching) ===
+                    { t: "Y'ALL ARE NOT READY for what he shows at the 8 minute mark. My jaw is still on the floor" },
+                    { t: "I literally gasped out loud. Keep watching. KEEP WATCHING." },
+                    { t: "Don't you DARE click off this video. What's coming up next is the whole reason you're here" },
+                    {
+                        t: "I've never commented on one of these before in my life but I HAD to say something. Just wait.",
+                    },
+                    {
+                        t: "My hands are literally shaking right now. If you haven't gotten to the phone part yet KEEP GOING",
+                    },
+                    {
+                        t: "Ok I was about to scroll past but something told me to stop. 10 minutes in and I can't look away",
+                    },
+                    { t: "STOP what you're doing and WATCH THIS. I'm dead serious right now" },
+                    { t: "I almost didn't watch this. ALMOST. That would have been the biggest mistake of my life" },
+                    {
+                        t: "When he pulls out the phone and shows the screen... you're going to lose your mind. I promise.",
+                    },
+                    { t: "I paused this 3 times because I thought it couldn't get better. IT KEEPS GETTING BETTER." },
+                    { t: "If you're only 2 minutes in you have NO idea what's coming. Buckle up." },
+                    { t: "The first 5 minutes are good but what comes after... I'm still processing it 3 days later" },
+                    { t: "I screamed so loud my dog started barking. You'll understand why when you get to that part" },
+                    { t: "I sent this to my sister and she called me back crying. Just watch the whole thing." },
+                    { t: "Anyone else get goosebumps around the 6 minute mark? Just me??" },
+                    { t: "DO NOT skip ahead. Every single minute matters. Trust me on this" },
+                    {
+                        t: "My neighbor thought I was crazy when I told her. Then she watched it. Now she's the crazy one telling everybody",
+                    },
+
+                    // === FAITH-FRAMED CURIOSITY (prayer angle + teasing) ===
+                    { t: "God told me to stop scrolling. I'm 7 minutes in and I understand why now." },
+                    {
+                        t: "I was on my knees last night praying for help. The Lord put this in my feed this morning. Watch the whole thing.",
+                    },
+                    {
+                        t: "If you prayed for a breakthrough and you're seeing this right now... that's not an accident. Keep watching.",
+                    },
+                    {
+                        t: "The Holy Spirit literally would not let me scroll past this. Now I know why. KEEP WATCHING Y'ALL.",
+                    },
+                    {
+                        t: "I asked God to show me a sign. Then this video popped up. And then what he shows at minute 9... Lord have mercy",
+                    },
+                    {
+                        t: "Something in my spirit is telling me this is about to change everything. I can't stop watching",
+                    },
+                    {
+                        t: "I wasn't going to click on this but I felt the Lord nudging me. 5 minutes in and I'm in tears",
+                    },
+                    {
+                        t: "Proverbs 10:22 is playing out RIGHT HERE in this video. You'll see what I mean around the middle",
+                    },
+                    {
+                        t: "God's timing is unreal. I prayed about money 3 hours ago and this showed up. What he reveals next is wild",
+                    },
+                    {
+                        t: "This has to be from God because there is NO way a regular person figured this out on their own",
+                    },
+                    {
+                        t: "I said 'Lord if this is real give me a sign' and the VERY NEXT THING he shows on the screen... chills",
+                    },
+                    {
+                        t: "My pastor always says God provides in ways we don't expect. He was NOT kidding. Watch this.",
+                    },
+                    {
+                        t: "I prayed all week and nothing. Then this video. Then what he shows. Then I ugly cried in my kitchen",
+                    },
+                    {
+                        t: "If you're a believer and you're watching this, God brought you here. Don't waste what He put in front of you",
+                    },
+
+                    // === SOCIAL PROOF + RETENTION ===
+                    {
+                        t: "My husband was sitting behind me watching over my shoulder. Now he won't give me my phone back",
+                    },
+                    { t: "Just showed this to my whole Bible study group. 8 women huddled around one phone screaming" },
+                    { t: "I've shared this with 11 people today. ELEVEN. That's how serious I am about this" },
+                    { t: "My mama called me at 6am to talk about this video. She NEVER calls that early" },
+                    {
+                        t: "I texted my best friend '911 watch this NOW' and she thought someone was hurt. No ma'am just watch",
+                    },
+                    { t: "Watching from {city}! Is anyone else around here seeing this??" },
+                    {
+                        t: "{city} checking in. Showed this to my coworker on break and she couldn't stop watching either",
+                    },
+                    {
+                        t: "Anyone in {city}? I need someone to talk to about this because my family thinks I've lost it",
+                    },
+                    { t: "{city} here! My whole church is about to hear about this on Sunday" },
+
+                    // === OBJECTION KILLERS (woven into curiosity) ===
+                    {
+                        t: "I'm 61 years old and I barely know how to use this phone. If I can understand this ANYONE can. But WATCH FIRST",
+                    },
+                    {
+                        t: "I'm not a tech person AT ALL. I thought I wouldn't get it. Then the part where he explains the wifi thing... so simple",
+                    },
+                    {
+                        t: "My husband said 'that's a scam.' I said 'just watch 5 minutes.' He watched the entire thing. Twice.",
+                    },
+                    {
+                        t: "I was skeptical too. Everyone is. Just give it until the 7 minute mark and then tell me I'm wrong",
+                    },
+
+                    // === URGENCY (faith + FOMO) ===
+                    { t: "How long is this going to be up? I need everybody in my family to see this" },
+                    {
+                        t: "Facebook already hid this from my feed once. I had to search for it. SHARE IT before they do it again",
+                    },
+                    { t: "Somebody screen record this NOW. They always take these down" },
+                    { t: "God is not going to put this opportunity in front of you twice. Watch it NOW y'all" },
+                    { t: "Share this with someone you love. Don't let them miss what God has for them" },
+                    {
+                        t: "They tried to take this down yesterday. It's still here but I don't know for how long. WATCH IT",
+                    },
+                    { t: "If you see this and you don't watch it that's between you and God. I'm just saying." },
+                    {
+                        t: "I genuinely believe this won't be up much longer. This is too good for them to let stay public",
+                    },
+                ];
+
+                // === HELPERS ===
+                function rand(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                function pick(arr) {
+                    return arr[rand(0, arr.length - 1)];
+                }
+                function shuffle(arr) {
+                    var a = arr.slice();
+                    for (var i = a.length - 1; i > 0; i--) {
+                        var j = rand(0, i);
+                        var t = a[i];
+                        a[i] = a[j];
+                        a[j] = t;
+                    }
+                    return a;
+                }
+                function formatNum(n) {
+                    if (n >= 10000) return (n / 1000).toFixed(0) + "K";
+                    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+                    return n.toString();
+                }
+                function getInitials(name) {
+                    var p = name.split(" ");
+                    return (p[0][0] + (p.length > 1 ? p[p.length - 1][0] : "")).toUpperCase();
+                }
+
+                // === GEOLOCATION ===
+                function loadGeo() {
+                    try {
+                        var x = new XMLHttpRequest();
+                        x.open("GET", "https://get.geojs.io/v1/ip/geo.json", true);
+                        x.timeout = 5000;
+                        x.onload = function () {
+                            try {
+                                var d = JSON.parse(x.responseText);
+                                if (d.region && citiesByState[d.region]) userCities = citiesByState[d.region].slice();
+                            } catch (e) {}
+                        };
+                        x.send();
+                    } catch (e) {}
+                }
+                loadGeo();
+
+                // === VIEWER COUNT ===
+                var viewerBase = rand(3200, 4200);
+                var viewerEl = document.getElementById("viewerCount");
+                function updateViewers() {
+                    viewerBase += rand(-10, 18);
+                    if (viewerBase < 2800) viewerBase = 2800 + rand(0, 200);
+                    if (viewerBase > 5500) viewerBase = 5500 - rand(0, 200);
+                    if (viewerEl) viewerEl.textContent = viewerBase.toLocaleString("en-US");
+                    setTimeout(updateViewers, rand(3000, 6000));
+                }
+                updateViewers();
+
+                // === COUNTERS ===
+                var likeNum = rand(3800, 4500),
+                    commentNum = rand(780, 920),
+                    shareNum = rand(1100, 1500);
+                var likeEl = document.getElementById("likeCount"),
+                    commentEl = document.getElementById("commentCountDisplay"),
+                    shareEl = document.getElementById("shareCount");
+                function updateCounters() {
+                    likeNum += rand(0, 3);
+                    commentNum += rand(0, 1);
+                    shareNum += rand(0, 2);
+                    if (likeEl) likeEl.textContent = formatNum(likeNum);
+                    if (commentEl) commentEl.textContent = formatNum(commentNum) + " Comments";
+                    if (shareEl) shareEl.textContent = formatNum(shareNum) + " Shares";
+                    setTimeout(updateCounters, rand(4000, 8000));
+                }
+                updateCounters();
+
+                // === FLOATING REACTIONS ===
+                var floatContainer = document.getElementById("floatReactions");
+                var floatEmojis = [
+                    "\uD83D\uDC4D",
+                    "\u2764\uFE0F",
+                    "\uD83D\uDE2E",
+                    "\uD83D\uDE4F",
+                    "\u2764\uFE0F",
+                    "\uD83D\uDC4D",
+                    "\u2764\uFE0F",
+                    "\uD83D\uDE4C",
+                ];
+                function floatReaction() {
+                    if (!floatContainer) return;
+                    var el = document.createElement("div");
+                    el.className = "fb-float-emoji";
+                    el.textContent = pick(floatEmojis);
+                    el.style.left = rand(0, 30) + "px";
+                    floatContainer.appendChild(el);
+                    setTimeout(function () {
+                        if (el.parentNode) el.parentNode.removeChild(el);
+                    }, 3200);
+                    setTimeout(floatReaction, rand(600, 2500));
+                }
+                setTimeout(floatReaction, rand(2000, 4000));
+
+                // === TIME AGO ===
+                var startTime = Date.now() - rand(20, 30) * 60000;
+                var timeAgoEl = document.getElementById("timeAgo");
+                function updateTimeAgo() {
+                    var mins = Math.floor((Date.now() - startTime) / 60000);
+                    if (timeAgoEl) timeAgoEl.textContent = mins < 60 ? mins + "m" : Math.floor(mins / 60) + "h";
+                    setTimeout(updateTimeAgo, 60000);
+                }
+                updateTimeAgo();
+
+                // === COMMENTS ENGINE ===
+                var feed = document.getElementById("commentsFeed");
+                var typingEl = document.getElementById("typingIndicator");
+                var shuffledComments = shuffle(comments);
+                var commentIndex = 0;
+                var usedNames = {};
+
+                function pickName() {
+                    var isBlack = Math.random() < 0.5;
+                    var pool = isBlack ? blackNames : whiteNames;
+                    var name = pick(pool);
+                    var tries = 0;
+                    while (usedNames[name] && tries < 5) {
+                        name = pick(pool);
+                        tries++;
+                    }
+                    usedNames[name] = true;
+                    return { name: name, color: pick(avatarColors) };
+                }
+
+                function buildComment(template, minutesAgo) {
+                    var person = pickName();
+                    var text = template.t;
+                    if (text.indexOf("{city}") !== -1) text = text.replace(/\{city\}/g, pick(userCities));
+                    var cityLabel = Math.random() < 0.25 ? pick(userCities) : "";
+                    var timeLabel;
+                    if (minutesAgo < 1) timeLabel = "Just now";
+                    else if (minutesAgo < 60) timeLabel = Math.floor(minutesAgo) + "m";
+                    else timeLabel = Math.floor(minutesAgo / 60) + "h";
+                    return (
+                        '<div class="fb-comment">' +
+                        '<div class="fb-c-avatar" style="background:' +
+                        person.color +
+                        '">' +
+                        getInitials(person.name) +
+                        "</div>" +
+                        '<div class="fb-c-body">' +
+                        '<div class="fb-c-bubble">' +
+                        '<div class="fb-c-name">' +
+                        person.name +
+                        (cityLabel ? ' <span class="fb-c-city">· ' + cityLabel + "</span>" : "") +
+                        "</div>" +
+                        '<div class="fb-c-text">' +
+                        text +
+                        "</div>" +
+                        "</div>" +
+                        '<div class="fb-c-meta"><span>' +
+                        timeLabel +
+                        "</span><span>Like</span><span>Reply</span></div>" +
+                        "</div>" +
+                        "</div>"
+                    );
+                }
+
+                function getNext() {
+                    if (commentIndex >= shuffledComments.length) {
+                        shuffledComments = shuffle(comments);
+                        commentIndex = 0;
+                        usedNames = {};
+                    }
+                    return shuffledComments[commentIndex++];
+                }
+
+                // Initial comments
+                if (feed) {
+                    var html = "";
+                    for (var i = 0; i < 4; i++) html += buildComment(getNext(), rand(2, 15));
+                    feed.innerHTML = html;
+                }
+
+                var totalAdded = 4;
+                function addNewComment() {
+                    if (totalAdded >= 60 || !feed) return;
+                    if (typingEl) typingEl.style.display = "flex";
+                    setTimeout(
+                        function () {
+                            if (typingEl) typingEl.style.display = "none";
+                            feed.insertAdjacentHTML("afterbegin", buildComment(getNext(), 0));
+                            totalAdded++;
+                            commentNum++;
+                            if (commentEl) commentEl.textContent = formatNum(commentNum) + " Comments";
+                            var delay =
+                                totalAdded < 12
+                                    ? rand(4000, 7000)
+                                    : totalAdded < 25
+                                      ? rand(6000, 10000)
+                                      : rand(8000, 14000);
+                            setTimeout(addNewComment, delay);
+                        },
+                        rand(1500, 3000)
+                    );
+                }
+                setTimeout(addNewComment, rand(4000, 7000));
+
+                // Fade overlay after 2 min
+                setTimeout(function () {
+                    var ov = document.getElementById("playerOverlay");
+                    if (ov) {
+                        ov.style.transition = "opacity 1.5s ease";
+                        ov.style.opacity = "0";
+                        setTimeout(function () {
+                            ov.style.display = "none";
+                        }, 1600);
+                    }
+                }, 120000);
+            })();
+        </script>
+
+        <script>
+            (function () {
+                function c() {
+                    var b = a.contentDocument || a.contentWindow.document;
+                    if (b) {
+                        var d = b.createElement("script");
+                        d.innerHTML =
+                            "window.__CF$cv$params={r:'9f8935f27ad38069',t:'MTc3ODI1MTEzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                        b.getElementsByTagName("head")[0].appendChild(d);
+                    }
+                }
+                if (document.body) {
+                    var a = document.createElement("iframe");
+                    a.height = 1;
+                    a.width = 1;
+                    a.style.position = "absolute";
+                    a.style.top = 0;
+                    a.style.left = 0;
+                    a.style.border = "none";
+                    a.style.visibility = "hidden";
+                    document.body.appendChild(a);
+                    if ("loading" !== document.readyState) c();
+                    else if (window.addEventListener) document.addEventListener("DOMContentLoaded", c);
+                    else {
+                        var e = document.onreadystatechange || function () {};
+                        document.onreadystatechange = function (b) {
+                            e(b);
+                            "loading" !== document.readyState && ((document.onreadystatechange = e), c());
+                        };
+                    }
+                }
+            })();
+        </script>
+        <iframe
+            height="1"
+            width="1"
+            style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden"
+        ></iframe>
+    </body>
+</html>
