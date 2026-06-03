@@ -68,22 +68,20 @@
   @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;} }
 </style>
 
-
- <script src=" https://www.digistore24- scripts.com/service/digistore. js "></script>
+<!-- ✅ Script Digistore carregado UMA única vez, com URL correta -->
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
 <script type="text/javascript">
-digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true } );
+  digistorePromocode({ "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true });
 </script>
 
- <script src=" https://www.digistore24- scripts.com/service/digistore. js "></script> <script>digistoreUpsell() </script>
- 
 </head>
- 
+
 <body>
+
 <section class="hero">
   <div class="premium-banner">✦ Premium</div>
   <h1 class="hero-title">Prosperity<br/><em>Inner Circle</em></h1>
   <p class="hero-subtitle">Here you will have access to a group community on Telegram, a unique environment where lasting abundance becomes inevitable.</p>
-  
 </section>
 
 <div class="divider"><div class="divider-line"></div><span style="color:var(--blue);font-size:18px;">✦</span><div class="divider-line"></div></div>
@@ -141,49 +139,53 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
       <li>3 monthly abundance challenges</li>
       <li>Direct Q&A with the creator</li>
     </ul>
-    
-    <div style="max-width: 800px; margin: auto; text-align: center;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
 
-    <a href="#" class="btn-blue" id="order-cta" style="display:inline-block;">Buy Now — $197 →</a>
-<!-- Botão vermelho -->
-<a href="https://www.digistore24.com/answer/no" target="_blank">
-  <button style="
-    background-color: #e74c3c;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    display: block;
-    margin: 10px auto 30px;
-    text-align: center;
-  ">
-    ❌ No, thanks
-  </button>
-</a>
-    <p class="guarantee-note">🔒 First 60 days fully guaranteed. If you don't feel the community energy is right for you, get a full refund — no questions asked.</p>
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+
+        <!-- ✅ Botão SIM — link dinâmico via JS, sem <button> dentro de <a> -->
+        <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn-blue" id="order-cta" style="display:inline-block;">Buy Now — $197 →</a>
+
+        <!-- ✅ Botão NÃO — mesmo domínio do botão SIM, sem <button> dentro de <a> -->
+        <a href="https://www.checkout-ds24.com/answer/no"
+           style="
+             background-color: #e74c3c;
+             color: white;
+             font-weight: bold;
+             border-radius: 6px;
+             padding: 15px 30px;
+             font-size: 18px;
+             cursor: pointer;
+             display: block;
+             width: fit-content;
+             margin: 10px auto 30px;
+             text-align: center;
+             text-decoration: none;
+           ">
+          ❌ No, thanks
+        </a>
+
+        <p class="guarantee-note">🔒 First 60 days fully guaranteed. If you don't feel the community energy is right for you, get a full refund — no questions asked.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Seção de Garantia -->
- <footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
+<!-- ✅ digistoreUpsell() chamado UMA vez, após o conteúdo -->
+<script>digistoreUpsell();</script>
+
+<footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
   <div style="max-width: 800px; margin: auto; text-align: center;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
       <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
-
       <h3 style="color: #003366;">60 DAYS MONEY BACK GUARANTEE 100% SATISFACTION GUARANTEED</h3>
-
       <p style="font-size: 16px; color: #333; max-width: 600px;">
-       We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
+        We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
       </p>
     </div>
-
     <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
-      <p style="color: #555;">©© 2026 The Prosperity Code · All rights reserved</p>
+      <p style="color: #555;">© 2026 The Prosperity Code · All rights reserved</p>
       <p style="color: #555;">CNPJ: 66.610.066/0001-01</p>
       <p style="margin-top: 10px;">
         <a href="https://aprendeahoraya.online/privac-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Privacy policy</a> |
@@ -205,21 +207,19 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
   const PLANS = {
     full:    {
       cta: 'Buy Now — $197 →',
-      url: 'https://www.checkout-ds24.com/answer/yes?template=light'   // ← cole o link do plano único aqui
+      url: 'https://www.checkout-ds24.com/answer/yes?template=light'
     },
     monthly: {
       cta: 'Buy Now — $47/mo →',
-      url: 'https://www.checkout-ds24.com/answer/yes?template=light'    // ← cole o link do plano mensal aqui
+      url: 'https://www.checkout-ds24.com/answer/yes?template=light'
     },
   };
 
   function selectPlan(plan) {
-    // Update all plan option boxes
     document.querySelectorAll('.price-opt, .price-option-box').forEach(el => {
-      el.classList.toggle('selected',  el.dataset.plan === plan);
-      el.classList.toggle('featured',  el.dataset.plan === plan);
+      el.classList.toggle('selected', el.dataset.plan === plan);
+      el.classList.toggle('featured', el.dataset.plan === plan);
     });
-    // Update all CTAs (text + href)
     const { cta, url } = PLANS[plan];
     document.querySelectorAll('#hero-cta, #order-cta').forEach(btn => {
       btn.textContent = cta;
@@ -230,5 +230,6 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
   // Init
   selectPlan('full');
 </script>
+
 </body>
 </html>
