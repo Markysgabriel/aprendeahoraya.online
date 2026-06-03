@@ -127,20 +127,16 @@
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
 </style>
 
- 
- <script src=" https://www.digistore24- scripts.com/service/digistore. js "></script>
+<!-- ✅ Script Digistore carregado UMA única vez, no head, com URL correta -->
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
 <script type="text/javascript">
-digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true } );
+  digistorePromocode({ "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true });
 </script>
 
-
-<script src=" https://www.digistore24- scripts.com/service/digistore. js "></script> <script>digistoreUpsell() </script>
- 
- 
 </head>
- 
+
 <body>
- 
+
 <section class="hero">
   <div class="bump-banner">Special One-Time Offer — Added to Your Order</div>
   <h1 class="hero-title"><em>Prosperity</em><br/>Frequency</h1>
@@ -249,71 +245,65 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
       <li>Completion ceremony + long-term sustainability plan</li>
     </ul>
 
-    <div style="max-width: 800px; margin: auto; text-align: center;">
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-      <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
+    <!-- ✅ Botão SIM -->
+    <a href="https://www.checkout-ds24.com/answer/yes?template=light"
+       style="
+         background-color: #04B404;
+         color: white;
+         font-weight: bold;
+         border-radius: 6px;
+         padding: 20px 40px;
+         font-size: 20px;
+         cursor: pointer;
+         display: block;
+         width: fit-content;
+         margin: 20px auto;
+         text-align: center;
+         text-decoration: none;
+       ">
+      ✅ Buy now: $27.00
+    </a>
 
- <script src=" https://www.digistore24- scripts.com/service/digistore. js "></script> <script>digistoreUpsell() </script>
-     
-  <!-- Botão verde -->
-<a href="https://www.checkout-ds24.com/answer/yes?template=light" target="_blank">
-  <button style="
-    background-color: #04B404;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    padding: 20px 40px;
-    font-size: 20px;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-  ">
-    ✅ Buy now: $27,00
-  </button>
-</a>
+    <!-- ✅ Botão NÃO — mesmo domínio base (checkout-ds24.com) -->
+    <a href="https://www.checkout-ds24.com/answer/no"
+       style="
+         background-color: #e74c3c;
+         color: white;
+         font-weight: bold;
+         border-radius: 6px;
+         padding: 15px 30px;
+         font-size: 18px;
+         cursor: pointer;
+         display: block;
+         width: fit-content;
+         margin: 10px auto 30px;
+         text-align: center;
+         text-decoration: none;
+       ">
+      ❌ No, thanks
+    </a>
 
-<!-- Botão vermelho -->
-<a href="https://www.digistore24.com/answer/no" target="_blank">
-  <button style="
-    background-color: #e74c3c;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    display: block;
-    margin: 10px auto 30px;
-    text-align: center;
-  ">
-    ❌ No, thanks
-  </button>
-</a>
     <p class="guarantee-note">🔒 Covered by the same 60-day money-back guarantee. If you don't feel a shift in your relationship with money, you get a full refund — no questions asked.</p>
   </div>
 </section>
 
-<!-- Seção de Garantia -->
- <footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
+<!-- ✅ digistoreUpsell() chamado UMA vez, no final do body -->
+<script>digistoreUpsell();</script>
+
+<footer style="background-color: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; border-top: 1px solid #ccc;">
   <div style="max-width: 800px; margin: auto; text-align: center;">
     <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
       <img src="images/garantia.webp" alt="Garantia 60 dias" style="max-width: 100px;">
-
       <h3 style="color: #003366;">60 DAYS MONEY BACK GUARANTEE 100% SATISFACTION GUARANTEED</h3>
-
       <p style="font-size: 16px; color: #333; max-width: 600px;">
-       We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
+        We offer a 100% Money Back Guarantee: 60 business days from the date of your original purchase. If you are not fully satisfied with our product or your results within the first 60 days, we will simply notify you by email and we will be happy to refund you in full within 48 hours.
       </p>
     </div>
-
     <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
-      <p style="color: #555;">©© 2026 The Prosperity Code · All rights reserved</p>
+      <p style="color: #555;">© 2026 The Prosperity Code · All rights reserved</p>
       <p style="color: #555;">CNPJ: 66.610.066/0001-01</p>
       <p style="margin-top: 10px;">
-       <a href="https://aprendeahoraya.online/privac-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Privacy policy</a> |
+        <a href="https://aprendeahoraya.online/privac-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Privacy policy</a> |
         <a href="https://aprendeahoraya.online/terminos-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Terms and Conditions</a> |
         <a href="https://aprendeahoraya.online/contact-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Contacts</a> |
         <a href="https://aprendeahoraya.online/responsabilidad-usd" style="color: #003366; margin: 0 10px; text-decoration: none;">Disclaimer of liability</a>
@@ -322,7 +312,6 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
   </div>
 </footer>
 
-
 <script>
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(e => e.forEach(r => {
@@ -330,7 +319,6 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
   }), { threshold: 0.1 });
   reveals.forEach(r => obs.observe(r));
 </script>
-     
-    
+
 </body>
 </html>
