@@ -1244,50 +1244,8 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
     </main>
 
 <!-- SCRIPT DELAY DE REVELAÇÃO - 3 MINUTOS -->
-<style>
-  .delay-hidden {
-    display: none !important;
-  }
 
-  .delay-show {
-    animation: revealFade 0.6s ease forwards;
-  }
-
-  @keyframes revealFade {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const TEMPO_REVELACAO = 3 * 60 * 1000; // 3 minutos
-
-    setTimeout(function () {
-      const elementos = document.querySelectorAll(".delay-hidden");
-
-      elementos.forEach(function (elemento, index) {
-        elemento.classList.remove("delay-hidden");
-        elemento.classList.add("delay-show");
-
-        if (index === 0) {
-          elemento.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-        }
-      });
-    }, TEMPO_REVELACAO);
-  });
-</script>
-
-<div class="delay-hidden">
+<div class="american-u1">
   <div style="font-family: Arial, sans-serif; text-align: center; padding: 20px; max-width: 500px; margin: 0 auto; color: #000; line-height: 1.4;">
 
     <a
