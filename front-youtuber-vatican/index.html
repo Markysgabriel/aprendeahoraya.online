@@ -1,0 +1,906 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Youtube Live</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1a1a1a;
+      font-family: sans-serif;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #111;
+      padding: 0 16px;
+      height: 56px;
+      width: 100%;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-placeholder {
+      height: 36px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .icon-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: #e0e0e0;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      border: 1.5px solid #555;
+      transition: border-color 0.2s;
+    }
+
+    .avatar:hover { border-color: #888; }
+
+    .avatar svg {
+      width: 18px;
+      height: 18px;
+      stroke: #aaa;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .video-section {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 0 0;
+    }
+
+    /* Info Bar */
+    .info-bar {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 16px 14px;
+      background: #111;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .info-bar-left {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .info-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e8735a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    /* Placeholder icon SVG — troque por <img src="..."> futuramente */
+    .info-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .info-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .info-news-today {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .info-breaking {
+      font-size: 9px;
+      font-weight: 400;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .info-subtitle {
+      font-size: 17px;
+      color: #ffffff;
+      margin-bottom: 8px;
+      padding-left: 56px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .live-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cc0000;
+      margin-right: 6px;
+      vertical-align: middle;
+      animation: pulse 1.5s infinite;
+    }
+
+    .live-text {
+      color: #cc0000;
+    }
+
+    .info-watching {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-left: 56px;
+      flex-wrap: wrap;
+    }
+
+    .watching-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cc0000;
+      animation: pulse 1.5s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .watching-count {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .watching-label {
+      font-size: 12px;
+      color: #ffffff;
+    }
+
+    .watching-separator {
+      color: #444;
+      font-size: 14px;
+    }
+
+    .watching-started {
+      font-size: 12px;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    .btn-watch {
+      background: #cc0000;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-watch:hover {
+      background: #1a8a38;
+    }
+
+    /* Chat Card */
+    .chat-card {
+      width: 100%;
+      max-width: 900px;
+      margin: 16px auto 0;
+      background: #111;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-header-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cc0000;
+      animation: pulse 1.5s infinite;
+    }
+
+    .chat-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .chat-messages {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 520px;
+      overflow-y: auto;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+      width: 4px;
+    }
+    .chat-messages::-webkit-scrollbar-track { background: #111; }
+    .chat-messages::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+    .chat-msg {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .chat-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .chat-bubble {
+      flex: 1;
+    }
+
+    .chat-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #aaa;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .chat-text {
+      font-size: 13px;
+      color: #ddd;
+      line-height: 1.4;
+    }
+
+    .chat-time {
+      font-size: 10px;
+      color: #555;
+      margin-top: 3px;
+    }
+
+    .chat-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 4px;
+      padding: 8px 12px;
+      color: #ddd;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .chat-input::placeholder { color: #555; }
+    .chat-input:focus { border-color: #444; }
+
+    .chat-send {
+      background: #cc0000;
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .chat-send:hover { background: #e60000; }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+
+      .video-section {
+        padding: 12px 0 0;
+      }
+
+      .info-bar {
+        flex-direction: column;
+        padding: 10px 12px 12px;
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      .info-bar-left {
+        width: 100%;
+      }
+
+      /* Linha topo: ícone + textos + botão lado a lado */
+      .info-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0px;
+        margin-bottom: 6px;
+        width: 100%;
+      }
+
+      .info-text {
+        flex: 1;
+        padding-left: 10px;
+        margin-right: auto;
+      }
+
+      /* Esconde botão original no mobile */
+      .info-bar > .btn-watch {
+        display: none;
+      }
+
+      /* Mostra botão inline dentro do info-top no mobile */
+      .btn-watch-mobile { display: none; }
+    .btn-watch-mobile {
+        display: inline-block !important;
+        background: #cc0000;
+        color: #fff;
+        border: none;
+        padding: 7px 14px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        border-radius: 4px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .info-subtitle {
+        font-size: 18px;
+        padding-left: 0;
+        margin-top: 8px;
+      }
+
+      .info-watching {
+        padding-left: 0;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .chat-card {
+        margin: 10px 0 0;
+        border-radius: 0;
+      }
+
+      .chat-messages {
+        max-height: 380px;
+        padding: 10px 12px;
+      }
+
+      .chat-input-row {
+        padding: 8px 12px;
+        gap: 6px;
+      }
+
+      .chat-input {
+        font-size: 14px;
+        padding: 9px 10px;
+      }
+
+      .chat-send {
+        padding: 9px 14px;
+        font-size: 12px;
+      }
+
+      .watching-started {
+        font-size: 11px;
+      }
+
+      .nav-right {
+        gap: 12px;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      height: 56px;
+      background-color: #111;
+    }
+
+    /* CTA Button */
+    .cta-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 16px;
+      display: none;
+      text-align: center;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #22a745;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 18px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, transform 0.1s;
+      animation: pulse-cta 2s infinite;
+    }
+
+    .cta-btn:hover {
+      background: #1a8a38;
+      transform: scale(1.03);
+    }
+
+    @keyframes pulse-cta {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,167,69,0.5); }
+      50%       { box-shadow: 0 0 0 10px rgba(34,167,69,0); }
+    }
+
+    @media (max-width: 600px) {
+      .cta-btn {
+        font-size: 15px;
+        padding: 16px 24px;
+        width: 100%;
+      }
+    }
+
+    .esconder { display: none !important; }
+  </style>
+
+<!-- VTURB -->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a467cfd60cf91a9c4b15259/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/6a467cd52ef14d5611b0a37d/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+<!-- VTURB -->
+
+<!-- Meta Pixel Code -->
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '755134515416819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=755134515416819&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '831889901057786');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=831889901057786&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+<!-- UTMIFY -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+<!-- digistore -->
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script> <script>digistoreUpsell()</script>
+
+ <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script type="text/javascript">
+digistorePromocode( { "product_id": 697945, "adjust_all_urls": true, "adjust_domain": true } );
+</script>
+<!-- digistore -->
+
+</head>
+
+<body>
+
+  <nav>
+    <!-- Left: Hamburguer + Logo -->
+    <div class="nav-left">
+      <button class="icon-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+      </button>
+      <!-- Substitua o src pela sua imagem futuramente -->
+      <img src="images/logo02.png" alt="Logo" class="logo-placeholder" id="logo">
+    </div>
+
+    <!-- Right: Search, More, Avatar -->
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="16.5" y1="16.5" x2="22" y2="22"></line>
+        </svg>
+      </button>
+
+      <button class="icon-btn" aria-label="Mais opções">
+        <svg viewBox="0 0 24 24" stroke-width="2.5">
+          <circle cx="12" cy="5" r="1" fill="#e0e0e0" stroke="none"></circle>
+          <circle cx="12" cy="12" r="1" fill="#e0e0e0" stroke="none"></circle>
+          <circle cx="12" cy="19" r="1" fill="#e0e0e0" stroke="none"></circle>
+        </svg>
+      </button>
+
+      <div class="avatar" aria-label="Perfil">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path>
+        </svg>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="video-section">
+    <!-- VSL -->
+   <vturb-smartplayer id="vid-6a467ee00400b846377e43fa" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a467ee00400b846377e43fa/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+        <!-- VSL -->
+  </div>
+
+  <!-- TROQUE SUA CLASS PELO DA VTURB -->
+  <!-- CTA Button (aparece após 2000 segundos) -->
+  <div class="cta-wrapper esconder" id="ctaWrapper">
+  </div>
+
+  <div class="info-bar">
+    <div class="info-bar-left">
+
+    <!-- Ícone + News Today + Breaking News -->
+    <div class="info-top">
+      <div class="info-icon">
+        <!-- Para trocar o logo: substitua o arquivo images/logo.png pela sua imagem -->
+        <img src="images/logo.png" alt="Logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;width:22px;height:22px;">
+          <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path>
+          <path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"></path>
+        </svg>
+      </div>
+      <div class="info-text">
+        <span class="info-news-today">Vatican News</span>
+        <span class="info-breaking">107k Subscribers</span>
+      </div>
+      <button class="btn-watch-mobile" style="display:none;">Subscribe</button>
+    </div>
+
+    <!-- Subtítulo -->
+    <div class="info-subtitle"><span class="live-dot"></span><span class="live-text">LIVE</span> - Special Broadcast: The Sacred Prayer of King Solomon Revealed For The First Time</div>
+
+    <!-- Contador -->
+    <div class="info-watching">
+      <div class="watching-dot"></div>
+      <span class="watching-count" id="viewerCount">15,485</span>
+      <span class="watching-label">watching now</span>
+      <span class="watching-separator">|</span>
+      <span class="watching-started" id="streamTimer">Started streaming 5 minutes ago</span>
+    </div>
+
+    </div><!-- /info-bar-left -->
+
+    <button class="btn-watch">Subscribe</button>
+
+  </div>
+
+
+
+  <!-- Chat Card -->
+  <div class="chat-card">
+
+    <div class="chat-header">
+      <div class="chat-header-dot"></div>
+      <span class="chat-title">Live Chat</span>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+
+      <div class="chat-msg">
+        <div class="chat-avatar" style="background:#e8735a;">JD</div>
+        <div class="chat-bubble">
+          <div class="chat-name">John Doe</div>
+          <div class="chat-text">This is incredible, I can't believe what I'm seeing! 🔥</div>
+          <div class="chat-time">just now</div>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-avatar" style="background:#5a8ee8;">AM</div>
+        <div class="chat-bubble">
+          <div class="chat-name">Ashley K.</div>
+          <div class="chat-text">Watching live from the UK 🇬🇧 Amazing content!</div>
+          <div class="chat-time">1 min ago</div>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-avatar" style="background:#5ae87a;">RK</div>
+        <div class="chat-bubble">
+          <div class="chat-name">Rob K.</div>
+          <div class="chat-text">Breaking news right here, stay tuned everyone 👀</div>
+          <div class="chat-time">2 min ago</div>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-avatar" style="background:#c85ae8;">ML</div>
+        <div class="chat-bubble">
+          <div class="chat-name">Maria L.</div>
+          <div class="chat-text">Never seen anything like this before. Sharing with everyone!</div>
+          <div class="chat-time">3 min ago</div>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <div class="chat-avatar" style="background:#e8c45a;">TW</div>
+        <div class="chat-bubble">
+          <div class="chat-name">Tom W.</div>
+          <div class="chat-text">Just joined. What did I miss? 😮</div>
+          <div class="chat-time">4 min ago</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="chat-input-row">
+      <input class="chat-input" type="text" placeholder="Type a message..." id="chatInput" disabled="">
+      <button class="chat-send">Send</button>
+    </div>
+
+  </div>
+
+  <script>
+    function sendMessage() {
+      var input = document.getElementById('chatInput');
+      var msg = input.value.trim();
+      if (!msg) return;
+      var colors = ['#e8735a','#5a8ee8','#5ae87a','#c85ae8','#e8c45a','#e85a5a'];
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      var container = document.getElementById('chatMessages');
+      var div = document.createElement('div');
+      div.className = 'chat-msg';
+      div.innerHTML = '<div class="chat-avatar" style="background:' + color + '">Me</div><div class="chat-bubble"><div class="chat-name">You</div><div class="chat-text">' + msg + '</div><div class="chat-time">just now</div></div>';
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      input.value = '';
+    }
+    document.getElementById('chatInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    // Auto chat messages
+    var autoMessages = [
+      { name: 'Sarah K.',   color: '#e8735a', text: 'Omg this is insane!! 🔥🔥' },
+      { name: 'Lucas B.',   color: '#5a8ee8', text: 'Watching from Chicago, this is wild! 🔥' },
+      { name: 'Mike T.',    color: '#5ae87a', text: 'Best live stream ever 👏' },
+      { name: 'Fernanda R.',color: '#c85ae8', text: 'I shared this with my whole family!' },
+      { name: 'Chris P.',   color: '#e8c45a', text: 'This is breaking news for real 😮' },
+      { name: 'Julia M.',   color: '#e85a5a', text: "Can't stop watching 👀" },
+      { name: 'Diego S.',   color: '#5ae8d8', text: 'Just joined, what did I miss??' },
+      { name: 'Ana P.',     color: '#e8a05a', text: 'This changed everything 🙌' },
+      { name: 'Tom H.',     color: '#a0e85a', text: 'Incredible... sharing now!' },
+      { name: 'Bianca F.',  color: '#5a5ae8', text: 'Never seen anything like this 😱' },
+      { name: 'Ryan C.',    color: '#e85aab', text: 'Live from Atlanta, absolutely insane 🔥' },
+      { name: 'Emma W.',    color: '#5ae8a0', text: 'This is going viral for sure' },
+      { name: 'Pedro A.',   color: '#e8d45a', text: 'Already sent to 10 friends lol' },
+      { name: 'Carla N.',   color: '#8a5ae8', text: 'The whole internet needs to see this' },
+      { name: 'James R.',   color: '#5ac8e8', text: 'WOW. Just wow. 🤯' },
+      { name: 'Laura T.',   color: '#e87a5a', text: 'Watching live from Seattle 🌧️ incredible!' },
+      { name: 'Kevin D.',   color: '#70e85a', text: 'This is historic, mark my words' },
+      { name: 'Patricia G.',color: '#e85a70', text: 'My jaw dropped 😲' },
+      { name: 'Brian M.',   color: '#5ae8c8', text: 'Shared this with all my friends already!' },
+      { name: 'Nina S.',    color: '#e8b85a', text: "Can't believe what I'm watching right now" },
+    ];
+
+    var msgIndex = 0;
+
+    function addAutoMessage() {
+      var data = autoMessages[msgIndex % autoMessages.length];
+      msgIndex++;
+      var initials = data.name.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2).toUpperCase();
+      var container = document.getElementById('chatMessages');
+      var div = document.createElement('div');
+      div.className = 'chat-msg';
+      div.style.opacity = '0';
+      div.style.transform = 'translateY(8px)';
+      div.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      div.innerHTML = '<div class="chat-avatar" style="background:' + data.color + '">' + initials + '</div>'
+        + '<div class="chat-bubble">'
+        + '<div class="chat-name">' + data.name + '</div>'
+        + '<div class="chat-text">' + data.text + '</div>'
+        + '<div class="chat-time">just now</div>'
+        + '</div>';
+      container.appendChild(div);
+
+      // Animate in
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          div.style.opacity = '1';
+          div.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Auto scroll only if user is near the bottom
+      var threshold = 80;
+      var atBottom = container.scrollHeight - container.scrollTop - container.clientHeight < threshold;
+      if (atBottom) {
+        setTimeout(function(){ container.scrollTop = container.scrollHeight; }, 450);
+      }
+
+      // Schedule next message with random interval (2s - 5s)
+      var delay = 2000 + Math.random() * 3000;
+      setTimeout(addAutoMessage, delay);
+    }
+
+    // Start auto messages after 2s
+    setTimeout(addAutoMessage, 2000);
+
+    // Stream timer - starts at 5 minutes and keeps counting
+    var streamMinutes = 5;
+    var streamSeconds = 0;
+    function updateStreamTimer() {
+      streamSeconds++;
+      if (streamSeconds >= 60) {
+        streamSeconds = 0;
+        streamMinutes++;
+      }
+      var el = document.getElementById('streamTimer');
+      if (streamMinutes < 60) {
+        el.textContent = 'Started streaming ' + streamMinutes + ' minute' + (streamMinutes !== 1 ? 's' : '') + ' ago';
+      } else {
+        var hours = Math.floor(streamMinutes / 60);
+        var mins = streamMinutes % 60;
+        el.textContent = 'Started streaming ' + hours + 'h ' + (mins > 0 ? mins + 'm ' : '') + 'ago';
+      }
+      setTimeout(updateStreamTimer, 1000);
+    }
+    setTimeout(updateStreamTimer, 1000);
+
+    // Animate viewer count
+    var baseCount = 15485;
+    function animateViewers() {
+      var change = Math.floor(Math.random() * 80) - 30;
+      baseCount = Math.max(14000, baseCount + change);
+      var formatted = baseCount.toLocaleString('en-US');
+      document.getElementById('viewerCount').textContent = formatted;
+      var delay = 1500 + Math.random() * 2000;
+      setTimeout(animateViewers, delay);
+    }
+    setTimeout(animateViewers, 1500);
+  </script>
+
+
+  <!-- Footer -->
+  <div class="footer"></div>
+
+
+
+</body></html>
