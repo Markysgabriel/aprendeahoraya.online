@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vatican News</title>
+
+  <style>
+    :root {
+      --red: #bd1414;
+      --red-dark: #9c0e0e;
+      --green: #00c853;
+      --green-dark: #00b140;
+      --text: #111;
+      --muted: #65676b;
+      --light: #f0f2f5;
+      --border: #ced0d4;
+      --white: #fff;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    img, svg, video, iframe, vturb-smartplayer {
+      max-width: 100%;
+    }
+
+    button, a {
+      font-family: inherit;
+    }
+
+    /* HEADER */
+    .main-header {
+      height: 56px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .header-btn {
+      width: 58px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .header-btn svg {
+      width: 22px;
+      height: 22px;
+      margin-bottom: 2px;
+      fill: currentColor;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .logo-box img {
+      max-height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .sub-header {
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--red);
+      border-bottom: 4px solid #f4f4f4;
+    }
+
+    .radio-vaticana-tag {
+      flex: 0 0 auto;
+      padding: 5px 8px;
+      border-radius: 2px;
+      border: 1px solid var(--red-dark);
+      background: var(--white);
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    }
+
+    .news-title {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .news-title svg, .right-icons svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--white);
+      flex: 0 0 auto;
+    }
+
+    .right-icons {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    /* VSL */
+    .vsl-section {
+      width: 100%;
+      max-width: 430px;
+      margin: 25px auto 0;
+      padding: 0 15px;
+    }
+
+    .smartplayer-frame {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .vturb-player-placeholder {
+      position: relative;
+      width: 100%;
+      padding-top: 133.333%;
+      z-index: 0;
+      background: #000;
+    }
+
+    .watching-now {
+      width: 100%;
+      margin: 20px auto;
+      padding: 0 15px;
+      text-align: center;
+      font-family: Poppins, Arial, sans-serif;
+      font-size: clamp(15px, 4vw, 18px);
+    }
+
+    .hero-image {
+      width: 100%;
+      padding: 10px 15px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* OFFER */
+    .offer-section {
+      text-align: center;
+      background: var(--white);
+      font-family: Poppins, Arial, Helvetica, sans-serif;
+    }
+
+    .offer-container {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 20px 15px;
+    }
+
+    .price-old {
+      font-size: clamp(22px, 6vw, 28px);
+      color: #666;
+      font-weight: 700;
+    }
+
+    .price-old span {
+      color: red;
+      text-decoration: line-through;
+    }
+
+    .price-new {
+      margin-top: 5px;
+      font-size: clamp(22px, 5.5vw, 26px);
+    }
+
+    .price-new span {
+      color: #2fae8f;
+      font-weight: 700;
+    }
+
+    .special-text {
+      max-width: 430px;
+      margin: 15px auto 0;
+      font-size: clamp(15px, 4vw, 16px);
+      line-height: 1.6;
+    }
+
+    .special-text strong {
+      color: #e5392d;
+    }
+
+    .cta-button {
+      display: block;
+      width: min(90%, 420px);
+      margin: 30px auto;
+      padding: 20px 28px;
+      border: 0;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: var(--white);
+      font-size: clamp(17px, 4.8vw, 21px);
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 200, 83, .5);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0, 200, 83, .6);
+      background: linear-gradient(135deg, #00e65c, var(--green));
+    }
+
+    .payments {
+      margin-top: 15px;
+    }
+
+    .payments img {
+      height: 28px;
+      width: auto;
+    }
+
+    .secure {
+      max-width: 500px;
+      margin: 10px auto 0;
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #888;
+    }
+
+    .countdown-bar {
+      padding: 20px 10px;
+      background: #e5392d;
+      color: var(--white);
+    }
+
+    .countdown-bar h1 {
+      max-width: 760px;
+      margin: 0 auto 15px;
+      font-size: clamp(22px, 6vw, 28px);
+      line-height: 1.2;
+    }
+
+    .countdown-box {
+      display: inline-flex;
+      gap: clamp(24px, 8vw, 40px);
+      padding: 18px 28px;
+      border-radius: 5px;
+      background: #000;
+    }
+
+    .time span {
+      display: block;
+      font-size: clamp(38px, 10vw, 48px);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .label {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    /* COMMENTS */
+    .fb-comments-section {
+      width: min(800px, calc(100% - 30px));
+      margin: 30px auto;
+      padding: 15px;
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 1px 2px rgba(0,0,0,.1);
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    .fb-header-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fb-count-text {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .fb-comment-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .fb-reply-thread {
+      margin-left: 50px;
+      padding-left: 5px;
+      border-left: 2px solid var(--light);
+    }
+
+    .fb-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: 0 0 auto;
+    }
+
+    .fb-reply-thread .fb-avatar {
+      width: 32px;
+      height: 32px;
+    }
+
+    .fb-comment-bubble-wrapper {
+      min-width: 0;
+      max-width: 90%;
+      position: relative;
+    }
+
+    .fb-comment-bubble {
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: var(--light);
+      color: #050505;
+      font-size: 15px;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .fb-author {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 2px;
+      color: #050505;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .fb-comment-actions {
+      display: flex;
+      gap: 12px;
+      margin-left: 14px;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .fb-action-link {
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .fb-action-link:hover {
+      text-decoration: underline;
+    }
+
+    .fb-reaction-badge {
+      position: absolute;
+      right: -5px;
+      bottom: -8px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 2px 6px;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+      font-size: 14px;
+    }
+
+    .fb-reaction-count {
+      margin-left: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .fb-load-more {
+      display: block;
+      padding: 15px 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .footer {
+      padding: 25px 10px;
+      background: #f5f5f5;
+      color: #777;
+      text-align: center;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer p {
+      max-width: 820px;
+      margin: 0 auto 8px;
+    }
+
+    @media (max-width: 600px) {
+      .main-header {
+        padding: 8px 10px;
+      }
+
+      .header-btn {
+        width: 48px;
+        font-size: 9px;
+      }
+
+      .logo-box img {
+        max-height: 36px;
+      }
+
+      .sub-header {
+        padding: 6px 8px;
+        gap: 8px;
+      }
+
+      .radio-vaticana-tag {
+        font-size: 10px;
+        padding: 5px 6px;
+      }
+
+      .news-title {
+        font-size: 12px;
+      }
+
+      .fb-comments-section {
+        width: calc(100% - 20px);
+        padding: 12px;
+      }
+
+      .fb-comment-container {
+        gap: 8px;
+      }
+
+      .fb-reply-thread {
+        margin-left: 24px;
+      }
+
+      .fb-comment-bubble-wrapper {
+        max-width: calc(100% - 48px);
+      }
+
+      .fb-comment-bubble {
+        font-size: 14px;
+        padding: 9px 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .radio-vaticana-tag {
+        display: none;
+      }
+
+      .fb-reply-thread {
+        margin-left: 12px;
+      }
+
+      .cta-button {
+        padding: 18px 18px;
+      }
+    }
+  </style>
+
+  <script src="js/player.js" async></script>
+
+<!-- VTURB -->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a467cfd60cf91a9c4b15259/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/6a467cd52ef14d5611b0a37d/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+<!-- VTURB -->
+
+<!-- Meta Pixel Code -->
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '755134515416819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=755134515416819&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '831889901057786');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=831889901057786&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+<!-- UTMIFY -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+<!-- digistore -->
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script> <script>digistoreUpsell()</script>
+
+ <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script type="text/javascript">
+digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true } );
+</script>
+<!-- digistore -->
+
+</head>
+
+
+<body>
+
+  <header class="main-header">
+    <button class="header-btn" type="button" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+      <span>Menu</span>
+    </button>
+
+    <div class="logo-box">
+      <img src="images/vatican-news-header-white.png" alt="Vatican News" />
+    </div>
+
+    <button class="header-btn" type="button" aria-label="Search">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+      <span>Search</span>
+    </button>
+  </header>
+
+  <div class="sub-header">
+    <a class="radio-vaticana-tag" href="#">Radio Vaticana</a>
+
+    <div class="news-title">
+      Daily World News
+      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></svg>
+    </div>
+
+    <div class="right-icons" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 18c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.12 18.24 10.5 18.5 12 18.5s2.88-.26 4.34-.99l1.9 1.9c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-1.62-1.62C19.26 15.07 20 13.12 20 11c0-4.97-4.03-9-9-9zm0 4c1.66 0 3 1.34 3 3v3c0 1.66-1.34 3-3 3s-3-1.34-3-3V9c0-1.66 1.34-3 3-3z"></path></svg>
+    </div>
+  </div>
+
+  <main>
+    <section class="vsl-section">
+
+<!-- text - yon551 -->
+                                            <h1 class="a-i-e-cont">
+                                                <p>
+                                                    <span style="color: #b62619">URGENT:</span> Pope Leo XIV
+                                                    <span style="background: #a60b0d"
+                                                        ><span style="color: #fff">Receives Death Threats</span></span
+                                                    >
+                                                    After Revealing the 7 Lost Prayers of Jesus
+                                                    <u>THAT ATTRACT MIRACLES IN 24 HOURS</u>
+                                                </p>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <div class="a-c-cont a-r a-c-cont-453bdf8">
+                                        <style>
+                                            .a-e-cont.atomicat-heading-title-453bdf8 p:hover {
+                                                -webkit-text-fill-color: unset;
+                                            }
+                                            .a-e-cont.atomicat-heading-title-453bdf8 p {
+                                                background-image: unset;
+                                                color: #1f2123;
+                                                font-size: 17px;
+                                            }
+                                            @media screen and (max-width: 1024px) {
+                                                .a-e-cont.atomicat-heading-title-453bdf8 p {
+                                                    font-size: 8px;
+                                                }
+                                            }
+                                            @media screen and (max-width: 480px) {
+                                                .a-e-cont.atomicat-heading-title-453bdf8 p {
+                                                    line-height: 18px;
+                                                    font-size: 12px;
+                                                }
+                                            }
+                                            .a-c-cont-453bdf8 > .a-e-cont {
+                                                padding-top: 1vh;
+                                            }
+                                            @media screen and (max-width: 480px) {
+                                                .a-c-cont-453bdf8 > .a-e-cont {
+                                                    padding-top: 0;
+                                                }
+                                            }
+                                        </style>
+                                        <div
+                                            class="atomicat-text-453bdf8 atomicat-heading-title-453bdf8 a-r a-s-d-646k57 atomicat-text atomicat-element-container-453bdf8 a-e-cont"
+                                        >
+                                            <!-- text - 06m3u5 -->
+                                            <p class="a-i-e-cont">By <strong>David Miller</strong></p>
+                                        </div>
+                                    </div>
+                                    <div class="a-r a-c-cont-68fb4d6 a-c-cont">
+                                        <style>
+                                            .a-e-cont.atomicat-heading-title-68fb4d6 p:hover {
+                                                -webkit-text-fill-color: unset;
+                                            }
+                                            .a-e-cont.atomicat-heading-title-68fb4d6 p {
+                                                color: #1f2123;
+                                                background-image: unset;
+                                                font-size: 14px;
+                                                line-height: 12px;
+                                            }
+                                            @media screen and (max-width: 1024px) {
+                                                .a-e-cont.atomicat-heading-title-68fb4d6 p {
+                                                    font-size: 8px;
+                                                }
+                                            }
+                                            @media screen and (max-width: 480px) {
+                                                .a-e-cont.atomicat-heading-title-68fb4d6 p {
+                                                    font-size: 10px;
+                                                }
+                                            }
+                                            .a-c-cont-68fb4d6 > .a-e-cont {
+                                                padding-top: 0;
+                                            }
+                                        </style>
+                                        <div
+                                            class="atomicat-heading-title-68fb4d6 a-r atomicat-text-68fb4d6 a-e-cont atomicat-element-container-68fb4d6 atomicat-text"
+                                        >
+                                            <p class="a-i-e-cont">
+                                                <span class="atomicat-hoje">30/06/2026</span> - Atualizado há 2 horas
+                                            </p>
+                                        </div>
+                          
+   <!-- VSL -->
+     <vturb-smartplayer id="vid-6a469a1f7a1fe1741a579aff" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 178.21782178217822% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a469a1f7a1fe1741a579aff/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+   <!-- VSL -->
+
+    </section>
+
+    <div class="watching-now"><span id="number">2651</span> people watching now</div>
+
+    <div class="hero-image">
+      <img src="images/b3cbd72.webp" alt="" />
+    </div>
+
+    <section class="offer-section" id="offer">
+    
+
+    <section class="fb-comments-section">
+      <div class="fb-header-info"><span class="fb-count-text">Showing 26 of 322 comments</span></div>
+
+      <!-- Comments -->
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=1" class="fb-avatar" alt="Meredith Fields"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Meredith Fields</span> 🙏 I prayed for 7 days and finally got the job I was waiting for. Coincidence? I don’t think so.</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">13</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>3 h</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=2" class="fb-avatar" alt="Abigail Clark"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Abigail Clark</span> Never really believed in this kind of thing… but I gave it a try. Out of nowhere, an old debt was forgiven. Thank you, God! 💙</div><div class="fb-reaction-badge"><span>👍 ❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=3" class="fb-avatar" alt="Sarah Walker"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Sarah Walker</span> I asked to sell my car that had been stuck for 6 months. Same week, someone paid in full. Truly miraculous!</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>58 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=4" class="fb-avatar" alt="Emma Johnson"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Emma Johnson</span> He explains it in the middle of the video and you'll understand why as soon as you recite the prayer, it seems like a miracle.</div><div class="fb-reaction-badge"><span>❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>50 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=5" class="fb-avatar" alt="Victoria Smith"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Victoria Smith</span> Is this video about the law of attraction? That doesn't work, I've already done everything they recommend and never attracted a single cent 🤬</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">9</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=11" class="fb-avatar" alt="Chris Garcia"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Chris Garcia</span> Nooooo, this is not the law of attraction. It's BIBLICAL! The pope took this prayer from the original Bible manuscripts🙏✨</div><div class="fb-reaction-badge"><span>👍 ❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=12" class="fb-avatar" alt="Matthew Barkley"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Matthew Barkley</span> Actually, the law of attraction was taken over by charlatans. This prayer that the pope shared is the true way God returns everything we ask for, that's why it's so powerful and why he was being hunted!</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>59 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=13" class="fb-avatar" alt="Lucas Petry"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Lucas Petry</span> 😭🙏❤️</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">2</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>15 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=14" class="fb-avatar" alt="Frank Wilson"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Frank Wilson</span> 😭😭God bless you for showing this prayer! I'm reciting the sacred prayer every day for our Lord Jesus Christ to heal my mother's glaucoma. She's already showing small signs of improvement, I have faith she will be healed!</div><div class="fb-reaction-badge"><span>❤️ 👍</span><span class="fb-reaction-count">18</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>26 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=9" class="fb-avatar" alt="Ruth Perry"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Ruth Perry</span> Do you need to be very religious for this to work? I believe in God, but I'm not a churchgoer and I don't know if this prayer can really help me...</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">5</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>19 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=10" class="fb-avatar" alt="Maria Crandall"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Maria Crandall</span> Ruth, this prayer is not about religion, but about connection with God. I also don't attend churches, and I've been reciting it every single day, this week I received a job offer 🙏</div><div class="fb-reaction-badge"><span>❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=15" class="fb-avatar" alt="Ernest Siaulys"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Ernest Siaulys</span> You don't need to be in a church to connect with God. And this prayer should be in our Bibles, but those corrupt crooks removed it and hid it for themselves!</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=16" class="fb-avatar" alt="William Brown"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">William Brown</span> Guys, am I mistaken or is this the Pope?😱😱</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">9</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>17 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=17" class="fb-avatar" alt="Betty Escher"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Betty Escher</span> It's him.</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>2 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=18" class="fb-avatar" alt="Vince Gallagher"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Vince Gallagher</span> It's him. I just saw a publication on Vatican News stating that the pope had a massive soul-saving project, it has to do with this divine prayer he mentions</div><div class="fb-reaction-badge"><span>👍 ❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=19" class="fb-avatar" alt="Robert Blanco"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Robert Blanco</span> I got goosebumps from beginning to end of the video. The pope was truly being used by God to bring to light this divine secret that was hidden for so long...</div><div class="fb-reaction-badge"><span>❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=20" class="fb-avatar" alt="Carol Sinek"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Carol Sinek</span> Folks, I know for many this may seem silly or trivial but it's always been my dream to own a Mercedes, and after 18 days of religiously reciting the prayer, my credit was approved and I was able to buy one, I can't even believe it... 😭🙏❤️</div><div class="fb-reaction-badge"><span>❤️ 👍</span><span class="fb-reaction-count">10</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>13 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=21" class="fb-avatar" alt="Amelia Markle"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Amelia Markle</span> I was a bit wary about this miracle attraction thing, but seeing the number of positive comments, I can tell it really works. Thanks everyone! I'm going to try it...</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">4</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=22" class="fb-avatar" alt="Emily Johnson"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Emily Johnson</span> I've been struggling for two months, living on unemployment benefits, I've done several interviews and nobody hires me... Could this prayer help me?</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>50 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=23" class="fb-avatar" alt="Sarah Willliams"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Sarah Willliams</span> Emily, I was in a similar situation to yours, unemployed with 2 daughters to raise. I decided to believe and recite the prayer, after all I had nothing to lose. I couldn't stand up when I received a call offering me a management position at an insurance company😍</div><div class="fb-reaction-badge"><span>❤️ 👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>37 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=24" class="fb-avatar" alt="Bryan Mallins"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Bryan Mallins</span> I'm praying the prayer exactly as the video teaches and today I received news that my lung tumor has regressed... need more proof than that? God Bless 🙏❤️</div><div class="fb-reaction-badge"><span>❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>3 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=25" class="fb-avatar" alt="Samantha White"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Samantha White</span> This video is worth every second! Achieve your dreams, prosper, everything is already inside you, it just needs to be vibrated. Jesus is our savior!</div><div class="fb-reaction-badge"><span>👍 ❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 h</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=26" class="fb-avatar" alt="Lisa Taylor"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Lisa Taylor</span> so you're saying our Bible is not complete? how so? I don't understand</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">12</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>11 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=27" class="fb-avatar" alt="Jennifer Wilson"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Jennifer Wilson</span> actually only this part of the prayer was removed, the Pope explains that billionaires did this on purpose</div><div class="fb-reaction-badge"><span>👍</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>4 m</span></div></div></div>
+      <div class="fb-comment-container fb-reply-thread"><img src="https://i.pravatar.cc/150?img=28" class="fb-avatar" alt="Melissa Thomas"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">Melissa Thomas</span> And if you go to the Bible page he mentions in the video, you'll notice that something was clearly cut from there</div><div class="fb-reaction-badge"><span>👍 ❤️</span><span class="fb-reaction-count">15</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>1 m</span></div></div></div>
+      <div class="fb-comment-container"><img src="https://i.pravatar.cc/150?img=30" class="fb-avatar" alt="David Miller"><div class="fb-comment-bubble-wrapper"><div class="fb-comment-bubble"><span class="fb-author">David Miller</span> vvvvvI've done novenas, prayer chains, attended services, fasted. I prayed a lot, asked God for my blessings but they never came, it seemed like I had been forgotten... I confess I was getting pretty tired of praying... Until I saw this video and the pope opened my eyes... everything he said made sense and I decided to test it myself... today I'm running my own dream business that's going really well, my marriage is good again like before. I can only thank the Pope for this prayer, it's wonderful ❤️🙏🙏</div><div class="fb-reaction-badge"><span>❤️ 👍</span><span class="fb-reaction-count">6</span></div><div class="fb-comment-actions"><span class="fb-action-link">Like</span><span class="fb-action-link">Reply</span><span>2 m</span></div></div></div>
+
+      <div class="fb-load-more">View more comments</div>
+    </section>
+
+  <footer class="footer">
+    <p>This site is not part of Facebook or Meta Platforms, Inc. Furthermore, this site is not endorsed by Facebook in any way. Facebook is a registered trademark of Meta Platforms, Inc.</p>
+    <p>© 2026 Guardian Angel — All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function loadVturbPlayer() {
+      const script = document.createElement('script');
+      script.src = 'https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6a2ffb85523d570c096ec951/v4/player.js';
+      script.async = true;
+      document.head.appendChild(script);
+    })();
+
+    (function updateWatchingNow() {
+      const numberEl = document.getElementById('number');
+      if (!numberEl) return;
+
+      let number = Math.floor(Math.random() * 1143) + 1578;
+
+      function add() {
+        number += Math.floor(Math.random() * 6) + 1;
+        numberEl.textContent = number;
+        setTimeout(add, 10000);
+      }
+
+      numberEl.textContent = number;
+      add();
+    })();
+
+    (function countdown() {
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      if (!minutesEl || !secondsEl) return;
+
+      let totalSeconds = 59 * 60 + 59;
+
+      function update() {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        minutesEl.textContent = minutes;
+        secondsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+        if (totalSeconds > 0) totalSeconds--;
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>
