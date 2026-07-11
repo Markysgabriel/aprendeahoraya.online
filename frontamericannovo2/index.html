@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/com.css">
+<title>Front</title>
+<style>
+/* =========================================================
+       1. COLOR PALETTE
+       Centralized colors used throughout the page.
+       ========================================================= */
+    :root{--navy:#062f64;--navy2:#052957;--red:#ff161d;--blue:#314cff;--light:#f4f5fb;--white:#fff;--text:#063169}
+/* =========================================================
+       2. GLOBAL RESET
+       Keeps element dimensions predictable on all devices.
+       ========================================================= */
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:var(--navy);font-family:Montserrat,Arial,sans-serif;overflow-x:hidden}
+/* =========================================================
+       3. TOP HEADER
+       White header with logo on the left and hamburger menu
+       on the right.
+       ========================================================= */
+    .site-header{position:relative;z-index:50;height:118px;background:#fff;border-top:1px solid #111}.site-header-inner{width:min(1200px,calc(100% - 72px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between}.brand-logo{display:inline-flex;align-items:center;text-decoration:none!important;color:var(--navy)}.brand-logo img{display:block;width:120px;height:auto;max-height:82px;object-fit:contain}.brand-fallback{display:none;line-height:.9;font-family:Georgia,serif;font-weight:800;letter-spacing:.04em;text-align:center}.brand-fallback small{display:block;font-size:13px;letter-spacing:.16em}.brand-fallback strong{display:block;font-size:45px;color:var(--red);text-shadow:2px 0 var(--blue)}
+.menu-toggle{width:58px;height:58px;border:0;background:transparent;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;cursor:pointer;padding:0}.menu-toggle span{width:44px;height:4px;border-radius:2px;background:var(--navy);transition:.25s}.menu-toggle.active span:nth-child(1){transform:translateY(12px) rotate(45deg)}.menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:translateY(-12px) rotate(-45deg)}
+/* =========================================================
+       4. DROPDOWN BLOG MENU
+       Hidden by default and opened with JavaScript.
+       ========================================================= */
+    .blog-menu{position:absolute;top:118px;right:0;width:min(360px,100%);padding:28px;background:#fff;border-top:1px solid #e6e8ef;box-shadow:0 24px 45px rgba(4,31,67,.16);transform:translateY(-10px);opacity:0;pointer-events:none;transition:.25s}.blog-menu.open{opacity:1;transform:none;pointer-events:auto}.blog-menu a{display:block;padding:14px 0;color:var(--navy);text-decoration:none;font-size:17px;font-weight:700;border-bottom:1px solid #e8ebf1}
+/* =========================================================
+       5. HERO / VSL SECTION
+       Main sales area containing the headline, video and CTA.
+       ========================================================= */
+    .hero{position:relative;min-height:660px;padding:60px 20px 155px;background:var(--light)}.hero-inner{width:min(960px,100%);margin:auto;text-align:center}.hero-kicker{margin:0 0 16px;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}.hero h1{max-width:900px;margin:0 auto 34px;font-size:clamp(34px,5vw,60px);line-height:1.08;letter-spacing:-.035em;font-weight:500;color:var(--navy)}.hero h1 strong{font-weight:800;border-bottom:4px solid var(--blue)}.vsl-shell{max-width:820px;margin:0 auto;padding:10px;border-radius:4px;background:#fff;box-shadow:0 22px 55px rgba(6,47,100,.16)}.vsl-note{margin-top:16px;font-size:13px;font-weight:600;color:#60708a}.cta-wrapper{max-width:700px;margin:28px auto 0}.a-btn{display:block;padding:18px 28px;border-radius:0;background:var(--red);color:#fff!important;box-shadow:8px 8px 0 var(--blue);transition:.2s}.a-btn:hover{transform:translate(-2px,-2px);box-shadow:11px 11px 0 var(--blue)}.span-btn{display:block;font-size:20px;font-weight:800}.span-btn2{display:block;margin-top:4px;font-size:12px;font-weight:500}
+/* =========================================================
+       6. DECORATIVE WAVE DIVIDER
+       Separates the light VSL area from the navy comments area.
+       ========================================================= */
+    .wave-divider{position:absolute;left:0;bottom:-2px;width:100%;height:142px;overflow:hidden;pointer-events:none}.wave-divider svg{width:100%;height:100%;display:block}
+/* =========================================================
+       7. COMMENTS SECTION
+       Keeps the original Facebook-style comments layout.
+       ========================================================= */
+    .comments{position:relative;padding-top:95px!important;padding-bottom:90px!important;background:var(--navy)}.comments:before{content:'Join the Conversation';display:block;margin:0 auto 34px;color:#fff;font-family:'Libre Caslon Display',Georgia,serif;font-size:clamp(38px,5vw,64px);text-align:center}.comments .col-lg-8{flex:0 0 78%;max-width:78%}.fb-comments{padding:26px;border-radius:4px;background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.18)}.fb-comments-header{color:var(--navy);font-weight:800}.fb-comments-loadmore{background:var(--red)!important;color:#fff!important;border-radius:0!important;font-weight:800!important}/* =========================================================
+       8. FOOTER
+       Legal links displayed at the bottom of the page.
+       ========================================================= */
+    footer{background:var(--navy2)!important;border-top:1px solid rgba(255,255,255,.14)}footer a{color:#fff!important;text-decoration:none}
+@media(max-width:768px){.site-header{height:116px}.site-header-inner{width:calc(100% - 36px)}.brand-logo img{width:112px}.menu-toggle{width:50px}.menu-toggle span{width:43px}.blog-menu{top:116px}.hero{min-height:620px;padding:46px 18px 125px}.hero h1{font-size:clamp(31px,9vw,46px);text-align:left;margin-bottom:28px}.hero-kicker{text-align:left}.vsl-shell{padding:6px}.wave-divider{height:110px}.comments{padding-top:70px!important;padding-left:10px;padding-right:10px}.comments .col-lg-8{flex:0 0 100%;max-width:100%}.fb-comments{padding:14px}.span-btn{font-size:17px}}
+
+    .header-logo-image{
+      display:block;
+      width:clamp(100px, 14vw, 150px);
+      height:auto;
+      max-height:82px;
+      object-fit:contain;
+    }
+
+    /* =========================================================
+       9. TABLET AND MOBILE RESPONSIVENESS
+       Adjusts spacing, headline, video and comments.
+       ========================================================= */
+    @media (max-width:768px){
+      .site-header-inner{
+        width:calc(100% - 28px);
+      }
+
+      .header-logo-image{
+        width:110px;
+        max-height:72px;
+      }
+
+      .hero-inner{
+        width:100%;
+      }
+
+      .hero h1{
+        max-width:100%;
+        overflow-wrap:anywhere;
+      }
+
+      .vsl-shell{
+        width:100%;
+        overflow:hidden;
+      }
+
+      .vsl-shell iframe,
+      .vsl-shell video,
+      .vsl-shell vturb-smartplayer{
+        max-width:100% !important;
+      }
+
+      .fb-comments,
+      .fb-comments table{
+        width:100% !important;
+        max-width:100% !important;
+      }
+
+      .fb-comments-comment-img{
+        width:46px !important;
+        min-width:46px !important;
+      }
+
+      .fb-comments-comment-img img{
+        width:40px !important;
+        height:40px !important;
+        object-fit:cover;
+        border-radius:50%;
+      }
+
+      .fb-comments-comment-text{
+        word-break:break-word;
+        overflow-wrap:anywhere;
+      }
+
+      .blog-menu{
+        width:100%;
+      }
+    }
+
+    /* =========================================================
+       10. SMALL MOBILE RESPONSIVENESS
+       Extra adjustments for narrow screens.
+       ========================================================= */
+    @media (max-width:480px){
+      .site-header{
+        height:98px;
+      }
+
+      .blog-menu{
+        top:98px;
+      }
+
+      .header-logo-image{
+        width:96px;
+      }
+
+      .menu-toggle{
+        width:44px;
+        height:44px;
+      }
+
+      .menu-toggle span{
+        width:34px;
+        height:3px;
+        gap:6px;
+      }
+
+      .hero{
+        padding-top:34px;
+      }
+
+      .hero h1{
+        font-size:30px;
+        line-height:1.12;
+      }
+
+      .hero-kicker{
+        font-size:11px;
+      }
+
+  
+    /* Comment profile images */
+    .fb-comments-comment-img img{
+      display:block !important;
+      width:48px !important;
+      height:48px !important;
+      min-width:48px !important;
+      border-radius:50% !important;
+      object-fit:cover !important;
+      opacity:1 !important;
+      visibility:visible !important;
+    }
+
+    .fb-comments-comment-img{
+      width:58px !important;
+      min-width:58px !important;
+      vertical-align:top !important;
+      padding-right:10px !important;
+    }
+
+    .comments::before{
+        font-size:36px;
+        padding:0 10px;
+      }
+
+      .fb-comments{
+        padding:10px;
+      }
+
+      .a-btn{
+        padding:16px 18px;
+      }
+    }
+
+  </style>
+
+<!-- VTURB -->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a52592a0a9f72b511f8638a/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/6a52591d8a944b5cf66ac14d/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+<!-- VTURB -->
+
+<!-- Meta Pixel Code -->
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '755134515416819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=755134515416819&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '831889901057786');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=831889901057786&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+<!-- UTMIFY -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+<!-- digistore -->
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script> <script>digistoreUpsell()</script>
+
+ <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script type="text/javascript">
+digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true } );
+</script>
+<!-- digistore -->
+
+</head>
+
+
+<body>
+
+  <!-- ======================================================
+       PAGE HEADER
+       Contains the logo image and the hamburger navigation.
+       ====================================================== -->
+<header class="site-header"><div class="site-header-inner"><!-- LOGO IMAGE
+           Replace assets/img/logo.png with your own image file. -->
+      <a class="brand-logo" href="#" aria-label="Home">
+        <!-- Replace this file with your own logo image -->
+        <img
+          src="./assets/img/logo.png"
+          alt="Brand logo"
+          class="header-logo-image"
+        >
+      </a><button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="blog-menu" id="blogMenu"><a href="#inicio">Home</a><a href="#video">Presentation</a><a href="#comments">Comments</a><a href="termos.html">Terms of Use</a><a href="privacidade.html">Privacy Policy</a></nav></div></header>
+<main>
+
+    <!-- ====================================================
+         MAIN SALES SECTION
+         Contains the headline, VSL player and delayed CTA.
+         ==================================================== --><section class="hero" id="inicio"><div class="hero-inner"><p class="hero-kicker"></p><h1><strong>Freedom benefits</strong> finally released</h1>
+
+         <!-- VSL PLAYER
+             This block loads the existing ConverteAI/VSL video. -->
+
+        <vturb-smartplayer id="vid-6a52592a0a9f72b511f8638a" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 55.93749999999999% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a52592a0a9f72b511f8638a/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+
+        <!-- DELAYED CTA BUTTON
+             Hidden at first and revealed by the timer script below. -->
+
+        </a></div></div><div class="wave-divider" aria-hidden="true"><svg viewBox="0 0 1440 180" preserveAspectRatio="none"><path d="M0,120 C280,20 560,70 820,105 C1070,140 1240,120 1440,70 L1440,180 L0,180 Z" fill="#ff161d"/><path d="M0,105 C300,80 510,72 760,92 C1030,113 1240,145 1440,158 L1440,180 L0,180 Z" fill="#314cff"/><path d="M0,97 C300,67 540,60 770,77 C1020,95 1240,126 1440,143 L1440,158 C1240,145 1030,113 760,92 C510,72 300,80 0,105 Z" fill="#ffffff"/><path d="M0,120 C280,112 540,112 780,128 C1040,146 1220,164 1440,180 L0,180 Z" fill="#062f64"/></svg></div></section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="./assets/js/com.js"></script>
+  <script>const menuToggle=document.getElementById('menuToggle');const blogMenu=document.getElementById('blogMenu');menuToggle.addEventListener('click',()=>{const o=blogMenu.classList.toggle('open');menuToggle.classList.toggle('active',o);menuToggle.setAttribute('aria-expanded',String(o));});document.addEventListener('click',e=>{if(!e.target.closest('.site-header')){blogMenu.classList.remove('open');menuToggle.classList.remove('active');menuToggle.setAttribute('aria-expanded','false');}});</script></body></html>
