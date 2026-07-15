@@ -1,0 +1,1071 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- ======================================================
+       BASIC PAGE SETTINGS
+       ====================================================== -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <title>Freedom | Eligibility Check</title>
+  <meta name="description" content="Complete a quick eligibility pre-check and review the next steps.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="American System">
+  <meta property="og:image" content="images/ogimage.png">
+
+  <!-- Google font. Remove this line if you prefer to host the font locally. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======================================================
+       1. COLOR PALETTE
+       Change the colors here to update the whole page.
+       ====================================================== */
+    :root {
+      --navy: #062f64;
+      --navy-dark: #042653;
+      --blue: #314cff;
+      --red: #ff161d;
+      --white: #ffffff;
+      --page-bg: #f4f5fb;
+      --text: #082f62;
+      --muted: #66758a;
+      --line: #dfe4ec;
+      --green: #159947;
+      --shadow: 0 22px 55px rgba(6, 47, 100, 0.15);
+    }
+
+    /* ======================================================
+       2. GLOBAL RESET
+       ====================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: "Montserrat", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ======================================================
+       3. HEADER
+       Logo image on the left and hamburger menu on the right.
+       Replace images/logo.png with your logo.
+       ====================================================== */
+    .site-header {
+      position: relative;
+      z-index: 50;
+      height: 70px;
+      background: var(--white);
+      border-top: 1px solid #111;
+    }
+
+    .header-inner {
+      width: min(1200px, calc(100% - 64px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-logo {
+      width: clamp(110px, 14vw, 165px);
+      max-height: 82px;
+      object-fit: contain;
+    }
+
+    .menu-button {
+      width: 58px;
+      height: 58px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .menu-button span {
+      width: 43px;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--navy);
+      transition: 0.25s ease;
+    }
+
+    .menu-button.active span:nth-child(1) {
+      transform: translateY(12px) rotate(45deg);
+    }
+
+    .menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.active span:nth-child(3) {
+      transform: translateY(-12px) rotate(-45deg);
+    }
+
+    .blog-menu {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: min(370px, 100%);
+      padding: 26px 30px;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      box-shadow: 0 22px 45px rgba(4, 38, 83, 0.16);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: 0.25s ease;
+    }
+
+    .blog-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .blog-menu a {
+      display: block;
+      padding: 14px 0;
+      color: var(--navy);
+      font-weight: 700;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ======================================================
+       4. HERO
+       Introductory text above the eligibility form.
+       ====================================================== */
+    .hero {
+      position: relative;
+      padding: 60px 20px 155px;
+      background: var(--page-bg);
+    }
+
+    .hero-inner {
+      width: min(930px, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0 auto 18px;
+      color: var(--navy);
+      font-family: "Libre Caslon Display", Georgia, serif;
+      font-size: clamp(40px, 6vw, 70px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      margin: 0 auto 38px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* ======================================================
+       5. MULTI-STEP FORM CARD
+       Step 1 collects data, Step 2 displays loading,
+       and Step 3 shows the next action.
+       ====================================================== */
+    .verification-card {
+      width: min(690px, 100%);
+      margin: 0 auto;
+      padding: 34px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .progress {
+      position: relative;
+      max-width: 430px;
+      margin: 0 auto 34px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .progress::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 34px;
+      right: 34px;
+      height: 2px;
+      background: var(--line);
+    }
+
+    .progress-item {
+      position: relative;
+      z-index: 2;
+      min-width: 68px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      color: #8a96a6;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .progress-circle {
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #738095;
+      background: #e1e5eb;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .progress-item.active {
+      color: var(--navy);
+    }
+
+    .progress-item.active .progress-circle {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .progress-item.complete {
+      color: var(--green);
+    }
+
+    .progress-item.complete .progress-circle {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .field {
+      margin-bottom: 21px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy-dark);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      color: #17263c;
+      background: var(--white);
+      border: 1px solid #cfd6e1;
+      border-radius: 7px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(49, 76, 255, 0.12);
+    }
+
+    .authorization {
+      margin: 4px 0 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: #536176;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .authorization input {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+      accent-color: var(--navy);
+    }
+
+    .primary-button {
+      width: 100%;
+      min-height: 54px;
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 0;
+      color: var(--white);
+      background: var(--red);
+      box-shadow: 7px 7px 0 var(--blue);
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .primary-button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0 var(--blue);
+    }
+
+    .secondary-button {
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      padding: 15px 20px;
+      color: #707b8c;
+      background: #e4e7ec;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: not-allowed;
+    }
+
+    /* ======================================================
+       6. LOADING STEP
+       ====================================================== */
+    .centered-step {
+      text-align: center;
+    }
+
+    .spinner {
+      width: 64px;
+      height: 64px;
+      margin: 6px auto 24px;
+      border: 5px solid rgba(6, 47, 100, 0.18);
+      border-top-color: var(--navy);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-message {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .loading-note {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ======================================================
+       7. RESULT STEP
+       ====================================================== */
+    .result-title {
+      margin: 0 0 14px;
+      color: var(--navy-dark);
+      font-size: clamp(23px, 4vw, 32px);
+      line-height: 1.25;
+    }
+
+    .result-amount {
+      margin: 8px 0 17px;
+      color: var(--green);
+      font-size: clamp(43px, 8vw, 68px);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+    }
+
+    .result-note {
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .result-actions {
+      display: grid;
+      gap: 18px;
+    }
+
+    .disclaimer {
+      margin-top: 26px;
+      padding-top: 18px;
+      color: #7a8698;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    /* ======================================================
+       8. DECORATIVE WAVES
+       ====================================================== */
+    .wave-divider {
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .wave-divider svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ======================================================
+       9. LOWER INFORMATION SECTION
+       ====================================================== */
+    .info-section {
+      padding: 92px 20px 82px;
+      color: var(--white);
+      background: var(--navy);
+      text-align: center;
+    }
+
+    .info-inner {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .info-section h2 {
+      margin: 0 0 15px;
+      font-family: "Libre Caslon Display", Georgia, serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 400;
+    }
+
+    .info-section p {
+      margin: 0;
+      color: #c7d4e5;
+      line-height: 1.7;
+    }
+
+    /* ======================================================
+       10. FOOTER
+       ====================================================== */
+    .site-footer {
+      padding: 30px 20px;
+      color: #aebdd0;
+      background: var(--navy-dark);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* ======================================================
+       11. RESPONSIVENESS
+       ====================================================== */
+    @media (max-width: 760px) {
+      .site-header {
+        height: 70px;
+      }
+
+      .header-inner {
+        width: calc(100% - 28px);
+      }
+
+      .header-logo {
+        width: 108px;
+        max-height: 50px;
+      }
+
+      .menu-button {
+        width: 48px;
+        height: 48px;
+      }
+
+      .menu-button span {
+        width: 35px;
+        height: 3px;
+        gap: 6px;
+      }
+
+      .blog-menu {
+        top: 70px;
+        width: 100%;
+      }
+
+      .hero {
+        padding: 20px 15px 125px;
+      }
+
+      .hero-inner {
+        text-align: left;
+      }
+
+      .hero h1 {
+        font-size: clamp(35px, 10vw, 50px);
+      }
+
+      .hero-copy {
+        font-size: 15px;
+      }
+
+      .verification-card {
+        padding: 24px 18px;
+      }
+
+      .progress {
+        margin-bottom: 27px;
+      }
+
+      .primary-button {
+        box-shadow: 5px 5px 0 var(--blue);
+      }
+
+      .wave-divider {
+        height: 105px;
+      }
+
+      .info-section {
+        padding-top: 68px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header-logo {
+        width: 96px;
+        max-height: 46px;
+      }
+
+      .hero {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .verification-card {
+        padding: 21px 14px;
+      }
+
+      .progress::before {
+        left: 26px;
+        right: 26px;
+      }
+
+      .progress-item {
+        min-width: 58px;
+      }
+
+      .result-amount {
+        font-size: 47px;
+      }
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '755134515416819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=755134515416819&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '831889901057786');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=831889901057786&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+<!-- UTMIFY -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+<!-- digistore -->
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script> <script>digistoreUpsell()</script>
+
+ <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script type="text/javascript">
+digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true } );
+</script>
+<!-- digistore -->
+
+
+</head>
+
+<body>
+  <!-- ======================================================
+       HEADER
+       ====================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" aria-label="Home">
+        <!-- Place your logo at images/logo.png -->
+        <img class="header-logo" src="images/logo.png" alt="American System">
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================
+         HERO AND ELIGIBILITY CHECK
+         ==================================================== -->
+    <section class="hero" id="check">
+      <div class="hero-inner">
+        <p class="eyebrow">Official Check: Verify if there are restitutions</p>
+        <p class="hero-copy">
+          The process takes only a few seconds.
+        </p>
+
+        <!-- STEP 1: DATA FORM -->
+        <section class="verification-card" id="step1">
+          <div class="progress" aria-label="Step 1 of 3">
+            <div class="progress-item active">
+              <span class="progress-circle">1</span>
+              <span>Data</span>
+            </div>
+            <div class="progress-item">
+              <span class="progress-circle">2</span>
+              <span>Verify</span>
+            </div>
+            <div class="progress-item">
+              <span class="progress-circle">3</span>
+              <span>Result</span>
+            </div>
+          </div>
+
+          <form id="verificationForm">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                autocomplete="name"
+                required>
+            </div>
+
+            <div class="field">
+              <label for="state">State</label>
+              <select id="state" name="state" required>
+                <option value="">Select your state</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+              <option value="DC">District of Columbia</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="VI">U.S. Virgin Islands</option>
+              <option value="GU">Guam</option>
+              <option value="AS">American Samoa</option>
+              <option value="MP">Northern Mariana Islands</option>
+                <option value="others">Other location</option>
+              </select>
+            </div>
+
+            <div class="field hidden" id="customStateDiv">
+              <label for="customState">Please specify your state or territory</label>
+              <input
+                id="customState"
+                name="customState"
+                type="text"
+                placeholder="Enter your state or territory">
+            </div>
+
+            <label class="authorization">
+              <input id="authorization" name="authorization" type="checkbox" required>
+              <span>
+                I authorize this website to use the information above for this
+                preliminary eligibility check.
+              </span>
+            </label>
+
+            <button class="primary-button" type="submit">Verify Now</button>
+          </form>
+        </section>
+
+        <!-- STEP 2: LOADING -->
+        <section class="verification-card centered-step hidden" id="step2">
+          <div class="progress" aria-label="Step 2 of 3">
+            <div class="progress-item complete">
+              <span class="progress-circle">✓</span>
+              <span>Data</span>
+            </div>
+            <div class="progress-item active">
+              <span class="progress-circle">2</span>
+              <span>Verify</span>
+            </div>
+            <div class="progress-item">
+              <span class="progress-circle">3</span>
+              <span>Result</span>
+            </div>
+          </div>
+
+          <div class="spinner" aria-hidden="true"></div>
+          <div class="loading-message" id="loadingMessage" aria-live="polite">
+            Reviewing your information...
+          </div>
+          <p class="loading-note">Please wait while the preliminary check is completed.</p>
+        </section>
+
+        <!-- STEP 3: RESULT -->
+        <section class="verification-card centered-step hidden" id="step3">
+          <div class="progress" aria-label="Step 3 of 3">
+            <div class="progress-item complete">
+              <span class="progress-circle">✓</span>
+              <span>Data</span>
+            </div>
+            <div class="progress-item complete">
+              <span class="progress-circle">✓</span>
+              <span>Verify</span>
+            </div>
+            <div class="progress-item active">
+              <span class="progress-circle">3</span>
+              <span>Result</span>
+            </div>
+          </div>
+
+          <h2 class="result-title">
+            <span id="userName">Congratulations,</span> — there are $2,478.00 available in your name.
+          </h2>
+
+          <div class="result-amount">$2,478.00</div>
+
+          <p class="result-note">
+            Source: Federal Restitution System — Record #:<strong id="recordNumber"></strong>
+          </p>
+
+         <div class="result-actions">
+  <a
+    class="primary-button outbound-link"
+    href="https://aprendeahoraya.online/frontamericannovo2/">
+    Watch Official Video: How to Receive $2,478.00
+  </a>
+
+  <a
+    class="secondary-button outbound-link"
+    href="https://aprendeahoraya.online/frontamericannovo2/">
+    Download Instructions (PDF) – Watch Video First
+  </a>
+</div>
+
+          <p class="disclaimer">
+          </p>
+        </section>
+      </div>
+
+      <!-- Decorative separator inspired by the selected visual style. -->
+      <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <path d="M0,120 C280,20 560,70 820,105 C1070,140 1240,120 1440,70 L1440,180 L0,180 Z" fill="#ff161d"/>
+          <path d="M0,105 C300,80 510,72 760,92 C1030,113 1240,145 1440,158 L1440,180 L0,180 Z" fill="#314cff"/>
+          <path d="M0,97 C300,67 540,60 770,77 C1020,95 1240,126 1440,143 L1440,158 C1240,145 1030,113 760,92 C510,72 300,80 0,105 Z" fill="#ffffff"/>
+          <path d="M0,120 C280,112 540,112 780,128 C1040,146 1220,164 1440,180 L0,180 Z" fill="#062f64"/>
+        </svg>
+      </div>
+    </section>
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="terms.html"></a>
+      <a href="privacy.html"></a>
+      <a href="#"></a>
+    </nav>
+
+    <div>
+      
+  </footer>
+
+  <script>
+    /* ======================================================
+       1. HAMBURGER MENU
+       Opens and closes the blog-style navigation.
+       ====================================================== */
+    const menuButton = document.getElementById("menuButton");
+    const blogMenu = document.getElementById("blogMenu");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = blogMenu.classList.toggle("open");
+      menuButton.classList.toggle("active", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".site-header")) {
+        blogMenu.classList.remove("open");
+        menuButton.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    /* ======================================================
+       2. OTHER STATE FIELD
+       Displays the custom input only when needed.
+       ====================================================== */
+    const stateSelect = document.getElementById("state");
+    const customStateDiv = document.getElementById("customStateDiv");
+    const customStateInput = document.getElementById("customState");
+
+    stateSelect.addEventListener("change", function () {
+      const isOther = stateSelect.value === "others";
+      customStateDiv.classList.toggle("hidden", !isOther);
+      customStateInput.required = isOther;
+
+      if (!isOther) {
+        customStateInput.value = "";
+      }
+    });
+
+    /* ======================================================
+       3. RECORD NUMBER
+       Creates a reference used only inside this page.
+       ====================================================== */
+    function generateRecordNumber() {
+      return "AS-" + Math.random().toString(36).slice(2, 11).toUpperCase();
+    }
+
+    /* ======================================================
+       4. MULTI-STEP FORM
+       Saves basic data locally and advances the visitor.
+       No server request is made by this script.
+       ====================================================== */
+    const form = document.getElementById("verificationForm");
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const step3 = document.getElementById("step3");
+    const loadingMessage = document.getElementById("loadingMessage");
+
+    const loadingMessages = [
+      "Reviewing the information entered...",
+      "Checking the selected location...",
+      "Preparing the next steps..."
+    ];
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const firstName = fullName.split(/\s+/)[0] || "Your";
+      const selectedState = stateSelect.value === "others"
+        ? customStateInput.value.trim()
+        : stateSelect.value;
+
+      localStorage.setItem("userFullName", fullName);
+      localStorage.setItem("userFirstName", firstName);
+      localStorage.setItem("userState", selectedState);
+
+      document.getElementById("userName").textContent = firstName + ",";
+      document.getElementById("recordNumber").textContent = generateRecordNumber();
+
+      step1.classList.add("hidden");
+      step2.classList.remove("hidden");
+
+      let index = 0;
+
+      function showNextMessage() {
+        loadingMessage.textContent = loadingMessages[index];
+        index += 1;
+
+        if (index < loadingMessages.length) {
+          window.setTimeout(showNextMessage, 1500);
+          return;
+        }
+
+        window.setTimeout(function () {
+          step2.classList.add("hidden");
+          step3.classList.remove("hidden");
+          step3.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 1500);
+      }
+
+      showNextMessage();
+    });
+
+    /* ======================================================
+       5. URL PARAMETER PRESERVATION
+       Carries UTM and tracking parameters to outbound links.
+       ====================================================== */
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentParams = new URLSearchParams(window.location.search);
+
+      if (!currentParams.toString()) return;
+
+      document.querySelectorAll("a.outbound-link").forEach(function (link) {
+        try {
+          const url = new URL(link.href, window.location.origin);
+
+          currentParams.forEach(function (value, key) {
+            if (!url.searchParams.has(key)) {
+              url.searchParams.set(key, value);
+            }
+          });
+
+          link.href = url.toString();
+        } catch (error) {
+          console.warn("Unable to preserve URL parameters:", error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
