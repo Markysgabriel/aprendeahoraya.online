@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ======================================================
+       1. BASIC PAGE SETTINGS
+       Defines language, viewport, title and indexing behavior.
+       ====================================================== -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Freedom Benefits</title>
+
+  <!-- Google Font used throughout the page -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* ======================================================
+       2. COLOR PALETTE
+       Change these values to update the page colors.
+       ====================================================== */
+    :root {
+      --navy: #08263d;
+      --white: #ffffff;
+      --page: #f7f8fb;
+      --text: #092e4d;
+      --muted: #718095;
+      --line: #dfe5eb;
+      --blue: #314cff;
+      --red: #ff161d;
+    }
+
+    /* ======================================================
+       3. GLOBAL RESET
+       Keeps spacing and sizing consistent across browsers.
+       ====================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--text);
+      background: var(--page);
+      font-family: "Montserrat", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ======================================================
+       4. HEADER
+       Contains the logo, brand text and navigation.
+       ====================================================== */
+    .site-header {
+      color: var(--text);
+      background: var(--white);
+      border-top: 1px solid #111111;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      width: min(1160px, calc(100% - 40px));
+      min-height: 64px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .header-logo {
+      width: 54px;
+      max-height: 38px;
+      object-fit: contain;
+    }
+
+    .brand-main-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-title {
+      display: block;
+      color: var(--red);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-arrow {
+      color: var(--red);
+      font-size: 18px;
+      font-weight: 900;
+      animation: bounceArrow 1.4s infinite;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 2px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.78;
+    }
+
+    @keyframes bounceArrow {
+      50% {
+        transform: translateY(4px);
+      }
+    }
+
+    /* ======================================================
+       5. DESKTOP NAVIGATION
+       Visible only on larger screens.
+       ====================================================== */
+    .desktop-nav {
+      display: flex;
+      gap: 34px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .desktop-nav a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .desktop-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background: var(--red);
+      transition: width 0.2s ease;
+    }
+
+    .desktop-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ======================================================
+       6. MOBILE MENU BUTTON
+       Replaces the desktop navigation on smaller screens.
+       ====================================================== */
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 33px;
+      height: 3px;
+      border-radius: 3px;
+      background: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 20px 18px;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      color: var(--text);
+      font-weight: 700;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ======================================================
+       7. TEXT ABOVE THE VIDEO
+       Compact title placed immediately above the VSL.
+       ====================================================== */
+    .presentation-intro {
+      padding: 10px 16px 6px;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .presentation-intro h1 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(16px, 2.2vw, 22px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .presentation-line {
+      width: 48px;
+      height: 3px;
+      margin: 6px auto 0;
+      background: var(--red);
+    }
+
+    /* ======================================================
+       8. VSL SECTION
+       Contains the VTurb video player.
+       ====================================================== */
+    .vsl-section {
+      position: relative;
+      padding: 2px 20px 82px;
+      background: var(--white);
+    }
+
+    .vsl-inner {
+      width: min(900px, 100%);
+      margin: 0 auto;
+    }
+
+    .vsl-shell {
+      padding: 10px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(8, 38, 61, 0.16);
+    }
+
+    .vsl-shell iframe,
+    .vsl-shell video,
+    .vsl-shell vturb-smartplayer {
+      max-width: 100% !important;
+    }
+
+    /* ======================================================
+       9. DECORATIVE WAVE BELOW THE VIDEO
+       Creates the red, white and blue visual transition.
+       ====================================================== */
+    .wave {
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 92px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .wave svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ======================================================
+       10. RESULT / AMOUNT SECTION
+       Displays the visitor name and potential amount.
+       The visitor name is loaded from localStorage.
+       ====================================================== */
+    .welcome-banner {
+      padding: 34px 20px 42px;
+      color: var(--white);
+      background: var(--navy);
+      text-align: left;
+    }
+
+    .welcome-inner {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .welcome-title {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 500;
+    }
+
+    .welcome-title span {
+      font-weight: 800;
+    }
+
+    .welcome-accent {
+      width: 58px;
+      height: 4px;
+      margin: 12px 0 14px;
+      background: var(--red);
+    }
+
+    .welcome-label {
+      margin: 0;
+      color: #d7e1ec;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .welcome-amount {
+      margin: 4px 0 0;
+      font-size: clamp(34px, 4.5vw, 48px);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    /* ======================================================
+       11. FOOTER
+       Currently empty, but kept for future legal text.
+       ====================================================== */
+    .site-footer {
+      min-height: 22px;
+      background: var(--navy);
+    }
+
+    /* ======================================================
+       12. RESPONSIVE SETTINGS
+       Adjusts header, menu, video and text on mobile.
+       ====================================================== */
+    @media (max-width: 760px) {
+      .header-inner {
+        width: calc(100% - 24px);
+        min-height: 58px;
+      }
+
+      .header-logo {
+        width: 42px;
+        max-height: 30px;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .brand-title {
+        font-size: 14px;
+      }
+
+      .brand-arrow {
+        font-size: 16px;
+      }
+
+      .brand-subtitle {
+        margin-top: 1px;
+        font-size: 9px;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .presentation-intro {
+        padding: 7px 10px 4px;
+      }
+
+      .presentation-intro h1 {
+        font-size: 15px;
+      }
+
+      .vsl-section {
+        padding: 0 8px 68px;
+      }
+
+      .vsl-shell {
+        padding: 5px;
+      }
+
+      .wave {
+        height: 72px;
+      }
+
+      .welcome-banner {
+        padding: 26px 14px 30px;
+      }
+
+      .welcome-title {
+        font-size: 24px;
+      }
+
+      .welcome-amount {
+        font-size: 42px;
+      }
+    }
+  </style>
+
+  <!-- ======================================================
+       13. VTURB PLAYER PRELOAD
+       Improves the initial loading of the video player.
+       ====================================================== -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a52592a0a9f72b511f8638a/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/6a52591d8a944b5cf66ac14d/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+
+  <!-- Meta Pixel Code -->
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '755134515416819');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=755134515416819&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+  <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '831889901057786');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=831889901057786&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+<!-- UTMIFY -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+<!-- digistore -->
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script> <script>digistoreUpsell()</script>
+
+ <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script type="text/javascript">
+digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_domain": true } );
+</script>
+<!-- digistore -->
+
+</head>
+
+<body>
+  <!-- ======================================================
+       17. PAGE HEADER
+       Logo path: ./assets/img/logo.png
+       ====================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Home">
+        <img
+          class="header-logo"
+          src="./assets/img/logo.png"
+          alt="Official Check"
+        >
+
+        <div class="brand-copy">
+          <div class="brand-main-line">
+            <strong class="brand-title">OFFICIAL CHECK</strong>
+            <span class="brand-arrow" aria-hidden="true">↓</span>
+          </div>
+
+          <span class="brand-subtitle">
+            Freedom benefits finally released
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#video">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Mobile hamburger button -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile navigation -->
+    <nav
+      class="mobile-menu"
+      id="mobileMenu"
+      aria-label="Mobile navigation"
+    >
+      <a href="#home">Home</a>
+      <a href="#video">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <!-- ====================================================
+         18. TEXT ABOVE THE VIDEO
+         ==================================================== -->
+    <section class="presentation-intro">
+      <h1>Watch the official video: “How to Receive $2,478.00”</h1>
+      <div class="presentation-line" aria-hidden="true"></div>
+    </section>
+
+    <!-- ====================================================
+         19. VTURB VIDEO PLAYER
+         ==================================================== -->
+    <section class="vsl-section" id="video">
+      <div class="vsl-inner">
+        <div class="vsl-shell">
+          <vturb-smartplayer
+            id="vid-6a52592a0a9f72b511f8638a"
+            style="display:block;margin:0 auto;width:100%;"
+          >
+            <div
+              class="vturb-player-placeholder"
+              style="position:relative;width:100%;padding:55.9375% 0 0;z-index:0;background:black;"
+            ></div>
+          </vturb-smartplayer>
+
+          <!-- Loads the VTurb player -->
+          <script>
+            const vturbScript = document.createElement("script");
+
+            vturbScript.src =
+              "https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6a52592a0a9f72b511f8638a/v4/player.js";
+
+            vturbScript.async = true;
+            document.head.appendChild(vturbScript);
+          </script>
+        </div>
+      </div>
+
+      <!-- Decorative red, white and blue waves -->
+      <div class="wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <path
+            d="M0,120 C280,20 560,70 820,105 C1070,140 1240,120 1440,70 L1440,180 L0,180 Z"
+            fill="#ff161d"
+          />
+          <path
+            d="M0,105 C300,80 510,72 760,92 C1030,113 1240,145 1440,158 L1440,180 L0,180 Z"
+            fill="#314cff"
+          />
+          <path
+            d="M0,97 C300,67 540,60 770,77 C1020,95 1240,126 1440,143 L1440,158 C1240,145 1030,113 760,92 C510,72 300,80 0,105 Z"
+            fill="#ffffff"
+          />
+          <path
+            d="M0,120 C280,112 540,112 780,128 C1040,146 1220,164 1440,180 L0,180 Z"
+            fill="#08263d"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         20. VISITOR NAME AND POTENTIAL AMOUNT
+         The visitor name is loaded from localStorage.
+         ==================================================== -->
+    <section class="welcome-banner">
+      <div class="welcome-inner">
+        <h2 class="welcome-title">
+          Welcome,
+          <span id="visitorName">Visitor</span>
+        </h2>
+
+        <div class="welcome-accent" aria-hidden="true"></div>
+
+        <p class="welcome-label">Potential Amount Identified</p>
+        <p class="welcome-amount">$2,478.00</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================
+       21. FOOTER
+       Kept empty for future legal or contact information.
+       ====================================================== -->
+  <footer class="site-footer" id="contact"></footer>
+
+  <script>
+    /* ======================================================
+       22. MOBILE MENU
+       Opens and closes the hamburger navigation.
+       ====================================================== */
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mobileMenu.classList.toggle("open");
+
+      menuToggle.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.remove("open");
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    /* ======================================================
+       23. VISITOR NAME
+       Reads the name saved on the previous page.
+       Expected localStorage keys:
+       - userFirstName
+       - userFullName
+       ====================================================== */
+    const savedFirstName = localStorage.getItem("userFirstName");
+    const savedFullName = localStorage.getItem("userFullName");
+    const visitorName = document.getElementById("visitorName");
+
+    if (savedFirstName) {
+      visitorName.textContent = savedFirstName;
+    } else if (savedFullName) {
+      visitorName.textContent = savedFullName.split(/\s+/)[0];
+    }
+  </script>
+</body>
+</html>
