@@ -195,8 +195,7 @@
       margin:28px auto 56px;
     }
     .intro,
-    .quiz-card,
-    .final-card{
+    .quiz-card{
       background:#fff;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
@@ -463,27 +462,6 @@
     }
 
     /* FINAL */
-    .final-card{
-      padding:38px;
-      text-align:center;
-    }
-    .check{
-      width:74px;
-      height:74px;
-      margin:0 auto 16px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:var(--soft-green);
-      color:var(--green);
-      font-size:38px;
-      font-weight:900;
-    }
-    .final-card h2{
-      margin:0;
-      font-size:clamp(28px,5vw,44px);
-      letter-spacing:-.05em;
-    }
     .final-copy{
       max-width:650px;
       margin:12px auto 26px;
@@ -500,10 +478,6 @@
       background:linear-gradient(180deg,#20a550,#0b7d37);
       color:#fff;
       }
-
-    .final-actions{
-      text-align:center;
-    }
 
     .final-button{
       width:100%;
@@ -617,7 +591,6 @@
       .product{min-height:150px}
       .choices{grid-template-columns:repeat(3,1fr)}
       .choice{min-height:54px;font-size:13px}
-      .final-card{padding:28px 16px}
       .profile-form{grid-template-columns:1fr}
       .full{grid-column:auto}
     }
@@ -800,9 +773,6 @@
 
 
     /* POPUP FINAL */
-    .final-card{
-      display:none;
-    }
 
     .final-popup-overlay{
       position:fixed;
@@ -1066,25 +1036,6 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
       <div class="choices" id="choices"></div>
       <div class="feedback" id="feedback">✓ Opinión registrada</div>
     </section>
-
-    <section class="final-card hidden" id="finalCard">
-      <div class="check">✓</div>
-      <h2>Evaluación completada</h2>
-
-      <div class="final-balance">
-        <small>SU SALDO ACTUAL:</small>
-        <strong id="finalBalance">$0,00</strong>
-      </div>
-
-      <p class="final-copy">
-        Para registrar su cuenta bancaria y retirar fondos, Vea un video de 4 minutos.
-      </p>
-
-      <div class="final-actions">
-        <a class="primary final-button"href="https://aprendeahoraya.online/2frontsheinfront2">MIRA EL VIDEO</a>
-      </div>
-
-</section>
   </main>
 
   <div class="float-gain" id="floatGain">+$0,00</div>
@@ -1103,7 +1054,7 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
         Para registrar su cuenta bancaria y retirar fondos, vea un video de 4 minutos.
       </p>
 
-      <a class="primary final-button" href="https://SEU-LINK-AQUI.com">MIRA EL VIDEO</a>
+      <a class="primary final-button" href="https://aprendeahoraya.online/2frontsheinfront2">MIRA EL VIDEO</a>
 
       <div class="spots-left">
         Quedan <span id="spotsCount">87</span> accesos disponibles para ver el video explicativo.
@@ -1261,11 +1212,9 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
 
     const intro = document.getElementById("intro");
     const quizCard = document.getElementById("quizCard");
-    const finalCard = document.getElementById("finalCard");
     const balanceValue = document.getElementById("balanceValue");
     const progressText = document.getElementById("progressText");
     const progressFill = document.getElementById("progressFill");
-    const finalBalance = document.getElementById("finalBalance");
     const floatGain = document.getElementById("floatGain");
 
     function money(value){
@@ -1377,7 +1326,6 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
 
     function showFinal(){
       quizCard.classList.add("hidden");
-      finalCard.classList.add("hidden");
       document.getElementById("popupFinalBalance").textContent = money(balance);
       document.getElementById("finalPopupOverlay").classList.remove("hidden");
       document.body.classList.add("popup-open");
