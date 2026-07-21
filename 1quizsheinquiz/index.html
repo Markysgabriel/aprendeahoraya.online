@@ -328,21 +328,59 @@
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:12px;
-      margin:24px 0;
+      margin:18px 0 10px;
     }
+
     .product{
-      min-height:176px;
+      min-height:190px;
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
       padding:16px;
+      border:2px solid transparent;
       border-radius:12px;
       color:#fff;
       overflow:hidden;
       position:relative;
       isolation:isolate;
+      cursor:pointer;
+      appearance:none;
+      width:100%;
+      text-align:left;
+      font:inherit;
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
     }
-    
+
+    .product:hover,
+    .product:focus-visible{
+      transform:translateY(-4px) scale(1.015);
+      border-color:#22c55e;
+      box-shadow:0 18px 38px rgba(0,0,0,.20),0 0 0 3px rgba(34,197,94,.16);
+      outline:none;
+    }
+
+    .product.selected{
+      border-color:#22c55e;
+      transform:scale(1.025);
+      box-shadow:0 0 0 4px rgba(34,197,94,.22),0 20px 45px rgba(0,0,0,.24);
+    }
+
+    .product.selected::after{
+      content:"✓ Selección registrada";
+      position:absolute;
+      inset:12px 12px auto;
+      z-index:3;
+      padding:9px 10px;
+      border-radius:8px;
+      background:#16a34a;
+      color:#fff;
+      text-align:center;
+      font-size:12px;
+      font-weight:900;
+      box-shadow:0 8px 18px rgba(0,0,0,.22);
+    }
+
     .product-image{
       position:absolute;
       inset:0;
@@ -356,24 +394,40 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.64));
+      background:linear-gradient(180deg,rgba(0,0,0,.03) 15%,rgba(0,0,0,.78) 100%);
       z-index:-1;
     }
+
     .product-icon{
       position:absolute;
       inset:16px 16px auto auto;
       font-size:52px;
       filter:drop-shadow(0 10px 15px rgba(0,0,0,.18));
     }
+
     .product strong{
-      font-size:14px;
+      font-size:16px;
       line-height:1.2;
     }
+
     .product small{
-      margin-top:4px;
-      font-size:10px;
-      opacity:.85;
+      margin-top:5px;
+      font-size:11px;
+      opacity:.9;
     }
+
+    .product-action{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      margin-top:10px;
+      padding-top:9px;
+      border-top:1px solid rgba(255,255,255,.30);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.01em;
+    }
+
     .bg1{background:linear-gradient(135deg,#d49aa7,#7d4453)}
     .bg2{background:linear-gradient(135deg,#91a8b8,#344654)}
     .bg3{background:linear-gradient(135deg,#c7996b,#674b31)}
@@ -384,42 +438,24 @@
     .bg8{background:linear-gradient(135deg,#7da6ca,#314f6c)}
 
     .question{
-      margin:6px 0 14px;
-      font-size:18px;
-      font-weight:800;
+      margin:20px 0 5px;
+      font-size:clamp(19px,3vw,26px);
+      line-height:1.25;
+      font-weight:900;
       text-align:center;
+      letter-spacing:-.025em;
     }
+
+    .selection-help{
+      margin:0 0 16px;
+      color:#6e6e6e;
+      text-align:center;
+      font-size:13px;
+      font-weight:700;
+    }
+
     .choices{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .choice{
-      min-height:60px;
-      border:0;
-      border-radius:10px;
-      color:#fff;
-      font-weight:800;
-      transition:.2s;
-      box-shadow:0 8px 20px rgba(0,0,0,.12);
-    }
-    .choice:nth-child(1){
-      background:#16a34a;
-    }
-    .choice:nth-child(2){
-      background:#2563eb;
-    }
-    .choice:nth-child(3){
-      background:#f59e0b;
-      color:#111;
-    }
-    .choice:hover{
-      transform:translateY(-2px) scale(1.02);
-      filter:brightness(1.05);
-    }
-    .choice.selected{
-      outline:4px solid #111;
-      outline-offset:2px;
+      display:none!important;
     }
 
     .feedback{
@@ -588,7 +624,7 @@
       .quiz-head{display:block}
       .reward-chip{display:inline-block;margin-top:12px}
       .product-grid{grid-template-columns:repeat(2,1fr)}
-      .product{min-height:150px}
+      .product{min-height:170px}
       .choices{grid-template-columns:repeat(3,1fr)}
       .choice{min-height:54px;font-size:13px}
       .profile-form{grid-template-columns:1fr}
@@ -607,7 +643,7 @@
       .balance-label{font-size:8px}
       .balance-value{font-size:20px}
       .app-shell{width:calc(100% - 16px);margin-top:16px}
-      .product{min-height:138px;padding:12px}
+      .product{min-height:155px;padding:12px}
       .product-icon{font-size:42px}
     }
 
@@ -884,7 +920,479 @@
       }
     }
 
-  </style>
+  
+.main-question{
+ font-size:clamp(30px,4vw,42px);
+ font-weight:900;
+ line-height:1.15;
+ text-align:center;
+ margin:10px auto 10px;
+ max-width:900px;
+ color:#111;
+}
+.main-help{
+ text-align:center;
+ font-size:18px;
+ font-weight:700;
+ color:#666;
+ margin-bottom:10px;
+}
+.quiz-title{display:none;}
+.quiz-subtitle{
+ max-width:900px;
+ margin:8px auto 18px;
+ color:inherit;
+}
+.quiz-head{
+ margin-bottom:12px;
+}
+
+
+    .experience-label{
+      display:table;
+      margin:2px auto 10px;
+      padding:7px 11px;
+      border:1px solid #dce3df;
+      border-radius:999px;
+      background:#f4faf6;
+      color:#13733a;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.09em;
+    }
+
+
+    .question:empty{display:none;}
+
+    /* ===== VERSIÓN LIMPIA, COMPACTA Y RESPONSIVA ===== */
+    .experience-label,
+    .selection-help,
+    .question:empty{
+      display:none!important;
+    }
+
+    .app-shell{
+      width:min(980px,calc(100% - 18px));
+      margin:14px auto 24px;
+    }
+
+    .quiz-card{
+      padding:18px 20px 20px;
+      overflow:visible;
+    }
+
+    .quiz-head{
+      display:grid!important;
+      grid-template-columns:minmax(0,1fr) auto!important;
+      align-items:center!important;
+      gap:12px 18px!important;
+      margin-bottom:12px!important;
+    }
+
+    .quiz-head > div:first-child{
+      min-width:0;
+    }
+
+    .step-number{
+      margin:0;
+      white-space:nowrap;
+      font-size:11px;
+      color:#666;
+    }
+
+    .reward-chip{
+      margin:0!important;
+      white-space:nowrap;
+      align-self:center;
+      padding:9px 12px;
+      font-size:12px;
+    }
+
+    .quiz-subtitle{
+      grid-column:1/-1;
+      width:100%;
+      max-width:100%;
+      margin:0;
+      text-align:center;
+    }
+
+    .main-question{
+      max-width:860px;
+      margin:0 auto 6px;
+      color:#111;
+      font-size:clamp(22px,3vw,34px);
+      line-height:1.14;
+      font-weight:900;
+      letter-spacing:-.035em;
+      text-align:center;
+    }
+
+    .main-help{
+      margin:0 auto;
+      color:#6b6b6b;
+      font-size:clamp(12px,1.4vw,15px);
+      line-height:1.35;
+      font-weight:700;
+      text-align:center;
+    }
+
+    .product-grid{
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+      margin:12px 0 0;
+    }
+
+    .product{
+      min-height:clamp(138px,22vh,186px);
+      padding:12px;
+      border-radius:10px;
+    }
+
+    .product strong{
+      font-size:14px;
+    }
+
+    .product small{
+      margin-top:3px;
+      font-size:10px;
+    }
+
+    .product-action{
+      margin-top:7px;
+      padding-top:7px;
+      font-size:10px;
+    }
+
+    .feedback{
+      display:none;
+      width:100%;
+      margin:12px 0 0;
+      padding:11px 13px;
+      border:1px solid #cdebd8;
+      border-radius:8px;
+      background:var(--soft-green);
+      color:var(--green-dark);
+      font-size:12px;
+      font-weight:900;
+      text-align:center;
+    }
+
+    .feedback.show{
+      display:block!important;
+      animation:pop .25s ease;
+    }
+
+    @media(max-width:820px){
+      .app-shell{
+        width:calc(100% - 12px);
+        margin-top:10px;
+      }
+
+      .quiz-card{
+        padding:14px 10px 16px;
+      }
+
+      .quiz-head{
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr) auto!important;
+        gap:8px 10px!important;
+      }
+
+      .reward-chip{
+        display:block!important;
+        margin:0!important;
+        padding:7px 8px;
+        font-size:10px;
+      }
+
+      .step-number{
+        font-size:9px;
+      }
+
+      .main-question{
+        font-size:clamp(19px,5.6vw,27px);
+      }
+
+      .main-help{
+        font-size:12px;
+      }
+
+      .product-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:8px;
+      }
+
+      .product{
+        min-height:145px;
+        padding:10px;
+      }
+    }
+
+    @media(max-width:430px){
+      .balance-bar{
+        position:static;
+      }
+
+      .balance-inner{
+        width:calc(100% - 12px);
+        min-height:auto;
+        grid-template-columns:minmax(0,1fr) auto;
+        gap:8px;
+        padding:7px 0;
+      }
+
+      .balance-box{
+        width:auto;
+        min-width:112px;
+        padding:7px 8px;
+      }
+
+      .balance-value{
+        font-size:18px;
+      }
+
+      .progress-copy strong{
+        margin-bottom:5px;
+        font-size:9px;
+      }
+
+      .quiz-head{
+        gap:6px 8px!important;
+      }
+
+      .step-number{
+        font-size:8px;
+      }
+
+      .reward-chip{
+        max-width:165px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        font-size:8px;
+      }
+
+      .main-question{
+        font-size:20px;
+      }
+
+      .product{
+        min-height:132px;
+      }
+
+      .product-action{
+        font-size:9px;
+      }
+    }
+
+
+    /* ===== AJUSTE PREMIUM DO CABEÇALHO DO QUIZ ===== */
+    .quiz-card{
+      position:relative;
+      padding:20px 22px 22px;
+      border:1px solid #e7e7e7;
+      border-radius:16px;
+      background:
+        radial-gradient(circle at top right, rgba(21,148,71,.055), transparent 32%),
+        #fff;
+      box-shadow:0 18px 45px rgba(0,0,0,.08);
+    }
+
+    .quiz-head{
+      display:flex!important;
+      align-items:center!important;
+      justify-content:space-between!important;
+      gap:16px!important;
+      width:100%!important;
+      margin:0!important;
+    }
+
+    .step-number{
+      flex:1 1 auto;
+      min-width:0;
+      margin:0!important;
+      color:#595959;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.11em;
+      line-height:1.2;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .reward-chip{
+      flex:0 0 auto;
+      margin:0!important;
+      padding:9px 12px!important;
+      border:1px solid #cce9d6;
+      border-radius:999px;
+      background:linear-gradient(180deg,#f4fbf6,#eaf7ef);
+      color:var(--green-dark);
+      box-shadow:0 5px 14px rgba(21,148,71,.10);
+      font-size:12px!important;
+      font-weight:900;
+      line-height:1.1;
+      white-space:nowrap;
+    }
+
+    .premium-divider{
+      width:100%;
+      height:1px;
+      margin:14px 0 15px;
+      background:linear-gradient(90deg,transparent,#dedede 12%,#dedede 88%,transparent);
+    }
+
+    .quiz-subtitle{
+      display:block!important;
+      width:100%!important;
+      max-width:880px!important;
+      margin:0 auto 13px!important;
+      text-align:center!important;
+    }
+
+    .main-question{
+      max-width:820px;
+      margin:0 auto 7px!important;
+      color:#111;
+      font-size:clamp(22px,3vw,34px)!important;
+      font-weight:900;
+      line-height:1.12;
+      letter-spacing:-.04em;
+      text-align:center;
+    }
+
+    .main-help{
+      margin:0 auto!important;
+      color:#707070;
+      font-size:clamp(12px,1.35vw,15px)!important;
+      font-weight:700;
+      line-height:1.35;
+      text-align:center;
+    }
+
+    .product-grid{
+      margin-top:12px!important;
+    }
+
+    .product{
+      border-radius:12px!important;
+      box-shadow:0 12px 25px rgba(0,0,0,.11);
+    }
+
+    .product:hover,
+    .product:focus-visible{
+      transform:translateY(-3px) scale(1.01)!important;
+    }
+
+    .feedback{
+      margin-top:12px!important;
+      border-radius:10px!important;
+      box-shadow:0 7px 18px rgba(21,148,71,.08);
+    }
+
+    @media(max-width:620px){
+      .quiz-card{
+        padding:14px 10px 16px;
+        border-radius:13px;
+      }
+
+      .quiz-head{
+        gap:8px!important;
+      }
+
+      .step-number{
+        font-size:8px!important;
+        letter-spacing:.07em;
+      }
+
+      .reward-chip{
+        max-width:58%;
+        padding:7px 9px!important;
+        font-size:8px!important;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+
+      .premium-divider{
+        margin:10px 0 12px;
+      }
+
+      .main-question{
+        font-size:20px!important;
+      }
+
+      .main-help{
+        font-size:11px!important;
+      }
+    }
+
+
+/* ===== PREMIUM URGENCY BADGE ===== */
+.tag{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 22px!important;
+  border-radius:999px!important;
+  background:linear-gradient(135deg,#ff3b30,#c1121f)!important;
+  color:#fff!important;
+  border:none!important;
+  font-size:15px!important;
+  font-weight:900!important;
+  letter-spacing:.02em;
+  box-shadow:
+    0 0 0 0 rgba(255,59,48,.55),
+    0 12px 28px rgba(193,18,31,.35);
+  animation:urgentPulse 1.8s infinite;
+  overflow:hidden;
+}
+
+.tag::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,
+      transparent 20%,
+      rgba(255,255,255,.45) 50%,
+      transparent 80%);
+  transform:translateX(-140%);
+  animation:shine 2.8s infinite;
+}
+
+
+
+@keyframes urgentPulse{
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(255,59,48,.45),
+               0 12px 28px rgba(193,18,31,.30);
+  }
+  50%{
+    transform:scale(1.03);
+    box-shadow:0 0 0 14px rgba(255,59,48,0),
+               0 18px 40px rgba(193,18,31,.42);
+  }
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(255,59,48,0),
+               0 12px 28px rgba(193,18,31,.30);
+  }
+}
+
+@keyframes shine{
+  from{transform:translateX(-140%);}
+  to{transform:translateX(160%);}
+}
+
+@media(max-width:600px){
+  .tag{
+    font-size:12px!important;
+    padding:12px 16px!important;
+  }
+}
+
+</style>
 
  <!-- Meta Pixel Code -->
 
@@ -1023,18 +1531,18 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
 
     <section class="quiz-card hidden" id="quizCard">
       <div class="quiz-head">
-        <div>
-          <div class="step-number" id="stepNumber">Evaluación 1 de 4</div>
-          <h2 class="quiz-title" id="quizTitle"></h2>
-          <p class="quiz-subtitle" id="quizSubtitle"></p>
-        </div>
+        <div class="step-number" id="stepNumber">Evaluación 1 de 4</div>
         <div class="reward-chip" id="rewardChip">Valor de participación: +$0,00</div>
       </div>
 
+      <div class="premium-divider" aria-hidden="true"></div>
+
+      <div class="quiz-subtitle" id="quizSubtitle"></div>
+
       <div class="product-grid" id="productGrid"></div>
+      <div class="feedback" id="feedback">✓ Selección registrada</div>
       <div class="question" id="questionText"></div>
       <div class="choices" id="choices"></div>
-      <div class="feedback" id="feedback">✓ Opinión registrada</div>
     </section>
   </main>
 
@@ -1043,7 +1551,7 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
   <div class="final-popup-overlay hidden" id="finalPopupOverlay" role="dialog" aria-modal="true" aria-labelledby="finalPopupTitle">
     <div class="final-popup">
       <div class="final-popup-check">✓</div>
-      <h2 id="finalPopupTitle">Evaluación completada</h2>
+      <h2 id="finalPopupTitle">🎁 Felicidades! 🎁</h2>
 
       <div class="final-balance">
         <small>SU SALDO ACTUAL:</small>
@@ -1153,56 +1661,60 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
 
     const steps = [
       {
-        title: "Moda mujer y hombre",
-        subtitle: "Compara las categorías y elige la que comprarías primero.",
+        mainQuestion: "Selecciona la opción que debería formar parte de los próximos lanzamientos.",
+        instruction: "👆 Haz clic en una imagen para registrar tu selección.",
+        actionText: "Elegir esta opción",
+        registeringText: "Registrando tu selección...",
+        successText: "✓ Selección registrada — recompensa acreditada",
         reward: 28.50,
-        question: "¿Qué colección debería recibir más novedades?",
         products: [
           ["👗","Vestidos","Moda mujer","bg1","images/vestidos.webp"],
           ["🧥","Chaquetas","Moda mujer","bg4","images/chaquetas.webp"],
           ["👕","Camisetas","Moda hombre","bg2","images/camisetas.webp"],
           ["👖","Denim","Moda hombre","bg8","images/denim.webp"]
-        ],
-        choices: ["Moda mujer","Moda hombre","Ambas"]
+        ]
       },
       {
-        title: "Bolsos y accesorios",
-        subtitle: "Evalúa las categorías que podrían formar parte de las próximas colecciones.",
+        mainQuestion: "Selecciona el producto que debería aparecer en una próxima promoción especial.",
+        instruction: "👆 Haz clic en una imagen para registrar tu selección.",
+        actionText: "Elegir para promoción",
+        registeringText: "Analizando tu preferencia...",
+        successText: "✓ Preferencia validada — recompensa acreditada",
         reward: 24.80,
-        question: "¿Qué categoría te gustaría ver con más frecuencia?",
         products: [
           ["👜","Bolsos","Nuevos diseños","bg3","images/bolsos.webp"],
           ["⌚","Relojes","Accesorios","bg2","images/relojes.webp"],
           ["🕶️","Gafas","Tendencias","bg5","images/gafas.webp"],
           ["💍","Joyas","Detalles","bg4","images/joyas.webp"]
-        ],
-        choices: ["Bolsos","Accesorios","Ambas"]
+        ]
       },
       {
-        title: "Calzado y belleza",
-        subtitle: "Indica qué grupo despertaría primero tu interés de compra.",
+        mainQuestion: "Selecciona la imagen que más llamaría tu atención dentro de la aplicación.",
+        instruction: "👆 Haz clic en una imagen para registrar tu selección.",
+        actionText: "Seleccionar imagen",
+        registeringText: "Registrando tu reacción visual...",
+        successText: "✓ Evaluación visual completada — recompensa acreditada",
         reward: 31.20,
-        question: "¿Qué comprarías primero?",
         products: [
           ["👟","Zapatillas","Calzado casual","bg5","images/zapatillas.webp"],
           ["👠","Tacones","Colección especial","bg1","images/tacones.webp"],
           ["💄","Maquillaje","Belleza","bg7","images/maquillaje.webp"],
           ["🧴","Cuidado facial","Skincare","bg8","images/skincare.webp"]
-        ],
-        choices: ["Calzado","Belleza","Ambos"]
+        ]
       },
       {
-        title: "Hogar y tecnología",
-        subtitle: "Ayúdanos a identificar qué tipo de producto genera más curiosidad.",
+        mainQuestion: "Selecciona el producto que comprarías primero.",
+        instruction: "👆 Haz clic en una imagen para registrar tu selección.",
+        actionText: "Este sería mi elegido",
+        registeringText: "Validando tu intención de compra...",
+        successText: "✓ Intención registrada — recompensa acreditada",
         reward: 39.41,
-        question: "¿Qué categoría debería ganar más espacio en la aplicación?",
         products: [
           ["🏠","Decoración","Hogar","bg3","images/hogar.webp"],
           ["💡","Iluminación","Ambientes","bg6","images/iluminacion.webp"],
           ["🎧","Audio","Tecnología","bg2","images/audio.webp"],
           ["📱","Gadgets","Accesorios tech","bg8","images/gadgets.webp"]
-        ],
-        choices: ["Hogar","Tecnología","Ambas"]
+        ]
       }
     ];
 
@@ -1254,74 +1766,92 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
 
       document.getElementById("stepNumber").textContent =
         `Evaluación ${currentStep+1} de ${steps.length}`;
-      document.getElementById("quizTitle").textContent = step.title;
-      document.getElementById("quizSubtitle").textContent = step.subtitle;
+      const quizTitle = document.getElementById("quizTitle");
+      if (quizTitle) quizTitle.textContent = "";
+      document.getElementById("quizSubtitle").innerHTML = `<div class="main-question">${step.mainQuestion}</div><div class="main-help">${step.instruction}</div>`;
       document.getElementById("rewardChip").textContent =
         `Valor de participación: +${money(step.reward)}`;
-      document.getElementById("questionText").textContent = step.question;
+      document.getElementById("questionText").textContent = "";
 
-      document.getElementById("productGrid").innerHTML = step.products.map(item => `
-        <article class="product ${item[3]}">
+      document.getElementById("productGrid").innerHTML = step.products.map((item,index) => `
+        <button
+          class="product ${item[3]}"
+          type="button"
+          data-index="${index}"
+          aria-label="Seleccionar ${item[1]}"
+        >
           ${item[4] ? `<img src="${item[4]}" class="product-image" alt="${item[1]}">` : `<div class="product-icon">${item[0]}</div>`}
           <strong>${item[1]}</strong>
           <small>${item[2]}</small>
-        </article>
+          <span class="product-action">👆 ${step.actionText}</span>
+        </button>
       `).join("");
 
-      document.getElementById("choices").innerHTML = step.choices.map(choice => `
-        <button class="choice" type="button">${choice}</button>
-      `).join("");
+      document.getElementById("choices").innerHTML = "";
+      const feedback = document.getElementById("feedback");
+      feedback.textContent = step.registeringText;
+      feedback.classList.remove("show");
 
-      document.getElementById("feedback").classList.remove("show");
-
-      document.querySelectorAll(".choice").forEach(button => {
-        button.addEventListener("click", () => selectChoice(button,step.reward));
+      document.querySelectorAll(".product").forEach(card => {
+        card.addEventListener("click", () => {
+          const item = step.products[Number(card.dataset.index)];
+          selectProduct(card,item,step.reward,step);
+        });
       });
 
       quizCard.scrollIntoView({behavior:"smooth",block:"center"});
     }
 
-    function selectChoice(button,reward){
+    function selectProduct(card,item,reward,step){
       if(locked) return;
       locked = true;
 
-      document.querySelectorAll(".choice").forEach(btn => btn.classList.remove("selected"));
-      button.classList.add("selected");
+      document.querySelectorAll(".product").forEach(product => {
+        product.classList.remove("selected");
+        product.disabled = true;
+      });
+      card.classList.add("selected");
 
       playSelectionSound();
       vibrate(18);
 
-      const oldBalance = balance;
-      balance += reward;
-      animateBalance(oldBalance,balance);
+      const feedback = document.getElementById("feedback");
+      feedback.textContent = step.registeringText;
+      feedback.classList.add("show");
 
-      floatGain.textContent = "+" + money(reward);
-      floatGain.classList.remove("animate");
-      void floatGain.offsetWidth;
-      floatGain.classList.add("animate");
+      window.setTimeout(() => {
+        feedback.textContent = step.successText;
 
-      const completed = currentStep + 1;
-      progressText.textContent = `${completed} de ${steps.length} evaluaciones completadas`;
-      progressFill.style.width = `${(completed/steps.length)*100}%`;
+        const oldBalance = balance;
+        balance += reward;
+        animateBalance(oldBalance,balance);
 
-      document.getElementById("feedback").classList.add("show");
+        floatGain.textContent = "+" + money(reward);
+        floatGain.classList.remove("animate");
+        void floatGain.offsetWidth;
+        floatGain.classList.add("animate");
 
-      if(typeof fbq === "function"){
-        fbq("trackCustom","QuizAnswer",{
-          step:completed,
-          category:steps[currentStep].title,
-          answer:button.textContent.trim()
-        });
-      }
+        const completed = currentStep + 1;
+        progressText.textContent = `${completed} de ${steps.length} evaluaciones completadas`;
+        progressFill.style.width = `${(completed/steps.length)*100}%`;
 
-      setTimeout(() => {
-        currentStep++;
-        if(currentStep < steps.length){
-          renderStep();
-        }else{
-          showFinal();
+        if(typeof fbq === "function"){
+          fbq("trackCustom","QuizAnswer",{
+            step:completed,
+            category:steps[currentStep].mainQuestion,
+            answer:item[1]
+          });
         }
-      },1150);
+
+        window.setTimeout(() => {
+          currentStep++;
+          if(currentStep < steps.length){
+            renderStep();
+          }else{
+            showFinal();
+          }
+        },900);
+      },500);
     }
 
     function showFinal(){
@@ -1520,7 +2050,7 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
       const monthFormatted = month.charAt(0).toUpperCase() + month.slice(1);
 
       element.textContent =
-        `🚨Hoy ${day} de ${monthFormatted} de ${year} — ¡ÚLTIMO DÍA para participar!`;
+        `🚨 HOY ${day} de ${monthFormatted} de ${year} · ÚLTIMO DÍA PARA PARTICIPAR`;
     }
 
     updateDailyDeadline();
