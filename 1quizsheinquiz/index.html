@@ -1054,7 +1054,7 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
         Para registrar su cuenta bancaria y retirar fondos, vea un video de 4 minutos.
       </p>
 
-      <a class="primary final-button" href="https://aprendeahoraya.online/2frontsheinfront2">MIRA EL VIDEO</a>
+      <a class="primary final-button" id="salesPageButton" href="https://aprendeahoraya.online/2frontsheinfront2">MIRA EL VIDEO</a>
 
       <div class="spots-left">
         Quedan <span id="spotsCount">87</span> accesos disponibles para ver el video explicativo.
@@ -1373,6 +1373,34 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
       }
 
       startError.classList.remove("show");
+
+      const normalizedFullName = fullName.value.trim().replace(/\s+/g, " ");
+      const firstName = normalizedFullName.split(" ")[0];
+
+      // Salva o nome para a próxima página.
+      localStorage.setItem("userFullName", normalizedFullName);
+      localStorage.setItem("userFirstName", firstName);
+      sessionStorage.setItem("userFullName", normalizedFullName);
+      sessionStorage.setItem("userFirstName", firstName);
+
+      // Também envia o nome pela URL. Isso mantém o fluxo funcionando
+      // mesmo quando o navegador limita o localStorage.
+      const salesPageButton = document.getElementById("salesPageButton");
+      if (salesPageButton) {
+        const destination = new URL(salesPageButton.href, window.location.href);
+        destination.searchParams.set("name", normalizedFullName);
+
+        // Preserva UTMs e outros parâmetros recebidos na página do quiz.
+        const currentParams = new URLSearchParams(window.location.search);
+        currentParams.forEach((value, key) => {
+          if (key !== "name" && !destination.searchParams.has(key)) {
+            destination.searchParams.set(key, value);
+          }
+        });
+
+        salesPageButton.href = destination.toString();
+      }
+
       getAudioContext();
       playSelectionSound();
 
@@ -1393,7 +1421,7 @@ digistorePromocode( { "product_id": 697942, "adjust_all_urls": true, "adjust_dom
       });
 
       setTimeout(()=>{
-        title.innerHTML = `✅ Confirmado <strong>${fullName.value.trim()}</strong><br><br>Puedes Participar Hoy.`;
+        title.innerHTML = `✅ Confirmado <strong>${normalizedFullName}</strong><br><br>Puedes participar hoy.`;
         bar.style.transition = "width 5s linear";
         bar.style.width = "100%";
       },5000);
