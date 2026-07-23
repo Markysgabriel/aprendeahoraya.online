@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Guía editorial 2026 con tendencias de moda, ideas de looks y consejos para comprar en SHEIN con mayor confianza." name="description"/>
+<meta content="index,follow" name="robots"/>
+<meta content="#111111" name="theme-color"/>
+<title>Guía SHEIN 2026 | Tendencias, ideas y consejos de compra</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --ink:#141414;
+      --muted:#6d6d6d;
+      --soft:#f4f1ed;
+      --paper:#fff;
+      --line:#e8e4df;
+      --accent:#e84f2b;
+      --accent-dark:#bd3418;
+      --gold:#b78a4a;
+      --radius:22px;
+      --shadow:0 18px 50px rgba(25,20,15,.09);
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",sans-serif;
+      background:#faf9f7;
+      color:var(--ink);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+    img{display:block;width:100%;max-width:100%}
+    a{color:inherit}
+    button{font:inherit}
+    .container{width:min(var(--max),92%);margin-inline:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      text-transform:uppercase;letter-spacing:.13em;
+      font-size:.75rem;font-weight:700;color:var(--accent);
+    }
+    .eyebrow::before{content:"";width:32px;height:1px;background:currentColor}
+    .section{padding:88px 0}
+    .section-head{max-width:760px;margin-bottom:40px}
+    .section-title{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2rem,4vw,3.65rem);
+      line-height:1.08;margin:12px 0 16px;
+    }
+    .section-lead{font-size:1.08rem;color:var(--muted)}
+    .muted{color:var(--muted)}
+
+    /* Topbar */
+    .topbar{
+      background:#111;color:#fff;text-align:center;
+      padding:9px 16px;font-size:.82rem;letter-spacing:.02em;
+    }
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav{
+      min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;text-decoration:none;
+      font-weight:800;letter-spacing:.14em;font-size:1.25rem;
+    }
+    .brand-mark{
+      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+      background:#111;color:#fff;font-family:"Playfair Display",serif;font-style:italic;
+    }
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{text-decoration:none;font-size:.92rem;font-weight:600}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-cta{
+      padding:11px 18px;border:1px solid #111;border-radius:999px;
+    }
+
+    /* Hero */
+    .hero{padding:62px 0 34px}
+    .hero-grid{
+      display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center;
+    }
+    .hero h1{
+      font-family:"Playfair Display",serif;
+      font-size:clamp(3rem,6.4vw,6.25rem);
+      line-height:.92;letter-spacing:-.035em;margin:18px 0 24px;
+    }
+    .hero h1 em{color:var(--accent);font-weight:600}
+    .hero-copy{font-size:1.16rem;color:#555;max-width:640px}
+    .meta{
+      display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:26px;
+      font-size:.84rem;color:var(--muted)
+    }
+    .meta strong{color:var(--ink)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .btn{
+      display:inline-flex;justify-content:center;align-items:center;gap:10px;
+      padding:15px 24px;border-radius:999px;text-decoration:none;
+      font-weight:700;border:1px solid transparent;transition:.2s ease;
+    }
+    .btn-primary{background:var(--ink);color:#fff}
+    .btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
+    .btn-secondary{border-color:var(--line);background:#fff}
+    .btn-secondary:hover{border-color:#111}
+    .hero-visual{
+      position:relative;min-height:610px;border-radius:32px;overflow:hidden;
+      box-shadow:var(--shadow);background:#ddd;
+    }
+    .hero-visual img{height:100%;object-fit:cover;position:absolute;inset:0}
+    .hero-tag{
+      position:absolute;left:24px;bottom:24px;right:24px;
+      padding:18px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);
+      border-radius:16px;display:flex;justify-content:space-between;gap:20px;align-items:center;
+    }
+    .hero-tag strong{font-family:"Playfair Display",serif;font-size:1.22rem}
+    .hero-tag span{font-size:.8rem;color:var(--muted)}
+
+    /* editorial intro */
+    .editorial-note{
+      margin-top:54px;background:#fff;border:1px solid var(--line);
+      border-radius:var(--radius);padding:28px 32px;
+      display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+    }
+    .editorial-icon{
+      width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+      background:var(--soft);font-size:1.2rem;
+    }
+
+    /* video */
+    .video-section{padding:66px 0 92px}
+    .video-shell{
+      background:#121212;border-radius:30px;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.2);
+    }
+    .video-head{
+      color:#fff;display:flex;justify-content:space-between;gap:20px;
+      padding:8px 10px 20px;align-items:end;
+    }
+    .video-head h2{
+      font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3vw,3rem);line-height:1.05;
+    }
+    .video-head p{color:#bdbdbd;max-width:440px;font-size:.93rem}
+    .player{
+      position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;
+      background:linear-gradient(135deg,#1d1d1d,#000);
+      display:grid;place-items:center;border:1px solid #292929;
+    }
+    .player-placeholder{text-align:center;color:#fff;padding:24px}
+    .play{
+      width:82px;height:82px;border-radius:50%;display:grid;place-items:center;
+      margin:0 auto 18px;background:var(--accent);font-size:1.8rem;padding-left:5px;
+      box-shadow:0 0 0 12px rgba(232,79,43,.16);
+    }
+    .player-placeholder strong{display:block;font-size:1.1rem}
+    .player-placeholder small{color:#aaa}
+    .video-caption{display:flex;gap:18px;justify-content:space-between;padding:18px 8px 4px;color:#aaa;font-size:.8rem}
+
+    /* index */
+    .index-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    }
+    .index-card{
+      background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;
+      text-decoration:none;transition:.25s ease;
+    }
+    .index-card span{color:var(--accent);font-weight:800;font-size:.78rem}
+    .index-card h3{margin-top:10px;font-size:1rem}
+    .index-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
+
+    /* trends */
+    .trend-feature{
+      display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center;margin-bottom:74px;
+    }
+    .trend-feature.reverse{grid-template-columns:.92fr 1.08fr}
+    .trend-feature.reverse .trend-image{order:2}
+    .trend-image{border-radius:28px;overflow:hidden;min-height:510px;box-shadow:var(--shadow)}
+    .trend-image img{height:100%;object-fit:cover}
+    .trend-number{
+      font-family:"Playfair Display",serif;font-size:4rem;color:#ded8d1;line-height:1;
+    }
+    .trend-copy h3{
+      font-family:"Playfair Display",serif;font-size:clamp(2rem,3.4vw,3.4rem);
+      line-height:1.05;margin:4px 0 18px;
+    }
+    .trend-copy p{color:var(--muted);margin-bottom:18px}
+    .style-list{display:grid;gap:12px;margin-top:24px}
+    .style-list li{
+      list-style:none;display:flex;gap:12px;align-items:flex-start;
+      padding-bottom:12px;border-bottom:1px solid var(--line);
+    }
+    .style-list li::before{content:"✦";color:var(--accent)}
+
+    /* mosaic */
+    .mosaic{
+      display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-auto-rows:280px;gap:18px;
+    }
+    .mosaic-card{position:relative;border-radius:24px;overflow:hidden;background:#ddd}
+    .mosaic-card:first-child{grid-row:span 2}
+    .mosaic-card img{height:100%;object-fit:cover;transition:.5s ease}
+    .mosaic-card:hover img{transform:scale(1.04)}
+    .mosaic-label{
+      position:absolute;inset:auto 16px 16px 16px;
+      background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
+      border-radius:14px;padding:14px 16px;
+    }
+    .mosaic-label strong{display:block}
+    .mosaic-label span{font-size:.78rem;color:var(--muted)}
+
+    /* checklist */
+    .guide-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+    .sticky-card{
+      position:sticky;top:112px;background:var(--ink);color:#fff;border-radius:28px;padding:36px;
+    }
+    .sticky-card h3{font-family:"Playfair Display",serif;font-size:2rem;line-height:1.1;margin-bottom:16px}
+    .sticky-card p{color:#bbb}
+    .steps{display:grid;gap:18px}
+    .step{
+      background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;
+      display:grid;grid-template-columns:52px 1fr;gap:18px;
+    }
+    .step-num{
+      width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+      background:var(--soft);font-weight:800;color:var(--accent);
+    }
+    .step h4{font-size:1.08rem;margin-bottom:7px}
+    .step p{color:var(--muted);font-size:.94rem}
+
+    /* capsule */
+    .capsule{
+      background:#ece6de;border-radius:32px;padding:54px;
+      display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+    }
+    .capsule h2{font-family:"Playfair Display",serif;font-size:clamp(2.1rem,4vw,3.8rem);line-height:1.05}
+    .capsule-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .capsule-item{background:rgba(255,255,255,.72);padding:18px;border-radius:16px}
+    .capsule-item strong{display:block}
+    .capsule-item span{font-size:.82rem;color:var(--muted)}
+
+    /* faq */
+    .faq-list{max-width:900px;margin:auto;display:grid;gap:14px}
+    details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:0 22px}
+    summary{
+      cursor:pointer;list-style:none;font-weight:700;padding:22px 34px 22px 0;position:relative;
+    }
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";position:absolute;right:0;font-size:1.4rem;color:var(--accent)}
+    details[open] summary::after{content:"−"}
+    details p{color:var(--muted);padding:0 0 22px}
+
+    /* cta */
+    .final-cta{
+      background:#111;color:#fff;border-radius:32px;padding:64px 7%;
+      display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+    }
+    .final-cta h2{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4vw,4rem);line-height:1}
+    .final-cta p{color:#b9b9b9;margin-top:14px;max-width:680px}
+    .final-cta .btn{background:#fff;color:#111;white-space:nowrap}
+    .final-cta .btn:hover{background:var(--accent);color:#fff}
+
+    footer{padding:48px 0 26px}
+    .footer-grid{
+      display:grid;grid-template-columns:1.4fr .6fr .6fr;gap:40px;
+      padding-bottom:34px;border-bottom:1px solid var(--line);
+    }
+    footer h4{margin-bottom:12px}
+    footer p,footer a{color:var(--muted);font-size:.88rem}
+    footer a{display:block;text-decoration:none;margin:6px 0}
+    .legal{padding-top:22px;font-size:.76rem;color:#888;max-width:1000px}
+    .copyright{margin-top:18px;font-size:.78rem;color:#888}
+
+    @media (max-width:980px){
+      .nav-links{display:none}
+      .hero-grid,.trend-feature,.trend-feature.reverse,.guide-layout,.capsule,.final-cta{grid-template-columns:1fr}
+      .hero-visual{min-height:520px}
+      .trend-feature.reverse .trend-image{order:0}
+      .index-grid{grid-template-columns:repeat(2,1fr)}
+      .mosaic{grid-template-columns:1fr 1fr}
+      .mosaic-card:first-child{grid-row:span 1;grid-column:span 2}
+      .sticky-card{position:static}
+      .final-cta{justify-items:start}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .footer-grid>div:first-child{grid-column:1/-1}
+    }
+
+    @media (max-width:640px){
+      .topbar{font-size:.72rem}
+      .nav{min-height:64px}
+      .brand{font-size:1rem}
+      .brand-mark{width:34px;height:34px}
+      .hero{padding-top:38px}
+      .hero h1{font-size:clamp(2.75rem,14vw,4.2rem)}
+      .hero-copy{font-size:1rem}
+      .hero-visual{min-height:430px;border-radius:22px}
+      .hero-tag{left:14px;right:14px;bottom:14px;padding:15px}
+      .hero-tag span{display:none}
+      .editorial-note{padding:22px;grid-template-columns:1fr}
+      .section{padding:66px 0}
+      .video-section{padding-top:28px}
+      .video-shell{padding:12px;border-radius:22px}
+      .video-head{display:block}
+      .video-head p{margin-top:10px}
+      .video-caption{display:block}
+      .index-grid{grid-template-columns:1fr}
+      .trend-image{min-height:390px}
+      .mosaic{grid-template-columns:1fr;grid-auto-rows:340px}
+      .mosaic-card:first-child{grid-column:auto}
+      .guide-layout{gap:26px}
+      .step{grid-template-columns:42px 1fr;padding:20px}
+      .step-num{width:42px;height:42px}
+      .capsule{padding:30px 22px}
+      .capsule-grid{grid-template-columns:1fr}
+      .final-cta{padding:42px 24px}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-grid>div:first-child{grid-column:auto}
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">GUÍA EDITORIAL 2026 · MODA, ESTILO Y CONSEJOS DE COMPRA</div>
+<header class="site-header">
+<div class="container nav">
+<a aria-label="Inicio" class="brand" href="#inicio">
+<span class="brand-mark">S</span>
+<span>SHEIN EDIT</span>
+</a>
+<nav aria-label="Navegación principal" class="nav-links">
+<a href="#tendencias">Tendencias</a>
+<a href="#categorias">Categorías</a>
+<a href="#guia">Guía de compra</a>
+<a href="#faq">Preguntas</a>
+<a class="nav-cta" href="#video">Ver video</a>
+</nav>
+</div>
+</header>
+<main id="inicio">
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+<div>
+<span class="eyebrow">Edición especial · 2026</span>
+<h1>Lo que vale la pena <em>mirar</em> antes de comprar</h1>
+<p class="hero-copy">
+              Una guía visual con tendencias, combinaciones e ideas prácticas para explorar
+              la moda de 2026 sin perder de vista la comodidad, la versatilidad y tu estilo personal.
+            </p>
+<div class="meta">
+<span><strong>Actualizado:</strong> julio de 2026</span>
+<span><strong>Lectura:</strong> 7 minutos</span>
+<span><strong>Categoría:</strong> Moda y compras</span>
+</div>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#video">▶ Ver guía en video</a>
+<a class="btn btn-secondary" href="#tendencias">Explorar tendencias</a>
+</div>
+</div>
+<div class="hero-visual">
+<img alt="Selección editorial de moda contemporánea" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="hero-tag">
+<div>
+<strong>Una nueva forma de combinar</strong>
+<span>Prendas fáciles, detalles expresivos y looks con identidad.</span>
+</div>
+<span>EDITOR'S PICK</span>
+</div>
+</div>
+</div>
+<div class="editorial-note">
+<div class="editorial-icon">✦</div>
+<div>
+<strong>Nota editorial</strong>
+<p class="muted">
+              Esta página presenta inspiración de moda y recomendaciones generales.
+              La disponibilidad, los precios, las tallas y las promociones pueden variar según
+              el país, la fecha y el producto. Revisa siempre la información mostrada en la tienda antes de comprar.
+            </p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">En esta guía</span>
+<h2 class="section-title">Todo lo que necesitas para decidir mejor</h2>
+<p class="section-lead">
+            No se trata de seguir cada tendencia, sino de identificar cuáles encajan
+            con tu rutina, tu clima y las prendas que ya tienes.
+          </p>
+</div>
+<div class="index-grid">
+<a class="index-card" href="#tendencias">
+<span>01</span><h3>Tendencias clave de 2026</h3>
+</a>
+<a class="index-card" href="#categorias">
+<span>02</span><h3>Categorías para explorar</h3>
+</a>
+<a class="index-card" href="#guia">
+<span>03</span><h3>Cómo comprar con criterio</h3>
+</a>
+<a class="index-card" href="#armario">
+<span>04</span><h3>Armario cápsula práctico</h3>
+</a>
+</div>
+</div>
+</section>
+<section class="section" id="tendencias">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Informe de estilo</span>
+<h2 class="section-title">Las tendencias que están definiendo 2026</h2>
+<p class="section-lead">
+            Las colecciones de 2026 mezclan nostalgia, comodidad y expresión personal.
+            Estas son algunas de las direcciones más fáciles de adaptar al día a día.
+          </p>
+</div>
+<article class="trend-feature">
+<div class="trend-image">
+<img alt="Look femenino con tejidos ligeros" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+</div>
+<div class="trend-copy">
+<div class="trend-number">01</div>
+<h3>Lino, movimiento y elegancia relajada</h3>
+<p>
+              Los tejidos ligeros, las siluetas fluidas y los conjuntos coordinados siguen
+              ocupando un lugar central. Son piezas que funcionan bien por separado y facilitan
+              la creación de looks pulidos sin parecer demasiado formales.
+            </p>
+<ul class="style-list">
+<li>Camisas amplias con pantalones de pierna ancha.</li>
+<li>Vestidos midi con sandalias sencillas.</li>
+<li>Conjuntos neutros combinados con un accesorio llamativo.</li>
+</ul>
+</div>
+</article>
+<article class="trend-feature reverse">
+<div class="trend-image">
+<img alt="Moda romántica contemporánea" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+</div>
+<div class="trend-copy">
+<div class="trend-number">02</div>
+<h3>Romanticismo moderno: encaje, flores y poás</h3>
+<p>
+              El encaje, los pequeños volantes, los estampados florales y los lunares regresan
+              con cortes más limpios. La clave está en equilibrar una pieza romántica con elementos
+              simples para que el resultado se sienta actual.
+            </p>
+<ul class="style-list">
+<li>Top con encaje + jeans rectos.</li>
+<li>Vestido de lunares + bolso estructurado.</li>
+<li>Falda floral + camiseta básica y zapatillas.</li>
+</ul>
+</div>
+</article>
+<article class="trend-feature">
+<div class="trend-image">
+<img alt="Accesorios y prendas con personalidad" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+</div>
+<div class="trend-copy">
+<div class="trend-number">03</div>
+<h3>Accesorios con personalidad</h3>
+<p>
+              Pañuelos, cinturones marcados, collares largos y bolsos tejidos son recursos sencillos
+              para transformar prendas básicas. En 2026, el accesorio deja de ser un detalle secundario
+              y se convierte en el punto focal del look.
+            </p>
+<ul class="style-list">
+<li>Pañuelo en el cabello, cuello o asa del bolso.</li>
+<li>Cinturón protagonista sobre vestidos o blazers.</li>
+<li>Collares y charms para personalizar básicos.</li>
+</ul>
+</div>
+</article>
+<article class="trend-feature reverse">
+<div class="trend-image">
+<img alt="Denim contemporáneo y estilo casual" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+</div>
+<div class="trend-copy">
+<div class="trend-number">04</div>
+<h3>Denim oscuro, utilidad y estilo cotidiano</h3>
+<p>
+              El denim de lavado oscuro, los bolsillos funcionales y las prendas inspiradas en uniformes
+              ofrecen una alternativa práctica para quien busca ropa fácil de combinar. El resultado puede
+              ir de casual a sofisticado dependiendo del calzado y los accesorios.
+            </p>
+<ul class="style-list">
+<li>Jeans oscuros + camisa blanca.</li>
+<li>Chaqueta utilitaria + vestido ligero.</li>
+<li>Falda de denim + top minimalista.</li>
+</ul>
+</div>
+</article>
+</div>
+</section>
+<section class="section" id="categorias">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Qué explorar</span>
+<h2 class="section-title">Categorías que facilitan nuevas combinaciones</h2>
+<p class="section-lead">
+            Una selección visual para inspirarte. Prioriza prendas que puedas usar de varias maneras
+            y que se integren con lo que ya existe en tu armario.
+          </p>
+</div>
+<div class="mosaic">
+<article class="mosaic-card">
+<img alt="Vestidos y conjuntos" src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"/>
+<div class="mosaic-label"><strong>Vestidos y conjuntos</strong><span>Soluciones rápidas para looks completos</span></div>
+</article>
+<article class="mosaic-card">
+<img alt="Calzado femenino" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+<div class="mosaic-label"><strong>Calzado</strong><span>Comodidad, textura y proporción</span></div>
+</article>
+<article class="mosaic-card">
+<img alt="Bolsos y accesorios" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+<div class="mosaic-label"><strong>Bolsos y accesorios</strong><span>El toque final del look</span></div>
+</article>
+<article class="mosaic-card">
+<img alt="Moda de ocasión" src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+<div class="mosaic-label"><strong>Ocasiones especiales</strong><span>Piezas para eventos y celebraciones</span></div>
+</article>
+<article class="mosaic-card">
+<img alt="Prendas básicas" src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&amp;fit=crop&amp;w=900&amp;q=85"/>
+<div class="mosaic-label"><strong>Básicos renovados</strong><span>Más usos, menos complicaciones</span></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="guia">
+<div class="container">
+<div class="guide-layout">
+<aside class="sticky-card">
+<span class="eyebrow" style="color:#ff795a">Compra con criterio</span>
+<h3>7 comprobaciones antes de finalizar tu pedido</h3>
+<p>
+              Dedicar unos minutos a revisar medidas, materiales y opiniones puede ayudarte
+              a elegir productos más adecuados para ti.
+            </p>
+</aside>
+<div class="steps">
+<article class="step">
+<div class="step-num">01</div>
+<div><h4>Mide una prenda que ya te quede bien</h4><p>Compárala con las medidas específicas del artículo, en lugar de confiar únicamente en la talla habitual.</p></div>
+</article>
+<article class="step">
+<div class="step-num">02</div>
+<div><h4>Revisa la composición del tejido</h4><p>Observa si el material tiene elasticidad, transparencia o cuidados especiales de lavado.</p></div>
+</article>
+<article class="step">
+<div class="step-num">03</div>
+<div><h4>Lee opiniones recientes</h4><p>Busca comentarios sobre talla, color, caída y calidad percibida. Las experiencias pueden variar entre compradores.</p></div>
+</article>
+<article class="step">
+<div class="step-num">04</div>
+<div><h4>Observa fotografías de clientes</h4><p>Las imágenes reales pueden aportar contexto adicional sobre proporción, textura y color.</p></div>
+</article>
+<article class="step">
+<div class="step-num">05</div>
+<div><h4>Piensa en tres combinaciones posibles</h4><p>Antes de comprar, imagina al menos tres looks con prendas que ya tienes.</p></div>
+</article>
+<article class="step">
+<div class="step-num">06</div>
+<div><h4>Comprueba el plazo y las condiciones</h4><p>Consulta la estimación de entrega, las políticas aplicables y cualquier coste mostrado antes del pago.</p></div>
+</article>
+<article class="step">
+<div class="step-num">07</div>
+<div><h4>Revisa el total final</h4><p>Confirma precio, cantidad, talla, color, envío y cualquier descuento antes de completar el pedido.</p></div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="armario">
+<div class="container">
+<div class="capsule">
+<div>
+<span class="eyebrow">Fórmula práctica</span>
+<h2>Un mini armario cápsula inspirado en 2026</h2>
+<p class="section-lead" style="margin-top:18px">
+              Con pocas piezas versátiles puedes crear combinaciones para distintos momentos.
+              Ajusta colores, cortes y materiales a tu estilo y al clima de tu región.
+            </p>
+</div>
+<div class="capsule-grid">
+<div class="capsule-item"><strong>1 camisa ligera</strong><span>Blanca, azul o a rayas</span></div>
+<div class="capsule-item"><strong>1 pantalón fluido</strong><span>Neutro y fácil de combinar</span></div>
+<div class="capsule-item"><strong>1 jeans oscuro</strong><span>Corte recto o amplio</span></div>
+<div class="capsule-item"><strong>1 falda protagonista</strong><span>Floral, satinada o con textura</span></div>
+<div class="capsule-item"><strong>1 vestido versátil</strong><span>Para usar solo o en capas</span></div>
+<div class="capsule-item"><strong>2 tops básicos</strong><span>Para equilibrar piezas llamativas</span></div>
+<div class="capsule-item"><strong>1 bolso estructurado</strong><span>De tamaño práctico</span></div>
+<div class="capsule-item"><strong>1 accesorio expresivo</strong><span>Pañuelo, cinturón o collar</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="faq">
+<div class="container">
+<div class="section-head" style="margin-inline:auto;text-align:center">
+<span class="eyebrow">Preguntas frecuentes</span>
+<h2 class="section-title">Antes de seguir explorando</h2>
+</div>
+<div class="faq-list">
+<details>
+<summary>¿Cómo puedo elegir una talla con más confianza?</summary>
+<p>Consulta las medidas específicas de cada artículo y compáralas con una prenda similar que ya tengas. La numeración puede variar entre modelos.</p>
+</details>
+<details>
+<summary>¿Todos los productos mostrados estarán disponibles?</summary>
+<p>No necesariamente. El inventario, los colores y las tallas pueden cambiar según el país y la fecha de consulta.</p>
+</details>
+<details>
+<summary>¿Las promociones son iguales en todos los países?</summary>
+<p>No. Los precios, cupones, campañas y condiciones pueden variar según la región, la cuenta y el momento de la compra.</p>
+</details>
+<details>
+<summary>¿Cómo evitar comprar prendas que usaré poco?</summary>
+<p>Busca piezas que combinen con al menos tres artículos de tu armario y que se adapten a situaciones reales de tu rutina.</p>
+</details>
+<details>
+<summary>¿Esta página es una tienda oficial?</summary>
+<p>Esta es una guía editorial informativa. Para consultar productos, precios, políticas y condiciones oficiales, verifica siempre la información directamente en el sitio o aplicación correspondiente.</p>
+</details>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="final-cta">
+<div>
+<h2>Explora con una idea clara de lo que buscas</h2>
+<p>
+              Guarda tus referencias favoritas, revisa las medidas y compara opciones antes de decidir.
+              La mejor compra es la que realmente encaja con tu estilo y tu rutina.
+            </p>
+</div>
+<a class="btn" href="#" id="cta-final">Explorar tendencias</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<a class="brand" href="#inicio" style="display:inline-flex;margin-bottom:14px">
+<span class="brand-mark">S</span><span>SHEIN EDIT</span>
+</a>
+<p>
+            Guía editorial independiente sobre tendencias, inspiración de estilo
+            y buenas prácticas de compra online.
+          </p>
+</div>
+<div>
+<h4>Contenido</h4>
+<a href="#video">Video</a>
+<a href="#tendencias">Tendencias</a>
+<a href="#guia">Guía de compra</a>
+</div>
+<div>
+<h4>Información</h4>
+<a href="#faq">Preguntas frecuentes</a>
+<a href="#">Política de privacidad</a>
+<a href="#">Términos de uso</a>
+</div>
+</div>
+<p class="legal">
+        Aviso: este contenido tiene fines informativos y editoriales. No garantiza disponibilidad,
+        descuentos, resultados ni experiencias específicas. Los precios, promociones, inventario,
+        tiempos de entrega y condiciones pueden cambiar. SHEIN y sus marcas relacionadas pertenecen
+        a sus respectivos titulares. Esta página no debe presentarse como un canal oficial si no cuenta
+        con autorización expresa para ello.
+      </p>
+<p class="copyright">© 2026 Guía Editorial. Todos los derechos reservados.</p>
+</div>
+</footer>
+<script>
+    // Rolagem suave para links internos.
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(event) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Substitua o "#" pelo seu link real.
+    document.getElementById('cta-final').addEventListener('click', function(event) {
+      if (this.getAttribute('href') === '#') {
+        event.preventDefault();
+        alert('Sustituye el enlace del botón por tu URL de destino.');
+      }
+    });
+  </script>
+</body>
+</html>
