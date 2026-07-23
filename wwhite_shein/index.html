@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo empecé a generar un ingreso extra siendo afiliada de Shein | Papel & Estilo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F3EFF6;
+    --ink: #221C24;
+    --plum: #3A1F3D;
+    --gold: #C9932E;
+    --rust: #B5502D;
+    --line: #DCD3E0;
+    --card: #FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.65;
+    padding-bottom: 90px;
+  }
+  a{color:inherit;}
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px;}
+
+  .masthead{
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+    margin-bottom:36px;
+  }
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+    letter-spacing:0.3px;
+    color:var(--plum);
+  }
+  .brand span{color:var(--rust);}
+  .masthead-tag{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#7A6E80;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(28px, 5vw, 42px);
+    line-height:1.15;
+    color:var(--plum);
+    margin:0 0 16px 0;
+    letter-spacing:-0.01em;
+  }
+  .dek{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:19px;
+    color:#4A3F4E;
+    margin:0 0 22px 0;
+  }
+  .byline{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    color:#7A6E80;
+    padding-bottom:26px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:32px;
+  }
+  .avatar{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg, var(--gold), var(--rust));
+    flex-shrink:0;
+  }
+
+  article p{
+    font-size:17px;
+    color:#2E262F;
+    margin:0 0 22px 0;
+  }
+  article h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:25px;
+    color:var(--plum);
+    margin:44px 0 18px 0;
+  }
+  .drop p:first-of-type::first-letter{
+    font-family:'Fraunces', serif;
+    font-size:58px;
+    font-weight:600;
+    float:left;
+    line-height:0.85;
+    padding-right:10px;
+    padding-top:4px;
+    color:var(--rust);
+  }
+
+  .pullquote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:23px;
+    line-height:1.4;
+    color:var(--plum);
+    border-left:3px solid var(--gold);
+    padding:4px 0 4px 22px;
+    margin:38px 0;
+  }
+
+  /* Reality-check module */
+  .reality{
+    background:var(--card);
+    border-radius:6px;
+    padding:24px 26px;
+    margin:40px 0;
+    box-shadow:0 6px 18px rgba(58,31,61,0.06);
+    border-left:3px solid var(--rust);
+  }
+  .reality-label{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--rust);
+    margin-bottom:10px;
+  }
+  .reality ul{
+    margin:0;
+    padding-left:20px;
+  }
+  .reality li{
+    font-size:15.5px;
+    color:#3A3140;
+    margin-bottom:8px;
+  }
+
+  .cta-block{
+    text-align:center;
+    background:var(--plum);
+    color:#F3EFF6;
+    border-radius:6px;
+    padding:38px 28px;
+    margin:48px 0;
+  }
+  .cta-block h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:23px;
+    margin:0 0 10px 0;
+  }
+  .cta-block p{
+    color:#D8CEDD;
+    font-size:15px;
+    margin:0 0 22px 0;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--plum);
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 30px;
+    border-radius:4px;
+    text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(201,147,46,0.4);}
+
+  .disclosure{
+    font-size:12.5px;
+    color:#7A6E80;
+    border-top:1px solid var(--line);
+    padding-top:20px;
+    margin-top:40px;
+    line-height:1.6;
+  }
+  .disclosure p{font-size:12.5px;color:#7A6E80;margin:0 0 10px 0;}
+
+  footer{
+    margin-top:40px;
+    padding:24px 0 60px 0;
+    border-top:1px solid var(--line);
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    color:#9A8FA0;
+    text-align:center;
+  }
+
+  .sticky-cta{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    background:var(--plum);
+    padding:12px 20px;
+    display:flex;
+    justify-content:center;
+    box-shadow:0 -6px 18px rgba(0,0,0,0.15);
+    transform:translateY(100%);
+    transition:transform 0.3s ease;
+    z-index:10;
+  }
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta a{
+    background:var(--gold);
+    color:var(--plum);
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:11px 26px;
+    border-radius:4px;
+    text-decoration:none;
+    width:100%;
+    max-width:380px;
+    text-align:center;
+  }
+
+  @media (max-width:480px){
+    article p, article{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <div class="brand">Papel <span>&</span> Estilo</div>
+    <div class="masthead-tag">Historias reales</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="eyebrow">Ingresos desde casa · Historia personal</div>
+  <h1>Empecé compartiendo enlaces de Shein en mis redes — no imaginé que se convertiría en un ingreso extra</h1>
+  <p class="dek">No es la típica promesa de hacerte rica rápido: así fue como aprendí a hacerlo, paso a paso, compaginándolo con mi rutina normal.</p>
+
+  <div class="byline">
+    <div class="avatar"></div>
+    <span>Por Valentina Ríos · Colaboradora invitada · Lectura de 5 min · Actualizado julio 2026</span>
+  </div>
+
+  <article class="drop">
+    <p>Durante un tiempo estuve buscando alguna forma de generar un ingreso extra sin tener que dejar lo que ya hacía. Probé un par de cosas que no llevaron a nada — cursos que prometían demasiado y explicaban poco. Un día, una amiga me contó que llevaba meses compartiendo enlaces de Shein en su Instagram y recibiendo una comisión por cada compra. Sonaba simple, así que decidí investigar cómo funcionaba de verdad.</p>
+
+    <h2>Qué es exactamente ser afiliada de Shein</h2>
+    <p>La idea, en el fondo, es sencilla: te registras en el programa de afiliados, obtienes enlaces personalizados a productos o categorías, y cuando alguien compra a través de ese enlace, recibes una comisión. No hay que comprar inventario, empacar nada ni encargarse de envíos — solo compartir contenido y enlaces de forma constante.</p>
+
+    <div class="pullquote">"No fue instantáneo. Los primeros resultados tardaron en llegar, y eso también es parte de la historia."</div>
+
+    <h2>Lo que aprendí en el proceso</h2>
+    <p>Las primeras semanas no pasó gran cosa. Publicaba, pero no tenía claro qué tipo de contenido realmente generaba clics. Con el tiempo entendí que mostrar productos que yo misma usaba, con fotos o videos reales, funcionaba mejor que simplemente copiar descripciones. También aprendí a ser constante: no se trata de publicar una vez y esperar, sino de mantener un ritmo.</p>
+
+    <h2>Lo que nadie te cuenta</h2>
+    <p>Quiero ser honesta en esta parte: esto no reemplazó un salario de un día para otro, y no creo que sea realista esperar eso. Es un ingreso adicional que fue creciendo mientras aprendía, no un botón de "hacerse rica" de la noche a la mañana. Los resultados dependen de cuánto contenido compartes, tu audiencia y la constancia — no hay una cifra garantizada para nadie.</p>
+  </article>
+
+  <div class="reality">
+    <div class="reality-label">Antes de empezar, ten en cuenta</div>
+    <ul>
+      <li>Los resultados varían de una persona a otra; no hay un ingreso garantizado.</li>
+      <li>Toma tiempo y constancia — no es un esquema de dinero instantáneo.</li>
+      <li>Funciona mejor si ya tienes o estás dispuesta a construir una audiencia (redes sociales, comunidad, etc.).</li>
+      <li>Es un ingreso adicional, no un reemplazo garantizado de un salario.</li>
+    </ul>
+  </div>
+
+  <div class="cta-block">
+    <h3>¿Quieres ver cómo empecé paso a paso?</h3>
+    <p>Reuní todo lo que aprendí — desde cómo registrarme hasta lo que realmente movió la aguja — en una guía sencilla.</p>
+    <a class="btn" href="{{AFFILIATE_LINK}}" id="mainCta">Ver la guía completa</a>
+  </div>
+
+  <div class="disclosure">
+    <p>Este artículo refleja una experiencia personal y puede incluir enlaces de afiliado: si te registras o realizas una acción a través de ellos, puedo recibir una comisión, sin costo adicional para ti.</p>
+    <p>Los resultados descritos corresponden a una experiencia individual y no representan una garantía de ingresos para ninguna persona. El desempeño puede variar según el esfuerzo, la audiencia y otros factores fuera de nuestro control.</p>
+    <p>Papel &amp; Estilo no está afiliado, patrocinado ni respaldado oficialmente por Shein. Los términos y condiciones del programa de afiliados corresponden a la plataforma oficial y pueden cambiar sin previo aviso.</p>
+  </div>
+
+  <footer>
+    PAPEL &amp; ESTILO — Contenido editorial independiente<br>
+    Contacto: hola@tudominio.com &nbsp;·&nbsp; Aviso de privacidad
+  </footer>
+
+</div>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="{{AFFILIATE_LINK}}">Ver la guía completa</a>
+</div>
+
+<script>
+  const sticky = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 700) {
+      sticky.classList.add('show');
+    } else {
+      sticky.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>
