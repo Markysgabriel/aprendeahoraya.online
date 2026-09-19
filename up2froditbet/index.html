@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Reclama tu descuento</title>
+        <meta
+            name="description"
+            content="Reclama tu descuento subsidiado por única vez antes de que esta página se cierre."
+        />
+        <meta name="robots" content="noindex" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Reclama tu descuento" />
+        <meta
+            property="og:description"
+            content="Reclama tu descuento subsidiado por única vez antes de que esta página se cierre."
+        />
+        <meta property="og:image" content="images/adapt-coupon_mockup-v0-65933a1a.webp" />
+        <link rel="icon" type="image/png" href="images/favicon-transparent-70f3507f.webp" />
+        <link rel="apple-touch-icon" href="images/favicon-transparent-70f3507f.webp" />
+
+        <link rel="preconnect" href="https://files.virtuclix.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
+        />
+        <style>
+            :root {
+                --page: #e2e2e2; /* grey page background (funnel-builder wrapper) */
+                --bg: #ffffff; /* white content card */
+                --dark: #3d1f1f;
+                --headline: #7a2e2e;
+                --body: #4d5663;
+                --muted: #8993a0;
+                --accent: #7a2e2e;
+                --cta-bg: #d4a017;
+                --cta-text: #3d1f1f; /* brand gold — used for the "IMPORTANT!" emphasis (matches Upsell 1) */
+                --cta-yellow: #ffd400;
+                --cta-navy: #0d1f2e; /* the ds-ds3a bright-yellow CTA button (design constant) */
+                --rule: #e8eaee;
+                --alert: #b91c1c;
+                --check: #1a9c52; /* green benefit check (design constant) */
+                --soft: #f7f0e3;
+                --link-blue: #1a0dab;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--page);
+                color: var(--body);
+            }
+            body {
+                font:
+                    400 18px/1.6 "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            a {
+                color: inherit;
+            }
+            /* centered white card on the grey page (the funnel-builder shell) */
+            .mp-card {
+                max-width: 800px;
+                margin: 24px auto;
+                background: var(--bg);
+                padding: 34px 44px 42px;
+                border-radius: 6px;
+                box-shadow: 0 6px 26px rgba(0, 0, 0, 0.13);
+            }
+
+            /* warning bar — full-width, above the card (styled EXACTLY like the Upsell 1 page) */
+            .mp-warn {
+                background: var(--alert);
+                color: #fff;
+                text-align: center;
+                padding: 12px 14px 13px;
+                font-family: "Inter", sans-serif;
+            }
+            .mp-warn p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.35;
+                font-weight: 700;
+            }
+            .mp-warn .w2 {
+                font-weight: 500;
+                margin-top: 3px;
+                font-size: 15.5px;
+                opacity: 0.95;
+            }
+            .mp-warn-imp {
+                color: var(--cta-bg);
+                font-weight: 800;
+            }
+
+            /* discount headline (entrance flash + scale on load, like the source) + subhead */
+            .mp-headline {
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                text-align: center;
+                font-weight: 900;
+                font-size: 58px;
+                line-height: 1.03;
+                margin: 4px 0 12px;
+                letter-spacing: -0.015em;
+                text-wrap: balance;
+                animation: mp-claim-in 1s ease both;
+            }
+            @keyframes mp-claim-in {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.86);
+                }
+                55% {
+                    opacity: 1;
+                    transform: scale(1.04);
+                }
+                70% {
+                    opacity: 0.45;
+                }
+                82% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            .mp-subhead {
+                color: var(--headline);
+                font-family: "Inter", sans-serif;
+                text-align: center;
+                font-weight: 800;
+                font-size: 33px;
+                line-height: 1.18;
+                margin: 0 0 16px;
+                text-wrap: balance;
+            }
+
+            /* social-proof counter (shakes on every change) */
+            .mp-social {
+                text-align: center;
+                font-size: 15px;
+                color: var(--muted);
+                font-weight: 600;
+                margin: 0 0 14px;
+            }
+            .mp-social .mp-soc-box {
+                display: inline-block;
+            }
+            .mp-social .mp-soc-box.shake {
+                animation: mp-shake 0.42s ease-in-out;
+            }
+            .mp-social b {
+                color: #111;
+                font-weight: 800;
+            }
+            @keyframes mp-shake {
+                0% {
+                    transform: translateX(0);
+                }
+                20% {
+                    transform: translateX(-3px) rotate(-1deg);
+                }
+                40% {
+                    transform: translateX(3px) rotate(1deg);
+                }
+                60% {
+                    transform: translateX(-2px);
+                }
+                80% {
+                    transform: translateX(2px);
+                }
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            /* mockup hero — contained within the card (centered, not overflowing) */
+            .mp-mockup {
+                width: 100%;
+                max-width: 480px;
+                margin: 4px auto 16px;
+            }
+
+            /* pending line + spinner (spinner is INLINE so it sticks right after the last word) */
+            .mp-pending-line {
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                font-weight: 700;
+                font-size: 29px;
+                line-height: 1.2;
+                text-align: center;
+                margin: 24px 0 8px;
+            }
+            .mp-spin {
+                display: inline-block;
+                vertical-align: middle;
+                width: 22px;
+                height: 22px;
+                border: 3px solid color-mix(in srgb, var(--alert) 25%, transparent);
+                border-top-color: var(--alert);
+                border-radius: 50%;
+                animation: mp-spin 1s linear infinite;
+                margin-left: 11px;
+                position: relative;
+                top: -2px;
+            }
+            @keyframes mp-spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            .mp-qualify {
+                text-align: center;
+                font-size: 17px;
+                line-height: 1.45;
+                margin: 0 auto 14px;
+                max-width: 600px;
+                color: var(--body);
+            }
+
+            /* price */
+            .mp-price {
+                text-align: center;
+                font-family: "Inter", sans-serif;
+                margin: 8px 0 16px;
+            }
+            .mp-price-now {
+                color: #111;
+                font-weight: 900;
+                font-size: 52px;
+                line-height: 1;
+            }
+            .mp-price-was {
+                color: var(--muted);
+                font-weight: 700;
+                font-size: 32px;
+                text-decoration: line-through;
+                margin-left: 12px;
+                text-decoration-color: var(--alert);
+                text-decoration-thickness: 2px;
+            }
+
+            /* CTA (cycling two labels, vertical-blur cross-fade, pulse + shine) — bright yellow */
+            .mp-cta-wrap {
+                text-align: center;
+                margin: 18px 0 6px;
+            }
+            .mp-cta {
+                display: block;
+                width: 100%;
+                background: var(--cta-yellow);
+                color: var(--cta-navy);
+                font:
+                    900 33px/1.1 "Inter",
+                    sans-serif;
+                text-decoration: none;
+                padding: 26px 18px 28px;
+                border-radius: 9px;
+                text-align: center;
+                box-shadow: 0 9px 20px -6px rgba(0, 0, 0, 0.32);
+                position: relative;
+                overflow: hidden;
+            }
+            .mp-cta.pulse {
+                animation: mp-pulse 2s infinite;
+            }
+            .mp-cta .shine {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -150%;
+                width: 60%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+                transform: skewX(-20deg);
+                animation: mp-shine 3.2s infinite;
+            }
+            @keyframes mp-shine {
+                0% {
+                    left: -150%;
+                }
+                60% {
+                    left: 150%;
+                }
+                100% {
+                    left: 150%;
+                }
+            }
+            @keyframes mp-pulse {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 color-mix(in srgb, var(--cta-navy) 55%, transparent);
+                }
+                50% {
+                    transform: scale(1.02);
+                    box-shadow: 0 0 0 16px transparent;
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 transparent;
+                }
+            }
+            .mp-cta-main {
+                position: relative;
+                display: block;
+                width: 100%;
+                min-height: 1.1em;
+                color: transparent;
+            }
+            .mp-cta-main::before,
+            .mp-cta-main::after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                white-space: nowrap;
+                text-align: center;
+                line-height: 1.1;
+                color: var(--cta-navy);
+                font-weight: 900;
+                text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+                pointer-events: none;
+            }
+            .mp-cta-main::before {
+                content: "OBTENER ACCESO INMEDIATO";
+                animation: mp-cyc-1 4s infinite linear;
+            }
+            .mp-cta-main::after {
+                content: "¡SÍ! RECLAMAR MI DESCUENTO";
+                animation: mp-cyc-2 4s infinite linear;
+            }
+            @keyframes mp-cyc-1 {
+                0%,
+                45% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: none;
+                }
+                48% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(-18px);
+                    filter: url(ds-us2.html#mp-vblur);
+                }
+                50%,
+                95% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(18px);
+                }
+                98% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: url(ds-us2.html#mp-vblur);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: none;
+                }
+            }
+            @keyframes mp-cyc-2 {
+                0%,
+                45% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(18px);
+                }
+                48% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: url(ds-us2.html#mp-vblur);
+                }
+                50%,
+                95% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: none;
+                }
+                98% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(-18px);
+                    filter: url(ds-us2.html#mp-vblur);
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+            .mp-sub {
+                text-align: center;
+                margin: 9px 0 18px;
+            }
+            .mp-sub a {
+                color: var(--link-blue);
+                font-weight: 700;
+                text-decoration: underline;
+                font-size: 16px;
+                line-height: 1.45;
+            }
+
+            /* benefit bullets — green checks */
+            .mp-bullets {
+                list-style: none;
+                margin: 20px auto 8px;
+                padding: 0;
+                max-width: 640px;
+            }
+            .mp-bullets li {
+                position: relative;
+                padding: 0 0 17px 38px;
+                font-size: 17px;
+                line-height: 1.5;
+                color: var(--body);
+            }
+            .mp-bullets li::before {
+                content: "\2714";
+                position: absolute;
+                left: 0;
+                top: 1px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+                background: var(--check);
+                color: #fff;
+                border-radius: 50%;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            /* countdown — bare single line MM:SS:CC (no eyebrows / unit labels, like the source) */
+            .mp-cd-wrap {
+                text-align: center;
+                margin: 30px 0 10px;
+            }
+            .mp-cd-clock {
+                display: inline-block;
+                color: #111;
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                font-size: 50px;
+                line-height: 1;
+                font-variant-numeric: tabular-nums;
+                letter-spacing: 0.02em;
+            }
+
+            /* decline */
+            .mp-decline {
+                text-align: center;
+                margin: 24px auto 2px;
+                max-width: 560px;
+            }
+            .mp-decline a {
+                display: inline-block;
+                color: #ffffff;
+                font-size: 13px;
+                line-height: 1.18;
+                text-decoration: underline;
+            }
+
+            /* footer — sits on the grey page below the card; links blend into the grey */
+            footer.site {
+                margin: 18px auto 26px;
+                padding: 8px 16px 0;
+                text-align: center;
+                font-size: 13px;
+                color: #7a7f86;
+                max-width: 800px;
+            }
+            footer.site p {
+                margin: 6px 0;
+                overflow-wrap: anywhere;
+            }
+            footer.site a {
+                color: inherit;
+                text-decoration: none;
+                margin: 0 4px;
+            }
+
+            @media (max-width: 767px) {
+                .mp-card {
+                    margin: 12px auto;
+                    padding: 22px 18px 28px;
+                    border-radius: 0;
+                }
+                .mp-headline {
+                    font-size: 34px;
+                }
+                .mp-subhead {
+                    font-size: 22px;
+                }
+                .mp-social {
+                    font-size: 13px;
+                }
+                .mp-pending-line {
+                    font-size: 19px;
+                }
+                .mp-price-now {
+                    font-size: 38px;
+                }
+                .mp-price-was {
+                    font-size: 24px;
+                }
+                .mp-cta {
+                    font-size: 25px;
+                    padding: 20px 14px 22px;
+                }
+                .mp-bullets li {
+                    font-size: 16px;
+                }
+                .mp-cd-clock {
+                    font-size: 46px;
+                }
+            }
+        </style>
+
+<!-- VTURB -->
+       <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/6aaadd8d1a6863af464bcc24/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+    <!-- VTURB -->
+    
+<!-- UTMIFY -->    
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+
+    </head>
+
+
+    <body>
+
+        <!-- filtro de desfoque vertical para o texto da CTA que alterna -->
+        <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+            <defs>
+                <filter id="mp-vblur"><feGaussianBlur in="SourceGraphic" stdDeviation="0 5"></feGaussianBlur></filter>
+            </defs>
+        </svg>
+
+        <div class="mp-warn">
+            <p>
+                <span class="mp-warn-imp">¡IMPORTANTE!</span> NO cierres esta ventana ni hagas clic en el botón Atrás.
+            </p>
+            <p class="w2">Si haces clic en el botón "Atrás", tu pedido se cobrará dos veces.</p>
+        </div>
+
+        <main class="mp-card">
+            <h1 class="mp-headline">RECLAMA TU 75% DE DESCUENTO PARA PERSONAS MAYORES</h1>
+            <p class="mp-subhead">
+                La Solución Nocturna para el Azúcar en Sangre es absolutamente esencial para cualquier persona MAYOR de
+                60 años.
+            </p>
+            <p class="mp-social">
+                <span class="mp-soc-box" id="mp-soc-box"
+                    ><b id="mp-soc-n">18</b> personas más están comprando esto ahora mismo</span
+                >
+            </p>
+
+            <!-- Mockup — a imagem adaptada pelo COUPON (i2i), se disponível; caso contrário, o mockup simples do produto. -->
+            <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" style="display: block" data-checkout=""
+                ><img
+                    class="mp-mockup"
+                    src="images/adapt-coupon_mockup-v0-65933a1a.webp"
+                    alt="La Solución Nocturna para el Azúcar en Sangre"
+                    width="520"
+                    height="390"
+                    loading="eager"
+                    decoding="async"
+            /></a>
+
+            <p class="mp-pending-line">¡DESCUENTO PENDIENTE, SOLO PARA MAYORES!<span class="mp-spin"></span></p>
+            <p class="mp-qualify">Acepta esta oferta subsidiada únicamente si tienes más de 60 años:</p>
+
+            <div class="mp-price"><span class="mp-price-now">Solo $26</span><s class="mp-price-was">$197</s></div>
+
+            <div class="mp-cta-wrap">
+                <a class="mp-cta pulse" href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                    ><span class="shine"></span><span class="mp-cta-main">OBTENER ACCESO INMEDIATO</span></a
+                >
+            </div>
+            <p class="mp-sub">
+                <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                    >¡SÍ! Activar La Solución Nocturna para el Azúcar en Sangre en mi área privada de miembros por solo
+                    $26 (garantía de devolución del dinero de 365 días)</a
+                >
+            </p>
+
+            <ul class="mp-bullets">
+                <li>
+                    <b>Observa cómo tu medidor matutino se tranquiliza</b> — esa lectura estable al amanecer que hará
+                    que, por una vez, realmente quieras compartir el número con tu médico.
+                </li>
+                <li>
+                    <b>Se acabó el pánico a las 3 a. m. empapado en sudor</b>, se acabó revisar el medidor en la
+                    oscuridad temiendo lo que diga la pantalla — solo un sueño profundo y un nivel matutino que sí
+                    quieres ver.
+                </li>
+                <li>
+                    <b>Duerme profundamente y vuelve a despertar con la mente despejada</b>, con niveles de azúcar
+                    nocturnos lo bastante estables como para acostarte sin miedo y levantarte lúcido, descansado y con
+                    apetito para desayunar — no aturdido, tembloroso ni desesperado por azúcar.
+                </li>
+            </ul>
+
+            <div class="mp-cd-wrap">
+                <span class="mp-cd-clock"
+                    ><span id="cd-m">14</span>:<span id="cd-s">59</span>:<span id="cd-cs">46</span></span
+                >
+            </div>
+
+            <div class="mp-cta-wrap">
+                <a class="mp-cta pulse" href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                    ><span class="shine"></span><span class="mp-cta-main">OBTENER ACCESO INMEDIATO</span></a
+                >
+            </div>
+            <p class="mp-sub">
+                <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                    >¡SÍ! Activar La Solución Nocturna para el Azúcar en Sangre en mi área privada de miembros por solo
+                    $26 (garantía de devolución del dinero de 365 días)</a
+                >
+            </p>
+
+            <p class="mp-decline">
+                <a href="https://www.checkout-ds24.com/answer/no" rel="noopener" data-decline=""
+                    >No, gracias. Elimina para siempre La Solución Nocturna para el Azúcar en Sangre de mi cuenta.
+                    Desactiva mi descuento especial del 75%. Rechazaré esta oferta y aceptaré voluntariamente retrasar
+                    mis resultados.</a
+                >
+            </p>
+        </main>
+
+        <footer class="site">
+            <p>
+               © 2026 - Todos los derechos reservados.</p>
+            <p>
+        </footer>
+
+        <!-- Contagem regressiva — linha única MM:SS:CC, centésimos de segundo atualizados via requestAnimationFrame (reiniciados a cada carregamento) -->
+        <script data-cfasync="false" src="js/email-decode.min.js"></script>
+        <script>
+            (function () {
+                var MIN = 15;
+                var end = Date.now() + MIN * 60000;
+                var m = document.getElementById("cd-m"),
+                    s = document.getElementById("cd-s"),
+                    cs = document.getElementById("cd-cs");
+                function p(n) {
+                    return (n < 10 ? "0" : "") + n;
+                }
+                function tick() {
+                    var r = Math.max(0, end - Date.now());
+                    if (m) m.textContent = p(Math.floor(r / 60000));
+                    if (s) s.textContent = p(Math.floor(r / 1000) % 60);
+                    if (cs) cs.textContent = p(Math.floor((r % 1000) / 10));
+                    if (r > 0) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            })();
+        </script>
+        <!-- Contador de prova social — início rápido, ±1-4, a caixa treme a cada alteração (paridade com a fonte) -->
+        <script>
+            (function () {
+                var el = document.getElementById("mp-soc-n"),
+                    box = document.getElementById("mp-soc-box");
+                if (!el) return;
+                var MIN = 9,
+                    MAX = 22,
+                    n = MIN + Math.floor(Math.random() * (MAX - MIN + 1)),
+                    fast = 0;
+                el.textContent = n;
+                function ri(a, b) {
+                    return a + Math.floor(Math.random() * (b - a + 1));
+                }
+                function upd() {
+                    var c = ri(1, 4),
+                        op;
+                    if (n + c > MAX) op = -1;
+                    else if (n - c < MIN) op = 1;
+                    else op = Math.random() < 0.5 ? 1 : -1;
+                    n += op * c;
+                    el.textContent = n;
+                    if (box) {
+                        box.classList.remove("shake");
+                        void box.offsetWidth;
+                        box.classList.add("shake");
+                    }
+                    fast++;
+                    var d = fast < 5 ? ri(500, 1500) : ri(3000, 7000);
+                    setTimeout(upd, d);
+                }
+                setTimeout(upd, ri(700, 1400));
+            })();
+        </script>
+ 
+    </body>
+
+</html>
