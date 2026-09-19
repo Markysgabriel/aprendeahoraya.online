@@ -610,7 +610,7 @@
 
         <!-- CTA com atraso: ocultar tudo abaixo do vídeo (exceto o selo de confiança) até que o VTurb dispare o sinalizador (*beacon*). Ocultado inicialmente na seção `<head>` para evitar um efeito de cintilação (*flash*). -->
         <style id="vsl-cta-hide">
-            #vsl-cta-zone {
+            #vsl-cta-botao-revela {
                 display: none !important;
             }
         </style>
@@ -681,8 +681,8 @@
             </div>
            <!-- VSL-->
 
-            <!-- ID DO CTA : vsl-cta-zone -->
-            <div id="">
+            <!-- ID DO CTA : vsl-cta-botao-revela -->
+            <div id="vsl-cta-botao-revela">
                 <!-- 4. Caixa de prova social "X pessoas estão comprando {brand} agora mesmo"-->
                 <div class="cf-viewer-container">
                     <div class="cf-viewer-wrapper shaking" id="cf-wrapper-box">
@@ -760,7 +760,7 @@
                     >
                 </p>
             </div>
-            <!-- /#vsl-cta-zone -->
+            <!-- /#vsl-cta-botao-revela -->
 
             <!-- 8. Faixa de selos de confiança -->
             <img
@@ -921,11 +921,11 @@
             })();
         </script>
 
-        <!-- Exibição de CTA com atraso: tornar visível a `#vsl-cta-zone` no momento em que o VTurb injeta/revela o `#vturb-beacon` (configurado no player do VTurb no instante da CTA — utilizando o mesmo ID de beacon para todas as variantes). Implementação via `MutationObserver` com um mecanismo de *fallback* de verificação (*polling*) a cada 0,5 segundo. -->
+        <!-- Exibição de CTA com atraso: tornar visível a `#vsl-cta-botao-revela` no momento em que o VTurb injeta/revela o `#vturb-beacon` (configurado no player do VTurb no instante da CTA — utilizando o mesmo ID de beacon para todas as variantes). Implementação via `MutationObserver` com um mecanismo de *fallback* de verificação (*polling*) a cada 0,5 segundo. -->
         <script>
             (function () {
                 var BEACON = "vturb-beacon",
-                    ZONE = "vsl-cta-zone",
+                    ZONE = "vsl-cta-botao-revela",
                     done = false,
                     obs = null,
                     iv = null;
