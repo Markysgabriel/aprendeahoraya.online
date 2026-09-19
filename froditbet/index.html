@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <!-- Tracking (auto-injected; toggled per page) -->
+        <link rel="preconnect" href="https://connect.facebook.net" crossorigin="" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="" />
+        <link rel="preconnect" href="https://www.clarity.ms" crossorigin="" />
+        <title>AZÚCAR</title>
+        <meta
+            name="description"
+            content="¿El mayor enemigo de los picos de azúcar en sangre? Esta comida matutina de 5 minutos aplana la curva."
+        />
+        <meta name="robots" content="noindex" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://endspikes.com/cvr/ds-vsl/" />
+        <meta property="og:title" content="(1) Mensaje no leído" />
+        <meta
+            property="og:description"
+            content="¿El mayor enemigo de los picos de azúcar en sangre? Esta comida matutina de 5 minutos aplana la curva."
+        />
+        <meta property="og:image" content="images/adapt-fe-vsl-v2-buy_section_image-v4-5c72a6aa.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="(1) Mensaje no leído" />
+        <meta
+            name="twitter:description"
+            content="¿El mayor enemigo de los picos de azúcar en sangre? Esta comida matutina de 5 minutos aplana la curva."
+        />
+
+        <link rel="icon" type="image/png" href="images/favicon-transparent-70f3507f.webp" />
+        <link rel="apple-touch-icon" href="images/favicon-transparent-70f3507f.webp" />
+
+        <link rel="preconnect" href="https://files.virtuclix.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
+        />
+        <style>
+            :root {
+                /* Hardcoded white page background (brand choice). To revert to the corporate-style autoslot, restore: --bg:[brand_color_bg token]; */
+                --bg: #ffffff;
+                --dark: #3d1f1f;
+                --headline: #7a2e2e;
+                --body: #4d5663;
+                --muted: #8993a0;
+                --accent: #7a2e2e;
+                --cta-bg: #d4a017;
+                --cta-text: #3d1f1f;
+                --rule: #e8eaee;
+                --alert: #b91c1c;
+                --soft: #f7f0e3;
+                /* Social-proof "watching" pill — deliberate fixed Facebook-style violet
+     (reads as a platform notification, not a brand color). Locked by design. */
+                --sp-violet-1: #8b5cf6;
+                --sp-violet-2: #7c3aed;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--bg);
+                color: var(--body);
+            }
+            body {
+                font:
+                    400 17px/1.6 "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            a {
+                color: inherit;
+            }
+            .wrap {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 0 18px;
+            }
+
+            /* ── Headline — two-tier: big attention-color question + slimmer dark promise ── */
+            .vsl-headline {
+                font-family: "Inter", sans-serif;
+                color: var(--headline);
+                text-align: center;
+                text-wrap: balance;
+                font-weight: 900;
+                font-size: 26px;
+                line-height: 1.16;
+                margin: 26px 0 14px;
+                letter-spacing: -0.01em;
+            }
+            .vsl-headline .vh-q {
+                display: block;
+                color: var(--alert);
+                font-weight: 900;
+                font-size: 31px;
+                margin-bottom: 6px;
+            }
+            .vsl-headline .vh-a {
+                display: block;
+                color: var(--dark);
+                font-weight: 700;
+                font-size: 23px;
+            }
+            .vsl-headline .accent {
+                color: var(--alert);
+            }
+
+            /* ── "watching from Facebook" social-proof pill ── */
+            .vsl-watching-wrap {
+                width: 100%;
+                text-align: center;
+                padding: 14px 0;
+            }
+            .vsl-watching {
+                background: linear-gradient(135deg, var(--sp-violet-1) 0%, var(--sp-violet-2) 100%);
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 30px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 13px;
+                font-weight: 500;
+                box-shadow:
+                    0 3px 15px rgba(124, 58, 237, 0.3),
+                    0 0 25px rgba(124, 58, 237, 0.15);
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                position: relative;
+                overflow: hidden;
+            }
+            .vsl-watching .vw-shine {
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                transform: rotate(45deg);
+                animation: vsl-shimmer 3s infinite;
+            }
+            .vsl-watching .vw-dot {
+                width: 8px;
+                height: 8px;
+                background: #10b981;
+                border-radius: 50%;
+                position: relative;
+                z-index: 1;
+                animation: vsl-pulse-dot 2s infinite;
+            }
+            .vsl-watching .vw-dot::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+                background: #10b981;
+                border-radius: 50%;
+                animation: vsl-pulse-ring 2s infinite;
+                opacity: 0.6;
+            }
+            .vsl-watching #viewerCount {
+                font-weight: 600;
+                font-size: 14px;
+                position: relative;
+                z-index: 1;
+            }
+            .vsl-watching .vw-fb {
+                font-weight: 600;
+                color: #fbbf24;
+                position: relative;
+                z-index: 1;
+            }
+            .vsl-watching span {
+                position: relative;
+                z-index: 1;
+            }
+            @keyframes vsl-shimmer {
+                0% {
+                    transform: translateX(-100%) rotate(45deg);
+                }
+                100% {
+                    transform: translateX(100%) rotate(45deg);
+                }
+            }
+            @keyframes vsl-pulse-dot {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.1);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            @keyframes vsl-pulse-ring {
+                0% {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(2);
+                    opacity: 0;
+                }
+            }
+
+            /* ── VTurb video frame ── */
+            .vsl-video {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+            .vsl-video-ph {
+                background: #0c0c12;
+                color: #7a8090;
+                aspect-ratio: 9/16;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 13px;
+                padding: 18px;
+                font-style: italic;
+            }
+
+            /* ── "Others purchasing right now" social-proof box ── */
+            .cf-viewer-container {
+                width: 100%;
+                text-align: center;
+                padding: 3px 0;
+            }
+            .cf-viewer-wrapper {
+                display: inline-block;
+                text-align: center;
+                padding: 4px 10px;
+                background-color: #fffeec;
+                border: 1px solid #f0edd0;
+                border-radius: 4px;
+                font-family:
+                    "Inter",
+                    system-ui,
+                    -apple-system,
+                    sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                color: #1a1a1a;
+                line-height: 1.2;
+                max-width: 100%;
+            }
+            #cf-viewer-count {
+                font-weight: 700;
+                font-variant-numeric: tabular-nums;
+            }
+            @keyframes vsl-shake-box {
+                0% {
+                    transform: translateX(0);
+                }
+                20% {
+                    transform: translateX(-3px) rotate(-1deg);
+                }
+                40% {
+                    transform: translateX(3px) rotate(1deg);
+                }
+                60% {
+                    transform: translateX(-3px) rotate(-1deg);
+                }
+                80% {
+                    transform: translateX(3px) rotate(1deg);
+                }
+                100% {
+                    transform: translateX(0);
+                }
+            }
+            .cf-viewer-wrapper.shaking {
+                animation: vsl-shake-box 0.4s ease-in-out;
+            }
+
+            /* ── CTA buttons (pulse machinery) ── */
+            .cta-wrap {
+                text-align: center;
+                margin: 18px 0 8px;
+            }
+            .vsl-cta {
+                display: block;
+                width: 100%;
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font:
+                    900 28px/1.15 "Inter",
+                    sans-serif;
+                text-decoration: none;
+                padding: 32px 20px;
+                border-radius: 10px;
+                letter-spacing: 0.01em;
+                text-align: center;
+                box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.35);
+                position: relative;
+                overflow: hidden;
+            }
+            .vsl-cta.pulse {
+                animation: vsl-pulse-grow 2s infinite;
+            }
+            .vsl-cta.pulse-fast {
+                animation: vsl-pulse-grow 0.85s infinite;
+            }
+            .vsl-cta .shine {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -150%;
+                width: 60%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+                transform: skewX(-20deg);
+                animation: vsl-simple-shine 3.2s infinite;
+            }
+            @keyframes vsl-simple-shine {
+                0% {
+                    left: -150%;
+                }
+                60% {
+                    left: 150%;
+                }
+                100% {
+                    left: 150%;
+                }
+            }
+            /* Sonar ring uses a shade of the button TEXT color (contrasting), not the button bg */
+            @keyframes vsl-pulse-grow {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 color-mix(in srgb, var(--cta-text) 70%, transparent);
+                }
+                50% {
+                    transform: scale(1.03);
+                    box-shadow: 0 0 0 16px transparent;
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 transparent;
+                }
+            }
+            .cta-sub {
+                text-align: center;
+                margin: 6px 0 18px;
+            }
+            /* Classic high-contrast hyperlink blue — intentionally NOT a brand token, so the buy links read instantly as clickable */
+            .cta-sub a {
+                color: #1a0dab;
+                font-weight: 700;
+                text-decoration: underline;
+                font-size: 15px;
+                line-height: 1.4;
+            }
+            .cta-sub-lg a {
+                font-size: 40px;
+                font-weight: 800;
+                font-family: "Inter", sans-serif;
+            }
+
+            /* ── Dashed offer box — soft brand bg-fill (--soft, from corporate style) + brand-toned dashes ── */
+            .vsl-offer-box {
+                border: 2px dashed color-mix(in srgb, var(--dark) 30%, var(--soft));
+                background: var(--soft);
+                border-radius: 14px;
+                padding: 22px 22px 6px;
+                margin: 18px 0;
+            }
+            /* ── Personal note (centered) + buy-section image — tight spacing ── */
+            .note {
+                margin: 0 0 2px;
+                font-size: 16px;
+                line-height: 1.55;
+                text-align: center;
+            }
+            .note b {
+                color: var(--alert);
+            }
+            .note i {
+                color: var(--body);
+            }
+            .buy-section-img {
+                width: 100%;
+                max-width: 620px;
+                margin: 18px auto 0;
+                border-radius: 6px;
+                display: block;
+            }
+
+            /* ── trust badge strip (Trustpilot-style widget) — small ── */
+            .trust-strip {
+                width: 100%;
+                max-width: 210px;
+                margin: 22px auto 0;
+            }
+
+            /* ── Footer ── */
+            footer.site {
+                border-top: 1px solid var(--rule);
+                margin: 28px 0 0;
+                padding: 22px 0 18px;
+                text-align: center;
+                font-size: 13px;
+                color: var(--muted);
+            }
+            footer.site p {
+                margin: 6px 0;
+                overflow-wrap: anywhere;
+            }
+            footer.site a {
+                color: var(--accent);
+                text-decoration: none;
+                margin: 0 4px;
+            }
+            footer.site a:hover {
+                text-decoration: underline;
+            }
+
+            /* ── Exit-intent modal ── */
+            .vsl-exit-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.66);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                padding: 16px;
+            }
+            .vsl-exit-overlay.open {
+                display: flex;
+                animation: vsl-fade 0.2s ease;
+            }
+            .vsl-exit-box {
+                background: var(--bg);
+                color: var(--body);
+                max-width: 620px;
+                width: 100%;
+                border-radius: 10px;
+                padding: 26px;
+                position: relative;
+                border-top: 6px solid var(--accent);
+                animation: vsl-drop 0.25s ease;
+                max-height: 92vh;
+                overflow: auto;
+            }
+            .vsl-exit-x {
+                position: absolute;
+                top: 8px;
+                right: 14px;
+                background: none;
+                border: 0;
+                font-size: 26px;
+                line-height: 1;
+                color: var(--body);
+                cursor: pointer;
+                opacity: 0.7;
+            }
+            .vsl-exit-h {
+                color: var(--dark);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 21px;
+                line-height: 1.2;
+                text-align: center;
+                margin: 2px 0 16px;
+            }
+            .vsl-exit-h .sig {
+                color: var(--alert);
+                font-weight: 900;
+            }
+            /* two-tier exit headline: tier 1 (WAIT line) bigger + own line, tier 2 (reveal) slimmer */
+            .vsl-exit-h .eh-1 {
+                display: block;
+                font-size: 26px;
+                font-weight: 900;
+                margin-bottom: 5px;
+            }
+            .vsl-exit-h .eh-2 {
+                display: block;
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--dark);
+            }
+            .vsl-exit-grid {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+            }
+            .vsl-exit-img {
+                max-width: 42%;
+                height: auto;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+            .vsl-exit-body {
+                margin: 0;
+                font-size: 20px;
+                line-height: 1.5;
+            }
+            .vsl-exit-cta-wrap {
+                text-align: center;
+                margin: 18px 0 0;
+            }
+            .vsl-exit-cta-wrap .vsl-cta {
+                font-size: 20px;
+                padding: 16px 18px;
+            }
+            @keyframes vsl-fade {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes vsl-drop {
+                from {
+                    transform: translateY(-24px);
+                    opacity: 0;
+                }
+                to {
+                    transform: none;
+                    opacity: 1;
+                }
+            }
+
+            @media (min-width: 760px) {
+                body {
+                    font-size: 18px;
+                }
+                .wrap {
+                    max-width: 720px;
+                }
+                .vsl-headline {
+                    font-size: 34px;
+                    margin: 38px 0 18px;
+                }
+                .vsl-headline .vh-q {
+                    font-size: 38px;
+                }
+                .vsl-headline .vh-a {
+                    font-size: 27px;
+                }
+                .vsl-cta {
+                    font-size: 30px;
+                    padding: 34px 22px;
+                }
+                .note {
+                    font-size: 17px;
+                }
+                /* Desktop: WAIT! line ~double; reveal line bumped for balance */
+                .vsl-exit-box {
+                    max-width: 760px;
+                    padding: 34px;
+                }
+                .vsl-exit-h .eh-1 {
+                    font-size: 48px;
+                    margin-bottom: 8px;
+                }
+                .vsl-exit-h .eh-2 {
+                    font-size: 26px;
+                }
+                .vsl-exit-body {
+                    font-size: 23px;
+                }
+            }
+            @media (max-width: 480px) {
+                .vsl-exit-grid {
+                    flex-direction: column;
+                }
+                .vsl-exit-img {
+                    max-width: 78%;
+                }
+                .vsl-exit-h {
+                    font-size: 20px;
+                }
+                .cf-viewer-wrapper {
+                    font-size: 14px;
+                }
+            }
+        </style>
+
+        <!-- CTA com atraso: ocultar tudo abaixo do vídeo (exceto o selo de confiança) até que o VTurb dispare o sinalizador (*beacon*). Ocultado inicialmente na seção `<head>` para evitar um efeito de cintilação (*flash*). -->
+        <style id="vsl-cta-hide">
+            #vsl-cta-zone {
+                display: none !important;
+            }
+        </style>
+        <!-- VTURB -->
+       <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/6aaadd8d1a6863af464bcc24/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+    <!-- VTURB -->
+
+     <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '762475840246838');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=762475840246838&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- UTMIFY -->    
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+    </head>
+
+    <body>
+        <main class="wrap">
+            <!-- 1.headline-->
+            <h1 class="vsl-headline" data-btc-headline="">
+                <span class="vh-q">Azúcar en sangre por debajo de 140 todo el día.</span
+                ><span class="vh-a">Una comida matutina de 5 minutos lo hizo posible.</span>
+            </h1>
+
+            <!-- 2. X pessoas do Facebook estão assistindo-->
+            <div class="vsl-watching-wrap">
+                <div class="vsl-watching">
+                    <div class="vw-shine"></div>
+                    <div class="vw-dot"></div>
+                    <span id="viewerCount">786</span>
+                    <span>personas de</span>
+                    <span class="vw-fb">Facebook</span>
+                    <span>están viendo</span>
+                </div>
+            </div>
+
+            <!-- VSL-->
+            <div class="vsl-video" id="vsl-video-slot">
+               <vturb-smartplayer id="ab-6aaadd8d1a6863af464bcc24" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/6aaadd8d1a6863af464bcc24/player.js", s.async=!0,document.head.appendChild(s); </script>
+            </div>
+           <!-- VSL-->
+
+            <!-- ID DO CTA : vsl-cta-zone -->
+            <div id="">
+                <!-- 4. Caixa de prova social "X pessoas estão comprando {brand} agora mesmo"-->
+                <div class="cf-viewer-container">
+                    <div class="cf-viewer-wrapper shaking" id="cf-wrapper-box">
+                        <span class="cf-viewer-text"
+                            ><span id="cf-viewer-count">22</span> personas más están comprando La Solución de Una Comida
+                            para el Azúcar en Sangre ahora mismo</span
+                        >
+                    </div>
+                </div>
+
+                <!-- 5. CTA principal -->
+                <div class="cta-wrap">
+                    <a
+                        class="vsl-cta pulse"
+                        href="https://www.checkout-ds24.com/product/699900?quantity_2=1&amp;ds24tr=fv00e320f2c2a1"
+                        rel="noopener"
+                        data-checkout=""
+                        ><span class="shine"></span><span class="cta-label" data-cta="primary">ORDENAR AHORA</span></a
+                    >
+                </div>
+                <p class="cta-sub">
+                    <a
+                        href="https://www.checkout-ds24.com/product/699900?quantity_2=1&amp;ds24tr=fv00e320f2c2a1"
+                        rel="noopener"
+                        data-checkout=""
+                        ><span class="cta-label" data-cta="subtext"
+                            >¡SÍ! Quiero acabar definitivamente con mis picos de azúcar en sangre. (Añadir esto a mi carrito) Merezco
+                            disfrutar de mis años dorados con mi medidor por debajo de 140.</span
+                        ></a
+                    >
+                </p>
+
+                <!-- 6. Caixa de oferta -->
+                <div class="vsl-offer-box">
+                    <p class="note">
+                        <b>Una nota personal de Evan Grant:</b><br /><i
+                            >"Si tienes más de 50 años y te has resignado en silencio a los picos, te lo ruego:
+                            <u>nunca te rindas contigo mismo.</u> Por favor, pruébalo sinceramente durante unos días; las palabras
+                            no pueden describirlo, simplemente tienes que experimentarlo."</i
+                        >
+                    </p>
+                    <a
+                        href="https://www.checkout-ds24.com/product/699900?quantity_2=1&amp;ds24tr=fv00e320f2c2a1"
+                        rel="noopener"
+                        style="display: block"
+                        data-checkout=""
+                        ><img
+                            class="buy-section-img"
+                            src="images/adapt-fe-vsl-v2-buy_section_image-v4-5c72a6aa.webp"
+                            alt="La Solución de Una Comida para el Azúcar en Sangre"
+                            width="620"
+                            height="331"
+                            loading="lazy"
+                            decoding="async"
+                    /></a>
+                </div>
+
+                <!-- 7. CTA secundário -->
+                <div class="cta-wrap">
+                    <a
+                        class="vsl-cta pulse"
+                        href="https://www.checkout-ds24.com/product/699900?quantity_2=1&amp;ds24tr=fv00e320f2c2a1"
+                        rel="noopener"
+                        data-checkout=""
+                        ><span class="shine"></span
+                        ><span class="cta-label" data-cta="secondary">¡SÍ! QUIERO REDUCIR MI AZÚCAR</span></a
+                    >
+                </div>
+                <p class="cta-sub cta-sub-lg">
+                    <a
+                        href="https://www.checkout-ds24.com/product/699900?quantity_2=1&amp;ds24tr=fv00e320f2c2a1"
+                        rel="noopener"
+                        data-checkout=""
+                        ><b><span class="cta-label" data-cta="sublink">AÑADIR AL CARRITO</span></b></a
+                    >
+                </p>
+            </div>
+            <!-- /#vsl-cta-zone -->
+
+            <!-- 8. Faixa de selos de confiança -->
+            <img
+                class="trust-strip"
+                src="images/trust-badges-ref-davinci.webp"
+                alt="Excelente — Confiable 9,7"
+                width="210"
+                height="77"
+                loading="lazy"
+                decoding="async"
+            />
+
+            <!-- 9. Rodapé -->
+            <footer class="site">
+                <p>© 2026 - Todos los derechos reservados.</p>
+            </footer>
+        </main>
+
+        <!-- Modal de intenção de saída -->
+        <div class="vsl-exit-overlay" id="vslExitModal" role="dialog" aria-modal="true" aria-label="Espera">
+            <div class="vsl-exit-box">
+                <button class="vsl-exit-x" data-vsl-exit-close="" aria-label="Cerrar">×</button>
+                <h2 class="vsl-exit-h">
+                    <span class="eh-1"><span class="sig">¡ESPERA!</span> En solo <span class="sig">1:45</span>...</span
+                    ><span class="eh-2">¡Revelaré mi truco matutino de 5 minutos que reduce rápidamente el azúcar en sangre!</span>
+                </h2>
+                <div class="vsl-exit-grid">
+                    <img
+                        class="vsl-exit-img"
+                        src="images/adapt-exit_popup_image-v0-faae4c15.webp"
+                        alt=""
+                        width="291"
+                        height="208"
+                        loading="lazy"
+                        decoding="async"
+                        data-vsl-exit-close=""
+                        title="Continuar viendo"
+                    />
+                    <p class="vsl-exit-body">
+                        Es un «truco matutino» de 5 minutos que puedes hacer en casa ahora mismo. Es increíblemente sencillo y muy
+                        eficaz para estabilizar el azúcar en sangre. Pruébalo mañana. <b>Créeme, te encantará.</b>
+                    </p>
+                </div>
+                <div class="vsl-exit-cta-wrap">
+                    <a class="vsl-cta pulse-fast" href="#" data-vsl-exit-close=""
+                        ><span class="shine"></span>Sigue viendo para descubrir mi truco »</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Contadores de prova social em tempo real (puros, autônomos) -->
+        <script data-cfasync="false" src="js/email-decode.min.js"></script>
+        <script>
+            /* "assistindo pelo Facebook" — passeio aleatório, MIN/MÁX configuráveis via slots */
+            (function () {
+                var el = document.getElementById("viewerCount");
+                if (!el) return;
+                var MIN = 702,
+                    MAX = 880;
+                var v = Math.floor(720 + Math.random() * 120);
+                function clamp(n, l, h) {
+                    return Math.max(l, Math.min(h, n));
+                }
+                function tick() {
+                    var d = Math.floor(Math.random() * 7) - 3;
+                    if (v < 730) d += Math.floor(Math.random() * 3) + 1;
+                    if (v > 860) d -= Math.floor(Math.random() * 4) + 1;
+                    v = clamp(v + d, MIN, MAX);
+                    el.textContent = v;
+                    setTimeout(tick, 2000 + Math.random() * 2000);
+                }
+                el.textContent = v;
+                setTimeout(tick, 1200);
+            })();
+            /* ""Outras pessoas estão comprando agora mesmo" — início rápido seguido de estabilização; ajuste a cada mudança. */
+            (function () {
+                var minViewers = 9,
+                    maxViewers = 22,
+                    minChange = 1,
+                    maxChange = 4;
+                var FAST_UPDATES_COUNT = 5,
+                    FAST_MIN = 500,
+                    FAST_MAX = 1500,
+                    NORM_MIN = 3000,
+                    NORM_MAX = 7000;
+                var countEl = document.getElementById("cf-viewer-count");
+                var wrapEl = document.getElementById("cf-wrapper-box");
+                if (!countEl || !wrapEl) return;
+                function ri(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                var cur = ri(minViewers, maxViewers),
+                    n = 0;
+                countEl.innerText = cur;
+                function upd() {
+                    var ch = ri(minChange, maxChange),
+                        op;
+                    if (cur + ch > maxViewers) op = "sub";
+                    else if (cur - ch < minViewers) op = "add";
+                    else op = Math.random() < 0.5 ? "add" : "sub";
+                    cur += op === "add" ? ch : -ch;
+                    countEl.innerText = cur;
+                    wrapEl.classList.remove("shaking");
+                    void wrapEl.offsetWidth;
+                    wrapEl.classList.add("shaking");
+                    n++;
+                    var delay = n < FAST_UPDATES_COUNT ? ri(FAST_MIN, FAST_MAX) : ri(NORM_MIN, NORM_MAX);
+                    setTimeout(upd, delay);
+                }
+                setTimeout(upd, 1500);
+            })();
+            /* Intenção de saída — gatilho de saída do cursor pela parte superior no desktop + captura pelo botão de voltar no mobile (uma vez por sessão) */
+            (function () {
+                var modal = document.getElementById("vslExitModal");
+                if (!modal) return;
+                var shown = false;
+                function show() {
+                    if (shown) return;
+                    try {
+                        if (sessionStorage.getItem("vslExitShown")) return;
+                    } catch (e) {}
+                    shown = true;
+                    try {
+                        sessionStorage.setItem("vslExitShown", "1");
+                    } catch (e) {}
+                    modal.classList.add("open");
+                }
+                function hide() {
+                    modal.classList.remove("open");
+                }
+                // Desktop: o cursor sai da parte superior da viewport (ativação após 4 segundos para evitar disparo acidental prematuro)
+                setTimeout(function () {
+                    document.addEventListener("mouseout", function (e) {
+                        if (!e.relatedTarget && e.clientY <= 0) show();
+                    });
+                }, 4000);
+                // Mobile: trap one back-button press
+                try {
+                    history.pushState(null, "", location.href);
+                    window.addEventListener("popstate", function () {
+                        if (!shown) {
+                            show();
+                            history.pushState(null, "", location.href);
+                        }
+                    });
+                } catch (e) {}
+                // Close handlers
+                modal.addEventListener("click", function (e) {
+                    if (e.target === modal) hide();
+                });
+                Array.prototype.forEach.call(modal.querySelectorAll("[data-vsl-exit-close]"), function (b) {
+                    b.addEventListener("click", function (ev) {
+                        ev.preventDefault();
+                        hide();
+                    });
+                });
+            })();
+        </script>
+
+        <!-- Exibição de CTA com atraso: tornar visível a `#vsl-cta-zone` no momento em que o VTurb injeta/revela o `#vturb-beacon` (configurado no player do VTurb no instante da CTA — utilizando o mesmo ID de beacon para todas as variantes). Implementação via `MutationObserver` com um mecanismo de *fallback* de verificação (*polling*) a cada 0,5 segundo. -->
+        <script>
+            (function () {
+                var BEACON = "vturb-beacon",
+                    ZONE = "vsl-cta-zone",
+                    done = false,
+                    obs = null,
+                    iv = null;
+                function beaconLive() {
+                    var b = document.getElementById(BEACON);
+                    return !!(b && b.offsetParent !== null);
+                }
+                function reveal() {
+                    if (done) return;
+                    done = true;
+                    var z = document.getElementById(ZONE);
+                    if (z) {
+                        z.style.display = "";
+                        z.style.opacity = "1";
+                    }
+                    var s = document.getElementById("vsl-cta-hide");
+                    if (s) s.remove();
+                    if (obs) obs.disconnect();
+                    if (iv) clearInterval(iv);
+                    try {
+                        console.log("[VSL] VTurb beacon detected — CTA revealed.");
+                    } catch (e) {}
+                }
+                function check() {
+                    if (!done && beaconLive()) reveal();
+                }
+                if (beaconLive()) {
+                    reveal();
+                    return;
+                }
+                if ("MutationObserver" in window) {
+                    obs = new MutationObserver(check);
+                    obs.observe(document.documentElement, {
+                        childList: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ["style", "class"],
+                    });
+                }
+                iv = setInterval(check, 500);
+                setTimeout(function () {
+                    if (obs) obs.disconnect();
+                    if (iv) clearInterval(iv);
+                }, 5400000); // 90-min safety stop
+            })();
+        </script>
+
+     
+    
+
+    </body>
+</html>
