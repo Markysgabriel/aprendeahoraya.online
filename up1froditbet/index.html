@@ -726,7 +726,7 @@
         <!-- CTA com atraso: mantenha a oferta oculta e exiba o placeholder de espera até que o VTurb dispare o `#vturb-beacon`. Configure isso logo no `<head>` para evitar um efeito de cintilação (flash). -->
         <style id="up1-cta-hide">
             #up1-offer-zone,
-            #up1-cta-block {
+            #up1-cta-revela-botao {
                 display: none !important;
             }
         </style>
@@ -752,6 +752,10 @@
   defer
 ></script>
 <!-- UTMIFY -->
+<!-- DIGISTORE -->
+        <script src=" https://www.digistore24- scripts.com/service/digistore. js "></script>
+<script>digistoreUpsell() </script>
+<!-- DIGISTORE -->
 
     </head>
 
@@ -801,17 +805,7 @@
 
                     <!-- 3. VSL VTurb-->
                     <div class="up1-video" id="vsl-video-slot">
-                        <vturb-smartplayer
-                            id="vid-6a2c15a2bcb27b44d3e0af69"
-                            style="display: block; margin: 0 auto; width: 100%; max-width: 400px"
-                        ></vturb-smartplayer>
-                        <script type="text/javascript">
-                            var s = document.createElement("script");
-                            (s.src =
-                                "https://scripts.converteai.net/f989fe3e-8644-4d9b-b514-4359aca49e3b/players/6a2c15a2bcb27b44d3e0af69/v4/player.js"),
-                                (s.async = !0),
-                                document.head.appendChild(s);
-                        </script>
+                      <vturb-smartplayer id="vid-6aabd33812b73d47d9cefe95" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/players/6aabd33812b73d47d9cefe95/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
                     </div>
                    <!-- 3. VSL VTurb-->
 
@@ -821,8 +815,8 @@
                         completa para nuevos miembros. Tu enlace de acceso aparecerá al final del video.
                     </p>
 
-                    <!-- Bloco de CTA — DELAY - up1-cta-block -->
-                    <div id="">
+                    <!-- Bloco de CTA — DELAY - up1-cta-revela-botao -->
+                    <div id="up1-cta-revela-botao">
                         <!-- 5. Lembrete de ação pendente — "AÇÃO PENDENTE. CLIQUE ABAIXO" -->
                         <div id="up1-pending-zone" class="up1-pending">
                             <span>ACCIÓN PENDIENTE. HAZ CLIC ABAJO</span><span class="up1-spinner"></span>
@@ -1048,7 +1042,7 @@
                         z.style.display = "";
                         z.style.opacity = "1";
                     }
-                    var cb = document.getElementById("up1-cta-block");
+                    var cb = document.getElementById("up1-cta-revela-botao");
                     if (cb) {
                         cb.style.display = "";
                     }
