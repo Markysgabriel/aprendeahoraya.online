@@ -1,0 +1,1362 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Gracias — La Solución de Una Comida para el Azúcar en Sangre</title>
+        <meta
+            name="description"
+            content="Tus descargas de La Solución de Una Comida para el Azúcar en Sangre. ¡Te damos la bienvenida!"
+        />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="icon" href="images/favicon-transparent-70f3507f.webp" />
+        <link rel="shortcut icon" href="images/favicon-transparent-70f3507f.webp" />
+        <link rel="apple-touch-icon" href="images/favicon-transparent-70f3507f.webp" />
+
+        <link rel="preconnect" href="https://files.virtuclix.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
+        />
+
+        <style>
+            :root {
+                /* Hardcoded white page background (brand choice). To revert to the corporate-style autoslot, restore: --bg: [brand_color_bg token]; */
+                --bg: #ffffff;
+                --dark: #3d1f1f;
+                --headline: #7a2e2e;
+                --body: #4d5663;
+                --muted: #8993a0;
+                --accent: #7a2e2e;
+                --rule: #e8eaee;
+                --cta-bg: #d4a017;
+                --cta-text: #3d1f1f;
+                --eyebrow: #a89a9a;
+                --info-bg: var(--dark);
+                --font-display: "Inter", system-ui, -apple-system, sans-serif;
+                --font-body: "Inter", system-ui, -apple-system, sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font: 400 17px/1.6 var(--font-body);
+                color: var(--body);
+                background: var(--bg);
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* ── BANDS ─────────────────────────────────── */
+            .band {
+                width: 100%;
+            }
+            .band.dark {
+                background: var(--dark);
+                color: #f4f3ec;
+            }
+            .band.cream {
+                background: var(--bg);
+                color: var(--body);
+            }
+            .band.info {
+                background: var(--info-bg);
+                color: #f4f3ec;
+            }
+            .band .inner {
+                max-width: 920px;
+                margin: 0 auto;
+                padding: 22px;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-family: var(--font-display);
+                margin: 0;
+                font-weight: 900;
+                letter-spacing: -0.005em;
+                line-height: 1.18;
+            }
+
+            /* ── HERO (dark band — only this) ── */
+            .hero {
+                text-align: center;
+                padding: 70px 22px 60px;
+            }
+            .hero .h1-welcome {
+                font-size: 32px;
+                color: var(--eyebrow);
+                font-weight: 700;
+                letter-spacing: 0.01em;
+                margin: 0 0 22px;
+                opacity: 0.95;
+            }
+            .hero .h1-brand {
+                font-size: 72px;
+                letter-spacing: -0.02em;
+                margin: 0 0 22px;
+                color: var(--cta-bg);
+                line-height: 1.08;
+            }
+            .hero .h1-area {
+                font-size: 38px;
+                color: #f4f3ec;
+                font-weight: 700;
+                opacity: 0.94;
+            }
+
+            /* ── VIDEO + SUPPORT (cream band, joined together — small gap) ── */
+            .video-support {
+                padding: 40px 22px 30px;
+            }
+            .video-support .inner {
+                max-width: 920px;
+                margin: 0 auto;
+            }
+            .video-banner {
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font: 900 26px/1.3 var(--font-display);
+                text-align: center;
+                padding: 18px 18px 14px;
+                border-radius: 12px 12px 0 0;
+            }
+            .video-banner::before {
+                content: "▼  ";
+                opacity: 0.8;
+            }
+            .video-banner::after {
+                content: "  ▼";
+                opacity: 0.8;
+            }
+            .video-frame {
+                aspect-ratio: 16/9;
+                background: #000;
+                border-radius: 0 0 12px 12px;
+                overflow: hidden;
+            }
+            .video-frame iframe,
+            .video-frame video,
+            .video-frame > div {
+                width: 100% !important;
+                height: 100% !important;
+                border: 0;
+                display: block;
+            }
+            .video-frame video.webinar-video {
+                object-fit: contain;
+                background: #000;
+            }
+            .video-placeholder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #555;
+                font-family: monospace;
+                font-size: 13px;
+            }
+            /* ── Webinar masterclass: hero + chapters (U4 — only when a finished webinar is linked) ── */
+            .webinar-hero {
+                text-align: center;
+                padding: 4px 12px 18px;
+            }
+            .webinar-hero .webinar-h {
+                font: 900 clamp(24px, 4.6vw, 36px) / 1.14 var(--font-display);
+                color: var(--headline);
+                letter-spacing: -0.01em;
+                margin: 0 0 10px;
+            }
+            .webinar-hero .webinar-sub {
+                font-size: 16px;
+                line-height: 1.55;
+                color: var(--body);
+                max-width: 660px;
+                margin: 0 auto 14px;
+                opacity: 0.92;
+            }
+            .webinar-badge {
+                display: inline-block;
+                font: 800 13px/1 var(--font-display);
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+                color: var(--cta-text);
+                background: var(--cta-bg);
+                padding: 9px 18px;
+                border-radius: 999px;
+            }
+            .webinar-chapters {
+                max-width: 920px;
+                margin: 22px auto 0;
+            }
+            .webinar-chapters .chapters-head {
+                font: 800 15px/1.2 var(--font-display);
+                color: var(--headline);
+                margin: 0 0 12px;
+            }
+            .chapters-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .chapter-btn {
+                display: flex;
+                gap: 12px;
+                align-items: baseline;
+                width: 100%;
+                text-align: left;
+                padding: 11px 14px;
+                border-radius: 10px;
+                border: 1px solid var(--rule);
+                background: #fff;
+                color: var(--headline);
+                cursor: pointer;
+                font: inherit;
+                transition:
+                    border-color 0.12s ease,
+                    transform 0.12s ease,
+                    box-shadow 0.12s ease;
+            }
+            .chapter-btn:hover {
+                border-color: var(--cta-bg);
+                transform: translateY(-1px);
+                box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.4);
+            }
+            .chapter-btn.active {
+                border-color: var(--cta-bg);
+                box-shadow: inset 3px 0 0 var(--cta-bg);
+            }
+            .chapter-btn .ch-time {
+                font-variant-numeric: tabular-nums;
+                font-weight: 800;
+                color: var(--cta-bg);
+                min-width: 54px;
+                font-size: 14px;
+            }
+            .chapter-btn .ch-title {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+            .chapter-btn.watched {
+                opacity: 0.72;
+            }
+            .chapter-btn.watched .ch-time::after {
+                content: " ✓";
+                color: var(--cta-bg);
+            }
+            @media (max-width: 640px) {
+                .chapters-list {
+                    grid-template-columns: 1fr;
+                }
+            }
+            /* resume affordance + progress + completion + access reassurance */
+            .webinar-resume {
+                max-width: 920px;
+                margin: 0 auto 8px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                padding: 10px 14px;
+                border: 1px solid var(--cta-bg);
+                border-radius: 10px;
+                background: #fff;
+            }
+            .webinar-resume .wr-text {
+                flex: 1 1 auto;
+                font: 700 14px/1.3 var(--font-display);
+                color: var(--headline);
+            }
+            .webinar-resume .wr-btn {
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                border: 0;
+                font: 800 13px/1 var(--font-display);
+                padding: 9px 18px;
+                border-radius: 999px;
+                cursor: pointer;
+            }
+            .webinar-resume .wr-link {
+                background: none;
+                border: 0;
+                color: var(--body);
+                text-decoration: underline;
+                cursor: pointer;
+                font-size: 13px;
+                opacity: 0.8;
+            }
+            .webinar-progress {
+                max-width: 920px;
+                margin: 0 auto;
+                height: 4px;
+                background: var(--rule);
+                border-radius: 0 0 12px 12px;
+                overflow: hidden;
+            }
+            .webinar-progress-bar {
+                height: 100%;
+                width: 0;
+                background: var(--cta-bg);
+                transition: width 0.25s linear;
+            }
+            .webinar-done {
+                max-width: 920px;
+                margin: 14px auto 0;
+                text-align: center;
+                padding: 12px 16px;
+                border-radius: 10px;
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font: 800 15px/1.4 var(--font-display);
+            }
+            .webinar-access {
+                max-width: 920px;
+                margin: 14px auto 0;
+                text-align: center;
+                font-size: 13px;
+                color: var(--body);
+                line-height: 1.6;
+                opacity: 0.9;
+            }
+            .webinar-access .webinar-download {
+                color: var(--cta-bg);
+                font-weight: 700;
+                text-decoration: none;
+                white-space: nowrap;
+            }
+            .webinar-access .webinar-download:hover {
+                text-decoration: underline;
+            }
+            .support-line {
+                text-align: center;
+                margin: 24px auto 4px;
+                padding: 0 12px;
+            }
+            .support-line h2 {
+                font: 700 26px/1.4 var(--font-display);
+                color: var(--headline);
+                letter-spacing: -0.005em;
+                overflow-wrap: anywhere;
+                word-break: break-word;
+                max-width: 100%;
+            }
+            .support-line a {
+                font-size: 28px;
+                overflow-wrap: anywhere;
+            }
+            .support-line a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 900;
+            }
+            .support-line a:hover {
+                text-decoration: underline;
+            }
+
+            /* ── INFO BAND (DARKER than hero — own chapter) ── */
+            .info-band-wrap {
+                padding: 26px 22px 32px;
+            }
+            .info-card {
+                background: var(--info-bg);
+                color: #f4f3ec;
+                border-radius: 14px;
+                padding: 30px 32px 26px;
+                max-width: 760px;
+                margin: 0 auto;
+                box-shadow: 0 14px 38px -18px rgba(0, 0, 0, 0.5);
+            }
+            .info-card h2 {
+                color: var(--cta-bg);
+                text-align: center;
+                font-size: 28px;
+                margin: 0 0 22px;
+                line-height: 1.25;
+            }
+            .info-card ol {
+                margin: 0;
+                padding-left: 30px;
+            }
+            .info-card ol li {
+                padding: 9px 0;
+                font-size: 16px;
+                line-height: 1.7;
+                color: #e8e6dd;
+            }
+            .info-card ol li::marker {
+                color: var(--cta-bg);
+                font-weight: 900;
+                font-family: var(--font-display);
+            }
+            .info-card ol li strong,
+            .info-card ol li a {
+                color: var(--cta-bg);
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            /* ── AFFILIATE URGENCY #1 BAND (dark) ── */
+            .urgency1-band {
+                padding: 60px 22px;
+                text-align: center;
+            }
+            .urgency1-band .inner {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+            .urgency1-band h2 {
+                color: var(--cta-bg);
+                font-size: 32px;
+                margin: 0 0 20px;
+                line-height: 1.25;
+            }
+            .urgency1-band p {
+                color: #e8e6dd;
+                line-height: 1.7;
+                font-size: 16px;
+                margin: 0 auto 16px;
+                max-width: 580px;
+            }
+            .urgency1-band ul.warns {
+                list-style: none;
+                padding: 0;
+                margin: 18px auto 24px;
+                max-width: 460px;
+                text-align: left;
+            }
+            .urgency1-band ul.warns li {
+                padding: 6px 0;
+                color: #e8e6dd;
+                font-size: 15px;
+            }
+            .urgency1-band ul.warns li::before {
+                content: "❌ ";
+                margin-right: 6px;
+            }
+            .urgency-cta {
+                display: inline-block;
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font: 900 16px/1.2 var(--font-display);
+                letter-spacing: 0.03em;
+                padding: 18px 32px;
+                border-radius: 10px;
+                text-decoration: none;
+                border: 2px solid color-mix(in oklab, var(--cta-bg) 70%, black 30%);
+                box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+            }
+            .urgency-cta:hover {
+                transform: translateY(-1px);
+            }
+
+            /* ── DIVIDER (cream — tight against info above) ── */
+            .divider-band {
+                padding: 24px 22px 8px;
+                text-align: center;
+            }
+            .divider-band h1 {
+                font-size: 44px;
+                letter-spacing: -0.01em;
+                padding: 14px 0;
+                border-top: 2px solid var(--rule);
+                border-bottom: 2px solid var(--rule);
+                max-width: 720px;
+                margin: 0 auto;
+                color: var(--headline);
+            }
+            /* Compliance: digital-product / illustrative-images disclaimer (toggleable) */
+            .divider-band .digital-disclaimer {
+                max-width: 680px;
+                margin: 14px auto 0;
+                font-size: 14px;
+                line-height: 1.5;
+                font-style: italic;
+                color: var(--muted, #8a7a7a);
+            }
+
+            /* ── PRODUCTS GRID (cream) ── */
+            .products-band {
+                padding: 18px 22px 60px;
+            }
+            .product-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 22px;
+                max-width: 920px;
+                margin: 0 auto;
+            }
+            @media (max-width: 720px) {
+                .product-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            /* Single product card (e.g. Upsell 2 / Upsell 3 — main product only, no bonuses):
+       collapse the 2-col grid to ONE centered, narrower column so the lone card isn't
+       stranded on the left. Mirrors thankyou-fe-audiobook-v1's single-card layout. */
+            .product-grid:has(> .product-card:only-child) {
+                grid-template-columns: 1fr;
+                max-width: 720px;
+            }
+
+            .product-card {
+                background: var(--dark);
+                color: #f4f3ec;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 14px 38px -18px rgba(0, 0, 0, 0.45);
+                display: flex;
+                flex-direction: column;
+            }
+            /* TWO-LINE HEADER — eyebrow line ("FREE BONUS #N" / "MAIN PRODUCT") then title */
+            .product-card__header {
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                text-align: center;
+                padding: 14px 16px 16px;
+            }
+            .product-card__header .eyebrow {
+                font: 900 14px/1.1 var(--font-display);
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                opacity: 0.78;
+                margin-bottom: 4px;
+            }
+            .product-card__header .title {
+                font: 900 20px/1.25 var(--font-display);
+                letter-spacing: -0.005em;
+            }
+            .product-card__body {
+                padding: 22px 22px 26px;
+            }
+            .product-card__cover {
+                max-width: 240px;
+                margin: 0 auto 18px;
+                display: block;
+            }
+            .product-card.main .product-card__cover {
+                max-width: 320px;
+            }
+            .product-card__cover img {
+                width: 100%;
+                height: auto;
+                display: block;
+                filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.4));
+                transition:
+                    transform 0.18s ease,
+                    filter 0.18s ease;
+            }
+            .product-card__cover a {
+                display: block;
+                cursor: pointer;
+            }
+            .product-card__cover a:hover img {
+                transform: translateY(-2px) scale(1.02);
+                filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.55));
+            }
+            .product-card__cover.no-image {
+                aspect-ratio: 3/4;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 6px;
+            }
+            .product-card .sub-h {
+                font: 700 14px/1.3 var(--font-display);
+                color: var(--cta-bg);
+                text-align: center;
+                margin: 4px 0 14px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+            .product-card p {
+                margin: 0 0 12px;
+                font-size: 15px;
+                line-height: 1.6;
+                color: #e8e6dd;
+            }
+            .product-card ul {
+                padding-left: 20px;
+                margin: 8px 0 18px;
+            }
+            .product-card ul li {
+                padding: 4px 0;
+                line-height: 1.55;
+                font-size: 14px;
+                color: #e8e6dd;
+            }
+            .product-card__cta-row {
+                text-align: center;
+                margin-top: 16px;
+            }
+            .dl-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font: 900 16px/1.1 var(--font-display);
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                padding: 15px 28px;
+                border-radius: 10px;
+                text-decoration: none;
+                border: 2px solid color-mix(in oklab, var(--cta-bg) 70%, black 30%);
+                box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18);
+            }
+            .dl-btn:hover {
+                transform: translateY(-1px);
+            }
+            /* Fetch-when-finished placeholder — shown when an asset's PDF isn't ready
+       yet (e.g. an upsell deliverable still aligning). Looks like a disabled
+       button; not clickable. Auto-replaced by the real dl-btn once ready. */
+            .dl-btn.dl-pending {
+                background: color-mix(in oklab, var(--cta-bg) 22%, #1a1a1a 78%);
+                color: rgba(244, 243, 236, 0.7);
+                border-color: rgba(244, 243, 236, 0.2);
+                box-shadow: none;
+                cursor: default;
+                font-size: 13px;
+                text-transform: none;
+                letter-spacing: 0.01em;
+            }
+            .dl-btn.dl-pending:hover {
+                transform: none;
+            }
+            /* F5-M3: access/membership perks (VIP, Family License, Documentary) — not a download. */
+            .dl-btn.dl-access {
+                background: color-mix(in oklab, #2e7d4f 30%, #1a1a1a 70%);
+                color: rgba(244, 243, 236, 0.92);
+                border-color: rgba(120, 220, 160, 0.35);
+                box-shadow: none;
+                cursor: default;
+                font-size: 13px;
+                text-transform: none;
+                letter-spacing: 0.01em;
+            }
+            .dl-btn.dl-access:hover {
+                transform: none;
+            }
+            .product-card .caption {
+                text-align: center;
+                color: rgba(244, 243, 236, 0.55);
+                font-size: 12px;
+                margin: 12px 0 0;
+            }
+
+            /* TOC dropdown — collapsible chapter list inside each product card */
+            .toc-details {
+                margin: 18px 0 22px;
+                border-top: 1px solid rgba(244, 243, 236, 0.12);
+                border-bottom: 1px solid rgba(244, 243, 236, 0.12);
+            }
+            .toc-details summary {
+                list-style: none;
+                cursor: pointer;
+                padding: 14px 4px;
+                font: 700 13px/1.3 var(--font-display);
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--cta-bg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                user-select: none;
+            }
+            .toc-details summary::-webkit-details-marker {
+                display: none;
+            }
+            .toc-details summary::after {
+                content: "▼";
+                font-size: 10px;
+                transition: transform 0.2s;
+            }
+            .toc-details[open] summary::after {
+                transform: rotate(180deg);
+            }
+            .toc-details ol {
+                list-style: none;
+                counter-reset: ch;
+                padding: 6px 0 14px;
+                margin: 0;
+            }
+            .toc-details ol li {
+                counter-increment: ch;
+                padding: 6px 0;
+                font-size: 13px;
+                line-height: 1.5;
+                color: #d6d4ca;
+                display: flex;
+                gap: 10px;
+                align-items: baseline;
+            }
+            .toc-details ol li::before {
+                content: counter(ch);
+                flex: 0 0 22px;
+                color: var(--cta-bg);
+                font: 900 13px/1.5 var(--font-display);
+                text-align: right;
+            }
+
+            /* ── AFFILIATE URGENCY #2 BAND (gold/orange) ── */
+            .urgency2-band {
+                background: linear-gradient(135deg, #e09f3e 0%, #c5602b 100%);
+                padding: 60px 22px;
+                color: #fff;
+                text-align: center;
+            }
+            .urgency2-band .inner {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+            .urgency2-band .banner-img {
+                max-width: 320px;
+                margin: 0 auto 22px;
+            }
+            .urgency2-band .banner-img img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 10px;
+            }
+            .urgency2-band h2 {
+                color: #fff;
+                font-size: 32px;
+                margin: 0 0 16px;
+                line-height: 1.25;
+            }
+            .urgency2-band p {
+                color: rgba(255, 255, 255, 0.95);
+                line-height: 1.7;
+                font-size: 16px;
+                margin: 0 auto 22px;
+                max-width: 600px;
+            }
+            .urgency2-band .urgency-cta {
+                background: #fff;
+                color: #c5602b;
+                border-color: #fff;
+            }
+
+            /* ── AFFILIATE VAULT BAND (dark) ── */
+            .vault-band {
+                padding: 60px 22px;
+            }
+            .vault-band .lead {
+                text-align: center;
+                max-width: 720px;
+                margin: 0 auto 24px;
+            }
+            .vault-band .lead h2 {
+                font-size: 18px;
+                color: var(--cta-bg);
+                margin: 0 0 4px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+            .vault-band .lead h1 {
+                font-size: 38px;
+                margin: 4px 0 18px;
+                color: #f4f3ec;
+            }
+            .vault-band .lead p {
+                color: #e8e6dd;
+                line-height: 1.7;
+            }
+            .vault-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 18px;
+                max-width: 920px;
+                margin: 0 auto;
+            }
+            @media (max-width: 820px) {
+                .vault-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .vault-card {
+                background: #1a0e0e;
+                color: #fff;
+                border-radius: 12px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .vault-card__header {
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font: 700 12px/1.3 var(--font-display);
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                padding: 9px 12px;
+                text-align: center;
+            }
+            .vault-card__thumb {
+                aspect-ratio: 16/10;
+                background: rgba(255, 255, 255, 0.04);
+            }
+            .vault-card__thumb img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            .vault-card__body {
+                padding: 16px 18px 18px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .vault-card h3 {
+                color: var(--cta-bg);
+                font-size: 17px;
+                margin: 0 0 10px;
+                line-height: 1.3;
+                font-weight: 800;
+            }
+            .vault-card p {
+                font-size: 13px;
+                line-height: 1.55;
+                color: #d4d2c8;
+                flex: 1;
+                margin: 0 0 14px;
+            }
+            .vault-card .vault-btn {
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                font: 900 13px/1.1 var(--font-display);
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                padding: 11px 16px;
+                border-radius: 8px;
+                text-decoration: none;
+                text-align: center;
+                display: block;
+                border: 2px solid color-mix(in oklab, var(--cta-bg) 70%, black 30%);
+            }
+
+            .affiliate-marker {
+                position: relative;
+            }
+            .affiliate-marker::before {
+                content: "SECCIÓN DE AFILIADOS";
+                position: absolute;
+                top: 12px;
+                right: 16px;
+                font: 700 9px/1 var(--font-display);
+                letter-spacing: 0.16em;
+                padding: 4px 8px;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                border-radius: 3px;
+                opacity: 0.55;
+                z-index: 10;
+                pointer-events: none;
+            }
+
+            /* ── FOOTER (cream) ── */
+            .footer-band {
+                padding: 28px 22px 22px;
+                text-align: center;
+                font-size: 13px;
+                color: var(--muted);
+            }
+            .footer-band p {
+                margin: 6px auto;
+                line-height: 1.6;
+                max-width: 920px;
+            }
+            .footer-band a {
+                color: var(--accent);
+                text-decoration: none;
+                margin: 0 4px;
+            }
+            .footer-band a:hover {
+                text-decoration: underline;
+            }
+
+            @media (max-width: 600px) {
+                .hero {
+                    padding: 48px 18px 40px;
+                }
+                .hero .h1-welcome {
+                    font-size: 22px;
+                }
+                .hero .h1-brand {
+                    font-size: 48px;
+                }
+                .hero .h1-area {
+                    font-size: 26px;
+                }
+                .video-support {
+                    padding: 30px 18px 20px;
+                }
+                .video-banner {
+                    font-size: 20px;
+                }
+                .support-line h2 {
+                    font-size: 18px;
+                }
+                .support-line a {
+                    font-size: 17px;
+                    display: block;
+                    margin-top: 3px;
+                }
+                .info-band-wrap {
+                    padding: 18px 18px 26px;
+                }
+                .info-card {
+                    padding: 24px 20px;
+                }
+                .info-card h2 {
+                    font-size: 22px;
+                }
+                .urgency1-band,
+                .urgency2-band,
+                .vault-band {
+                    padding: 40px 18px;
+                }
+                .urgency1-band h2,
+                .urgency2-band h2 {
+                    font-size: 26px;
+                }
+                .divider-band {
+                    padding: 18px 18px 4px;
+                }
+                .divider-band h1 {
+                    font-size: 32px;
+                }
+                .product-card__header .title {
+                    font-size: 17px;
+                }
+                .product-card__header .eyebrow {
+                    font-size: 12px;
+                }
+                .vault-band .lead h1 {
+                    font-size: 28px;
+                }
+            }
+        </style>
+        <script src="js/player.js" async=""></script>
+
+ <!-- VTURB -->
+       <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/6aaadd8d1a6863af464bcc24/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+    <!-- VTURB -->
+    
+<!-- UTMIFY -->    
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+    </head>
+
+    <body>
+        <!-- 1. FAIXA DO HERÓI (escura — apenas o herói) -->
+        <section class="band dark">
+            <div class="hero">
+                <h1 class="h1-welcome">Te damos una cálida bienvenida a...</h1>
+                <h1 class="h1-brand">La Solución de Una Comida para el Azúcar en Sangre</h1>
+                <h1 class="h1-area">Tu Área Privada de Miembros</h1>
+            </div>
+        </section>
+
+        <!-- 2. VTURB - VÍDEO + SUPORTE (faixa bege, unida) -->
+        <section class="band cream">
+            <div class="video-support">
+                <div class="inner">
+                    <div class="video-banner">Primero mira este mensaje personal en video</div>
+                    <div class="video-frame">
+                        <vturb-smartplayer
+                            id="vid-6a16dece0c8b3bb114fde50a"
+                            style="display: block; margin: 0 auto; width: 100%"
+                        ></vturb-smartplayer>
+                        <script type="text/javascript">
+                            var s = document.createElement("script");
+                            (s.src =
+                                "https://scripts.converteai.net/f989fe3e-8644-4d9b-b514-4359aca49e3b/players/6a16dece0c8b3bb114fde50a/v4/player.js"),
+                                (s.async = !0),
+                                document.head.appendChild(s);
+                        </script>
+                    </div>
+        </section>
+<!-- 2. VTURB - VÍDEO + SUPORTE (faixa bege, unida) -->
+
+        <!-- 3. INFO DA BANDA (mais sombria que a Hero — capítulo próprio) -->
+        <section class="band info">
+            <div class="info-band-wrap">
+                <div class="info-card">
+                    <h2>La información más importante de un vistazo:</h2>
+                    <ol>
+                        <li>
+                            En el extracto de tu tarjeta de crédito o cuenta bancaria aparecerá un cargo de Digistore24.
+                            No te preocupes, somos nosotros — Digistore24 es el servicio de pago que utilizamos.
+                        </li>
+                        <li>Guarda esta página en tus favoritos. Necesitarás esta URL exacta si deseas volver.</li>
+                        <li>
+                            Guarda el correo electrónico de soporte que aparece abajo. Es la forma más rápida de
+                            comunicarte con nosotros si tienes alguna pregunta.
+                
+                        <li>
+                            Dale una oportunidad justa al método de Una Comida — para obtener mejores resultados, sigue
+                            el protocolo de forma constante durante al menos 30 días antes de tomar una decisión.
+                        </li>
+                        <li>
+                            Si también compraste productos adicionales, busca los correos electrónicos separados para
+                            acceder a ellos. Revisa tanto tu bandeja de entrada como las carpetas de spam o correo no
+                            deseado.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. URGÊNCIA DE AFILIADO Nº 1 (modo escuro — controlado por alternância) -->
+
+        <!-- 5. DIVISOR (creme — apertado contra informações -->
+        <section class="band cream">
+            <div class="divider-band">
+                <h1>Accede a tus productos aquí</h1>
+                <p class="digital-disclaimer">
+                    Las imágenes mostradas en esta página son únicamente ilustrativas; el producto final se entrega en
+                    formato digital.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. GRADE DE PRODUTOS (cartões creme — escuros) -->
+        <section class="band cream">
+            <div class="products-band">
+                <div class="product-grid">
+                    <article class="product-card main">
+                        <div class="product-card__header">
+                            <div class="eyebrow">PRODUCTO PRINCIPAL</div>
+                            <div class="title">La Solución de Una Comida para el Azúcar en Sangre</div>
+                        </div>
+                        <div class="product-card__body">
+                            <div class="product-card__cover">
+                                <a
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/main"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="Descargar La Solución de Una Comida para el Azúcar en Sangre"
+                                    ><img
+                                        src="images/mockup-main_companions-519c725a.webp"
+                                        alt="La Solución de Una Comida para el Azúcar en Sangre"
+                                        loading="eager"
+                                        fetchpriority="high"
+                                        decoding="async"
+                                /></a>
+                            </div>
+                            <div class="sub-h">Cómo utilizarlo:</div>
+                            <p>
+                                Sabemos que leer un libro completo puede parecer una tarea difícil. Recomendamos leer de
+                                3 a 5 páginas al día como parte de tu rutina de 30 días.
+                            </p>
+                            <ul>
+                                <li>Haz clic en el botón de abajo para abrir el archivo.</li>
+                                <li>
+                                    Espera un momento. Como se trata de un archivo grande y de alta calidad, puede
+                                    tardar entre 3 y 5 segundos en cargarse por completo.
+                                </li>
+                                <li>
+                                    Para usuarios de computadora o Android: haz clic en el botón de abajo para abrir el
+                                    archivo y luego busca el icono de descarga, normalmente una flecha hacia abajo, para
+                                    guardarlo en tu dispositivo.
+                                </li>
+                                <li>
+                                    Para usuarios de iPhone: toca el botón; cuando se abra el archivo, toca el icono
+                                    Compartir en la parte inferior y selecciona “Guardar en Archivos”.
+                                </li>
+                            </ul>
+
+                            <details class="toc-details">
+                                <summary>Lo que encontrarás dentro</summary>
+                                <ol>
+                                    <li>Las 21 batallas que has estado perdiendo</li>
+                                    <li>
+                                        El descubrimiento de 1982 que debería haber terminado con la guerra del azúcar
+                                        en sangre
+                                    </li>
+                                    <li>Tu páncreas es un termostato</li>
+                                    <li>La cascada de 24 horas</li>
+                                    <li>La bomba de glucosa matutina</li>
+                                    <li>La fórmula que activa el interruptor</li>
+                                    <li>Diez preparaciones nocturnas</li>
+                                    <li>Diez tazones calientes de cinco minutos</li>
+                                    <li>Diez desayunos para llevar</li>
+                                    <li>Tus primeros siete días</li>
+                                    <li>Vivir sin calcular carbohidratos</li>
+                                </ol>
+                            </details>
+
+                            <div class="product-card__cta-row">
+                                <a
+                                    class="dl-btn"
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/main"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >⬇ Descargar archivo</a
+                                >
+                            </div>
+                            <p class="caption">10.2 MB PDF</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__header">
+                            <div class="eyebrow">BONO GRATUITO N.º 1</div>
+                            <div class="title">La Lista Definitiva de Desayunos de $2</div>
+                        </div>
+                        <div class="product-card__body">
+                            <div class="product-card__cover">
+                                <a
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/bonus_1"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="Descargar La Lista Definitiva de Desayunos de $2"
+                                    ><img
+                                        src="images/mockup-single_bonus_1-29a38dea.webp"
+                                        alt="La Lista Definitiva de Desayunos de $2"
+                                        loading="lazy"
+                                        decoding="async"
+                                /></a>
+                            </div>
+                            <div class="sub-h">Nuestro bono gratuito para ti:</div>
+                            <p>
+                                Tu próxima visita al supermercado será mucho más sencilla. La Lista Definitiva de
+                                Desayunos de $2 te guía por cada pasillo de Walmart, Aldi, Kroger y Costco con las
+                                marcas exactas ya seleccionadas para ti — sin leer etiquetas, hacer cálculos ni dudar.
+                                Ábrela en tu teléfono antes de comprar y deja que la lista piense por ti.
+                            </p>
+
+                            <ul>
+                                <li>Haz clic en el botón de abajo para abrir el archivo.</li>
+                                <li>
+                                    Espera un momento. Como se trata de un archivo grande y de alta calidad, puede
+                                    tardar entre 3 y 5 segundos en cargarse por completo.
+                                </li>
+                                <li>
+                                    Para usuarios de computadora o Android: haz clic en el botón de abajo para abrir el
+                                    archivo y luego busca el icono de descarga, normalmente una flecha hacia abajo, para
+                                    guardarlo en tu dispositivo.
+                                </li>
+                                <li>
+                                    Para usuarios de iPhone: toca el botón; cuando se abra el archivo, toca el icono
+                                    Compartir en la parte inferior y selecciona “Guardar en Archivos”.
+                                </li>
+                            </ul>
+
+                            <details class="toc-details">
+                                <summary>Lo que encontrarás dentro</summary>
+                                <ol>
+                                    <li>El manual de los $2</li>
+                                    <li>El pasillo de la avena</li>
+                                    <li>El pasillo de los frijoles y las legumbres</li>
+                                    <li>El pasillo de los refrigerados</li>
+                                    <li>El pasillo de los congelados</li>
+                                    <li>El pasillo de la despensa</li>
+                                    <li>La zona de peligro</li>
+                                    <li>Tu carrito de $2, listo</li>
+                                </ol>
+                            </details>
+
+                            <div class="product-card__cta-row">
+                                <a
+                                    class="dl-btn"
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/bonus_1"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >⬇ Descargar archivo</a
+                                >
+                            </div>
+                            <p class="caption">9.5 MB PDF</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__header">
+                            <div class="eyebrow">BONO GRATUITO N.º 2</div>
+                            <div class="title">El Expediente de Rescate en Restaurantes</div>
+                        </div>
+                        <div class="product-card__body">
+                            <div class="product-card__cover">
+                                <a
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/bonus_2"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="Descargar El Expediente de Rescate en Restaurantes"
+                                    ><img
+                                        src="images/mockup-single_bonus_2-e7311c93.webp"
+                                        alt="El Expediente de Rescate en Restaurantes"
+                                        loading="lazy"
+                                        decoding="async"
+                                /></a>
+                            </div>
+                            <div class="sub-h">Nuestro bono gratuito para ti:</div>
+                            <p>
+                                Comer fuera ya no tiene por qué parecer un juego de adivinanzas. El Expediente de
+                                Rescate en Restaurantes te ofrece 47 guías listas para usar en Olive Garden, IHOP,
+                                Cheesecake Factory, Applebee's y más de 40 restaurantes — cada pedido está planificado
+                                para favorecer una lectura adecuada después de comer. Guárdalo en tu teléfono y sabrás
+                                exactamente qué pedir antes incluso de abrir el menú.
+                            </p>
+
+                            <ul>
+                                <li>Haz clic en el botón de abajo para abrir el archivo.</li>
+                                <li>
+                                    Espera un momento. Como se trata de un archivo grande y de alta calidad, puede
+                                    tardar entre 3 y 5 segundos en cargarse por completo.
+                                </li>
+                                <li>
+                                    Para usuarios de computadora o Android: haz clic en el botón de abajo para abrir el
+                                    archivo y luego busca el icono de descarga, normalmente una flecha hacia abajo, para
+                                    guardarlo en tu dispositivo.
+                                </li>
+                                <li>
+                                    Para usuarios de iPhone: toca el botón; cuando se abra el archivo, toca el icono
+                                    Compartir en la parte inferior y selecciona “Guardar en Archivos”.
+                                </li>
+                            </ul>
+
+                            <details class="toc-details">
+                                <summary>Lo que encontrarás dentro</summary>
+                                <ol>
+                                    <li>El manual de rescate en restaurantes</li>
+                                    <li>Noche de pasta sin picos</li>
+                                    <li>Cómo sobrevivir al mostrador de panqueques</li>
+                                    <li>El campo minado de los restaurantes informales</li>
+                                    <li>Parrillas, mariscos y la trampa de las guarniciones</li>
+                                    <li>Comida mexicana y tex-mex por debajo de 140</li>
+                                    <li>Dentro de la cocina asiática</li>
+                                    <li>Hamburguesas, sándwiches y la solución para el autoservicio</li>
+                                </ol>
+                            </details>
+
+                            <div class="product-card__cta-row">
+                                <a
+                                    class="dl-btn"
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/bonus_2"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >⬇ Descargar archivo</a
+                                >
+                            </div>
+                            <p class="caption">13.9 MB PDF</p>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__header">
+                            <div class="eyebrow">BONO GRATUITO N.º 3</div>
+                            <div class="title">Los 27 Sustitutos de Postres Prohibidos</div>
+                        </div>
+                        <div class="product-card__body">
+                            <div class="product-card__cover">
+                                <a
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/bonus_3"
+                                    target="_blank"
+                                    rel="noopener"
+                                    aria-label="Descargar Los 27 Sustitutos de Postres Prohibidos"
+                                    ><img
+                                        src="images/mockup-single_bonus_3-0b25c71d.webp"
+                                        alt="Los 27 Sustitutos de Postres Prohibidos"
+                                        loading="lazy"
+                                        decoding="async"
+                                /></a>
+                            </div>
+                            <div class="sub-h">Nuestro bono gratuito para ti:</div>
+                            <p>
+                                Los antojos son reales y este bono está diseñado para satisfacerlos a tu manera. Los 27
+                                Sustitutos de Postres Prohibidos te ofrecen recetas de imitación de 5 minutos de Oreo,
+                                Häagen-Dazs, Klondike y otros 24 favoritos del hogar — cada una creada para saber como
+                                la original y favorecer una lectura más estable. Elige el antojo que más te tienta y
+                                comienza por ahí esta semana.
+                            </p>
+
+                            <ul>
+                                <li>Haz clic en el botón de abajo para abrir el archivo.</li>
+                                <li>
+                                    Espera un momento. Como se trata de un archivo grande y de alta calidad, puede
+                                    tardar entre 3 y 5 segundos en cargarse por completo.
+                                </li>
+                                <li>
+                                    Para usuarios de computadora o Android: haz clic en el botón de abajo para abrir el
+                                    archivo y luego busca el icono de descarga, normalmente una flecha hacia abajo, para
+                                    guardarlo en tu dispositivo.
+                                </li>
+                                <li>
+                                    Para usuarios de iPhone: toca el botón; cuando se abra el archivo, toca el icono
+                                    Compartir en la parte inferior y selecciona “Guardar en Archivos”.
+                                </li>
+                            </ul>
+
+                            <details class="toc-details">
+                                <summary>Lo que encontrarás dentro</summary>
+                                <ol>
+                                    <li>El frasco de galletas, replicado</li>
+                                    <li>El pasillo de congelados, descifrado</li>
+                                    <li>La revolución del mostrador de dulces</li>
+                                    <li>La vitrina de la panadería, reinventada</li>
+                                    <li>Postres de cafetería, reformulados</li>
+                                    <li>El desafío de los paquetes de bocadillos</li>
+                                </ol>
+                            </details>
+
+                            <div class="product-card__cta-row">
+                                <a
+                                    class="dl-btn"
+                                    href="https://commando.virtuclix.com/dl/the-one-meal-blood-sugar-fix/bonus_3"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >⬇ Descargar archivo</a
+                                >
+                            </div>
+                            <p class="caption">6.6 MB PDF</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. URGÊNCIA PARA AFILIADOS Nº 2 (faixa dourada) -->
+
+        <!-- 8. AFFILIATE VAULT (faixa escura) -->
+
+        <!-- 9. Rodapé (creme) -->
+        <section class="band cream">
+            <div class="footer-band">
+                <p>© 2026 - Todos los derechos reservados.</p>
+                <p>
+            </div>
+        </section>
+
+       
+
+    </body>
+</html>
