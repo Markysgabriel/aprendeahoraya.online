@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>¡Espera! Mira esto</title>
+        <meta
+            name="description"
+            content="¡Espera! Tu pedido no está completo. Mira esta importante actualización para nuevos miembros para activar el Programa Inicial de 14 Días para el Azúcar en Sangre."
+        />
+        <meta name="robots" content="noindex" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://endspikes.com/cvr/ds-us1-vsl/" />
+        <meta property="og:title" content="¡Espera! Mira esto" />
+        <meta
+            property="og:description"
+            content="¡Espera! Tu pedido no está completo. Mira esta importante actualización para nuevos miembros para activar el Programa Inicial de 14 Días para el Azúcar en Sangre."
+        />
+        <meta property="og:image" content="images/upsell-mockup-u1_master-687bcab8.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="¡Espera! Mira esto" />
+        <meta
+            name="twitter:description"
+            content="¡Espera! Tu pedido no está completo. Mira esta importante actualización para nuevos miembros para activar el Programa Inicial de 14 Días para el Azúcar en Sangre."
+        />
+
+        <link rel="icon" type="image/png" href="images/favicon-transparent-70f3507f.webp" />
+        <link rel="apple-touch-icon" href="images/favicon-transparent-70f3507f.webp" />
+
+        <link rel="preconnect" href="https://files.virtuclix.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
+        />
+        <style>
+            :root {
+                /* Page background = soft neutral grey derived from the brand dark (autoslot-adaptive);
+     the content COLUMN stays white (the "card on grey" look from the source). */
+                --page: color-mix(in srgb, #3d1f1f 9%, #ffffff); /* main section grey */
+                --band: color-mix(in srgb, #3d1f1f 4%, #ffffff); /* lighter FULL-WIDTH headline band */
+                --bg: #ffffff;
+                --dark: #3d1f1f;
+                --headline: #7a2e2e;
+                --body: #4d5663;
+                --muted: #8993a0;
+                --accent: #7a2e2e;
+                --cta-bg: #d4a017;
+                --cta-text: #3d1f1f;
+                --rule: #e8eaee;
+                --alert: #b91c1c;
+                --soft: #f7f0e3;
+                /* Classic direct-response link-blue — a clickability affordance, NOT a brand color
+     (matches the FE VSL template + the source page's link blue). Intentionally fixed. */
+                --link-blue: #1a0dab;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--band);
+                color: var(--body);
+            }
+            body {
+                font:
+                    400 17px/1.6 "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            a {
+                color: inherit;
+            }
+            /* body = LIGHTER grey (headline + offer column). The TOP section (video/CTA) sits on a
+   slightly DARKER grey so the background steps medium→light EXACTLY ONCE and never back. */
+            .wrap {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                background: transparent;
+            }
+            .up1-top {
+                background: var(--page);
+                padding: 16px 0 30px;
+            } /* medium-grey top section; padding-top = gap below red bar */
+            .up1-card {
+                max-width: 640px;
+                margin: 0 auto;
+                padding: 9px 16px;
+                background: var(--bg);
+                border-radius: 14px;
+                box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+            }
+            .up1-card-bottom {
+                margin-top: 150px;
+                padding-top: 0;
+                padding-bottom: 12px;
+                display: flow-root;
+            } /* flow-root STOPS margin-collapse so the mockup's negative margin really lifts it above the box */
+            /* full-width band holding the value-stack headline (on the lighter body grey) */
+            .up1-headband {
+                padding: 30px 16px 18px;
+                text-align: center;
+            }
+
+            /* ── A. Don't-close warning bar (full-bleed red) ── */
+            .up1-warn {
+                background: var(--alert);
+                color: #fff;
+                text-align: center;
+                padding: 12px 14px 13px;
+                font-family: "Inter", sans-serif;
+            }
+            .up1-warn p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.35;
+                font-weight: 700;
+            }
+            .up1-warn .w2 {
+                font-weight: 500;
+                margin-top: 3px;
+                font-size: 15.5px;
+                opacity: 0.95;
+            }
+            .up1-warn-imp {
+                color: var(--cta-bg);
+                font-weight: 800;
+            }
+
+            /* ── B. "Order not complete" banner ── */
+            .up1-banner {
+                display: block;
+                margin: 6px auto 4px;
+                text-align: center;
+            }
+            .up1-banner img {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 620px;
+            }
+            .up1-banner .m {
+                display: none;
+            }
+            @media (max-width: 599px) {
+                .up1-banner .d {
+                    display: none;
+                }
+                .up1-banner .m {
+                    display: block;
+                    max-width: 360px;
+                }
+            }
+
+            /* ── C. Video ── */
+            .up1-video {
+                width: 100%;
+                max-width: 400px;
+                margin: 10px auto 0;
+                border: 1px solid #000;
+                box-sizing: border-box;
+            }
+            .up1-video-ph {
+                background: #0c0c12;
+                color: #7a8090;
+                aspect-ratio: 9/16;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 13px;
+                padding: 18px;
+                font-style: italic;
+            }
+
+            /* ── D. Do this first (emphasis prefix in alert+bold, body in normal weight; ~12% smaller) ── */
+            .up1-dtf {
+                color: var(--body);
+                font-family: "Inter", sans-serif;
+                font-weight: 400;
+                text-align: center;
+                font-size: 15px;
+                line-height: 1.4;
+                margin: 16px auto 10px;
+                max-width: 560px;
+            }
+            .up1-dtf-emph {
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+            }
+
+            /* ── E. Pending placeholder (pre-beacon) ── */
+            .up1-pending {
+                text-align: center;
+                margin: 18px 0;
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+            }
+            .up1-spinner {
+                width: 20px;
+                height: 20px;
+                border: 3px solid color-mix(in srgb, var(--dark) 25%, transparent);
+                border-top-color: var(--alert);
+                border-radius: 50%;
+                animation: up1-spin 1s linear infinite;
+                display: inline-block;
+            }
+            @keyframes up1-spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* ── F1/4/6/8. CTA button (cycling text + sonar pulse) ── */
+            .up1-cta-wrap {
+                text-align: center;
+                margin: 18px 0 6px;
+            }
+            .up1-cta {
+                display: block;
+                width: 100%;
+                background: #ffd400;
+                color: #0d1f2e; /* bright-yellow CTA + navy text (matches the Upsell 2 page) */
+                font:
+                    900 30px/1.15 "Inter",
+                    sans-serif;
+                text-decoration: none;
+                padding: 26px 18px;
+                border-radius: 10px;
+                letter-spacing: 0.01em;
+                text-align: center;
+                box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.35);
+                position: relative;
+                overflow: hidden;
+            }
+            .up1-cta.pulse {
+                animation: up1-pulse-grow 2s infinite;
+            }
+            .up1-cta .shine {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -150%;
+                width: 60%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+                transform: skewX(-20deg);
+                animation: up1-shine 3.2s infinite;
+            }
+            @keyframes up1-shine {
+                0% {
+                    left: -150%;
+                }
+                60% {
+                    left: 150%;
+                }
+                100% {
+                    left: 150%;
+                }
+            }
+            @keyframes up1-pulse-grow {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 color-mix(in srgb, #0d1f2e 55%, transparent);
+                }
+                50% {
+                    transform: scale(1.02);
+                    box-shadow: 0 0 0 16px transparent;
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 transparent;
+                }
+            }
+            /* cycling main text (vertical-blur cross-fade — replicated from source) */
+            .up1-cta-main {
+                position: relative;
+                display: block;
+                width: 100%;
+                color: transparent;
+            }
+            .up1-cta-main::before,
+            .up1-cta-main::after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                white-space: nowrap;
+                text-align: center;
+                line-height: 1.1;
+                color: #0d1f2e;
+                font-weight: 900;
+                pointer-events: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .up1-cta-main::before {
+                content: "ACTIVAR AHORA";
+                animation: text-cycle-1 4s infinite linear;
+            }
+            .up1-cta-main::after {
+                content: "OBTENER ACCESO INMEDIATO";
+                animation: text-cycle-2 4s infinite linear;
+            }
+            @keyframes text-cycle-1 {
+                0%,
+                45% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: none;
+                }
+                48% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(-20px);
+                    filter: url(ds-us1-final.html#vertical-blur);
+                }
+                50%,
+                95% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(20px);
+                }
+                98% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: url(ds-us1-final.html#vertical-blur);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: none;
+                }
+            }
+            @keyframes text-cycle-2 {
+                0%,
+                45% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(20px);
+                }
+                48% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: url(ds-us1-final.html#vertical-blur);
+                }
+                50%,
+                95% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) translateY(0);
+                    filter: none;
+                }
+                98% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) translateY(-20px);
+                    filter: url(ds-us1-final.html#vertical-blur);
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+            .up1-cta-sub {
+                display: block;
+                font:
+                    400 10px/1.3 "Inter",
+                    sans-serif;
+                margin-top: 7px;
+                opacity: 0.82;
+            }
+            /* sub confirm link (classic link-blue) */
+            .up1-sub {
+                text-align: center;
+                margin: 7px 0 16px;
+            }
+            .up1-sub a {
+                color: var(--link-blue);
+                font-weight: 700;
+                text-decoration: underline;
+                font-size: 15px;
+                line-height: 1.45;
+            }
+
+            /* ── F2. Value-stack headline — sits in the full-width .up1-headband; dark base
+       with alert-colored emphasis spans (<span class="hl">…</span> from the LLM). ── */
+            .up1-vstack {
+                color: var(--dark);
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                text-align: center;
+                font-size: 26px;
+                line-height: 1.2;
+                text-wrap: balance;
+                margin: 0 auto;
+                max-width: 940px;
+            }
+            .up1-vstack .hl {
+                color: var(--alert);
+            }
+
+            /* ── F3. Product mockup — overflows the rounded top of column 2 up into the band (~35-40%) ── */
+            .up1-mockup {
+                width: 100%;
+                max-width: 600px;
+                margin: -140px auto 6px;
+                position: relative;
+                z-index: 2;
+            }
+
+            /* ── F5. Benefit bullets ── */
+            .up1-bintro {
+                text-align: center;
+                color: var(--headline);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 19px;
+                margin: 26px 0 14px;
+            }
+            .up1-bullets {
+                list-style: none;
+                margin: 0 auto;
+                padding: 0;
+                max-width: 560px;
+            }
+            .up1-bullets li {
+                position: relative;
+                padding: 0 0 14px 34px;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            .up1-bullets li::before {
+                content: "\2713";
+                position: absolute;
+                left: 0;
+                top: 1px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                background: var(--accent);
+                color: #fff;
+                font-size: 13px;
+                font-weight: 800;
+                line-height: 1;
+            }
+            .up1-bullets li b {
+                color: var(--headline);
+            }
+
+            /* ── F7. Countdown ── */
+            .up1-cd-wrap {
+                text-align: center;
+                margin: 30px 0 6px;
+            }
+            .up1-cd-h1 {
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                font-size: 24px;
+                margin: 0 0 2px;
+            }
+            .up1-cd-h2 {
+                color: var(--headline);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 23px;
+                margin: 0 0 14px;
+            }
+            .up1-cd {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+            }
+            .up1-cd-col {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .up1-cd-num {
+                background: var(--dark);
+                color: #fff;
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                font-size: 38px;
+                line-height: 1;
+                padding: 14px 16px;
+                border-radius: 8px;
+                min-width: 64px;
+                font-variant-numeric: tabular-nums;
+            }
+            .up1-cd-lab {
+                color: var(--muted);
+                font-size: 12px;
+                font-weight: 600;
+                margin-top: 6px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+
+            /* ── F9. Decline link ── */
+            .up1-decline {
+                text-align: center;
+                margin: 22px auto 4px;
+                max-width: 540px;
+            }
+            .up1-decline a {
+                color: #ffffff;
+                font-size: 12px;
+                line-height: 1.28;
+                text-decoration: underline;
+            }
+
+            /* ── Footer ── */
+            footer.site {
+                border-top: 1px solid var(--rule);
+                margin: 28px 0 0;
+                padding: 22px 0 18px;
+                text-align: center;
+                font-size: 13px;
+                color: var(--muted);
+            }
+            footer.site p {
+                margin: 6px 0;
+                overflow-wrap: anywhere;
+            }
+            footer.site a {
+                color: inherit;
+                text-decoration: none;
+                margin: 0 4px;
+            }
+            footer.site a:hover {
+                text-decoration: underline;
+            }
+
+            /* ── Exit-intent modal ── */
+            .up1-exit-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.66);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                padding: 16px;
+            }
+            .up1-exit-overlay.open {
+                display: flex;
+                animation: up1-fade 0.2s ease;
+            }
+            .up1-exit-box {
+                background: var(--bg);
+                color: var(--body);
+                max-width: 600px;
+                width: 100%;
+                border-radius: 10px;
+                padding: 26px;
+                position: relative;
+                border-top: 6px solid var(--alert);
+                animation: up1-drop 0.25s ease;
+                max-height: 92vh;
+                overflow: auto;
+            }
+            .up1-exit-x {
+                position: absolute;
+                top: 8px;
+                right: 14px;
+                background: none;
+                border: 0;
+                font-size: 26px;
+                line-height: 1;
+                color: var(--body);
+                cursor: pointer;
+                opacity: 0.7;
+            }
+            .up1-exit-warn {
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                font-size: 20px;
+                text-align: center;
+                margin: 2px 0 6px;
+            }
+            .up1-exit-h {
+                color: var(--dark);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 19px;
+                line-height: 1.25;
+                text-align: center;
+                margin: 0 0 14px;
+            }
+            .up1-exit-bullets {
+                list-style: none;
+                margin: 0 0 16px;
+                padding: 0;
+            }
+            .up1-exit-bullets li {
+                position: relative;
+                padding: 0 0 10px 24px;
+                font-size: 15px;
+                line-height: 1.45;
+            }
+            .up1-exit-bullets li::before {
+                content: "\2716";
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: var(--alert);
+                font-weight: 700;
+            }
+            .up1-exit-accept .up1-cta {
+                font-size: 18px;
+                padding: 16px 16px;
+            }
+            .up1-exit-decline {
+                text-align: center;
+                margin: 14px 0 0;
+            }
+            .up1-exit-decline a {
+                color: var(--muted);
+                font-size: 13px;
+                text-decoration: underline;
+            }
+            @keyframes up1-fade {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes up1-drop {
+                from {
+                    transform: translateY(-24px);
+                    opacity: 0;
+                }
+                to {
+                    transform: none;
+                    opacity: 1;
+                }
+            }
+
+            @media (min-width: 760px) {
+                body {
+                    font-size: 18px;
+                }
+                .up1-dtf {
+                    font-size: 16px;
+                }
+                .up1-cta {
+                    font-size: 41px;
+                    padding: 28px 20px;
+                } /* desktop CTA text ~25% bigger (was 33px) */
+                .up1-vstack {
+                    font-size: 30px;
+                }
+                .up1-bintro {
+                    font-size: 22px;
+                }
+                .up1-cd-num {
+                    font-size: 46px;
+                    min-width: 76px;
+                    padding: 16px 18px;
+                }
+                .up1-cd-h1 {
+                    font-size: 28px;
+                }
+            }
+            @media (max-width: 767px) {
+                .up1-cta-main::before,
+                .up1-cta-main::after {
+                    white-space: normal;
+                }
+                .up1-cta {
+                    font-size: 23px;
+                    padding: 19px 14px;
+                } /* smaller so GET INSTANT ACCESS fits cleanly */
+                .up1-cta-main::after {
+                    font-size: 0.86em;
+                } /* the longer label a touch smaller on mobile only */
+                .up1-cta-sub {
+                    font-size: 9px;
+                }
+                .up1-card-bottom {
+                    margin-top: 104px;
+                }
+                .up1-mockup {
+                    margin-top: -92px;
+                }
+                .up1-vstack {
+                    font-size: 23px;
+                }
+                .up1-cd-num {
+                    font-size: 32px;
+                    min-width: 56px;
+                    padding: 12px 12px;
+                }
+                .up1-cd {
+                    gap: 8px;
+                }
+            }
+        </style>
+
+        <!-- CTA com atraso: mantenha a oferta oculta e exiba o placeholder de espera até que o VTurb dispare o `#vturb-beacon`. Configure isso logo no `<head>` para evitar um efeito de cintilação (flash). -->
+        <style id="up1-cta-hide">
+            #up1-offer-zone,
+            #up1-cta-block {
+                display: none !important;
+            }
+        </style>
+        <script src="js/player.js" async=""></script>
+
+<!-- VTURB -->
+       <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/6aaadd8d1a6863af464bcc24/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+    <!-- VTURB -->
+    
+<!-- UTMIFY -->    
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+    </head>
+
+    <body>
+        <!-- filtro de desfoque vertical para o texto de CTA rotativo (estrutura fixa) -->
+        <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+            <defs>
+                <filter id="vertical-blur">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="0 5"></feGaussianBlur>
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- 1. Barra de aviso de não fechar -->
+        <div class="up1-warn">
+            <p>
+                <span class="up1-warn-imp">¡IMPORTANTE!</span> NO cierres esta ventana ni hagas clic en el botón Atrás.
+            </p>
+            <p class="w2">Si haces clic en el botón "Atrás", tu pedido se cobrará dos veces.</p>
+        </div>
+
+        <main class="wrap">
+
+            <!-- ===== A SEÇÃO SUPERIOR (cinza-médio) envolve a COLUNA 1. ===== -->
+            <section class="up1-top">
+                <!-- COLUNA 1 (cartão branco de cantos arredondados): banner + vídeo + gate + primeira CTA -->
+                <div class="up1-card">
+                    <!-- 2. Banner de "Pedido incompleto" (responsivo para desktop/mobile)-->
+                    <div class="up1-banner">
+                        <img
+                            class="d"
+                            src="images/order-not-complete-desktop-v1.webp"
+                            alt="¡Alto! Tu pedido aún no está completo — mira a continuación esta importante actualización para nuevos miembros."
+                            width="961"
+                            height="87"
+                            decoding="async"
+                        />
+                        <img
+                            class="m"
+                            src="images/order-not-complete-mobile-v1.webp"
+                            alt="¡Alto! Tu pedido aún no está completo — mira a continuación esta importante actualización para nuevos miembros."
+                            width="344"
+                            height="138"
+                            decoding="async"
+                        />
+                    </div>
+
+                    <!-- 3. VSL VTurb-->
+                    <div class="up1-video" id="vsl-video-slot">
+                        <vturb-smartplayer
+                            id="vid-6a2c15a2bcb27b44d3e0af69"
+                            style="display: block; margin: 0 auto; width: 100%; max-width: 400px"
+                        ></vturb-smartplayer>
+                        <script type="text/javascript">
+                            var s = document.createElement("script");
+                            (s.src =
+                                "https://scripts.converteai.net/f989fe3e-8644-4d9b-b514-4359aca49e3b/players/6a2c15a2bcb27b44d3e0af69/v4/player.js"),
+                                (s.async = !0),
+                                document.head.appendChild(s);
+                        </script>
+                    </div>
+                   <!-- 3. VSL VTurb-->
+
+                    <!-- 4. Faça isto primeiro (linha de acesso) — "FAÇA ISTO PRIMEIRO:" em destaque, instrução sobre peso corporal -->
+                    <p class="up1-dtf">
+                        <span class="up1-dtf-emph">HAZ ESTO PRIMERO:</span> Mira ahora esta importante actualización
+                        completa para nuevos miembros. Tu enlace de acceso aparecerá al final del video.
+                    </p>
+
+                    <!-- Bloco de CTA — DELAY - up1-cta-block -->
+                    <div id="">
+                        <!-- 5. Lembrete de ação pendente — "AÇÃO PENDENTE. CLIQUE ABAIXO" -->
+                        <div id="up1-pending-zone" class="up1-pending">
+                            <span>ACCIÓN PENDIENTE. HAZ CLIC ABAJO</span><span class="up1-spinner"></span>
+                        </div>
+
+                        <!-- F1. CTA -->
+                        <div class="up1-cta-wrap">
+                            <a
+                                class="up1-cta pulse"
+                                href="https://www.checkout-ds24.com/answer/yes"
+                                rel="noopener"
+                                data-checkout=""
+                                ><span class="shine"></span><span class="up1-cta-main">ACTIVAR AHORA</span
+                                ><span class="up1-cta-sub">Tarifa única de activación de $27</span></a
+                            >
+                        </div>
+                        <p class="up1-sub">
+                            <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                                >¡SÍ! Activar el Programa Inicial de 14 Días para el Azúcar en Sangre en mi área privada
+                                de miembros. (Garantía de devolución del dinero de 365 días)</a
+                            >
+                        </p>
+                    </div>
+                </div>
+                <!-- /coluna 1-->
+            </section>
+            <!-- /seção superior -->
+
+            <!-- F. ÁREA DE OFERTA — bloco de empilhamento de valor + coluna de mockup (oculta até o evento #vturb-beacon quando a opção delayed_cta estiver ativada) ID : up1-offer-zone -->
+            <div id="">
+                <!-- F2. Título da seção de empilhamento de valor — Faixa cinza-claro de largura total (que se estende além das colunas) -->
+                <div class="up1-headband">
+                    <h2 class="up1-vstack">
+                        <span class="hl"
+                            >Cuando actives hoy el Programa Inicial de 14 Días para el Azúcar en Sangre,</span
+                        >
+                        obtendrás acceso inmediato a todo el arsenal de la segunda comida para ayudarte a reducir tus
+                        picos después de comer en días, en lugar de esperar meses—<span class="hl"
+                            >GRATIS para ti (valor superior a $500).</span
+                        >
+                    </h2>
+                </div>
+
+                <!-- ===== COLUNA 2 (cartão branco): o mockup ultrapassa a borda superior e invade a faixa. ===== -->
+                <div class="up1-card up1-card-bottom">
+                    <!-- F3. Mockup do produto -->
+                    <a
+                        href="https://www.checkout-ds24.com/answer/yes"
+                        rel="noopener"
+                        style="display: block"
+                        data-checkout=""
+                        ><img
+                            class="up1-mockup"
+                            src="images/upsell-mockup-u1_master-687bcab8.webp"
+                            alt="Programa Inicial de 14 Días para el Azúcar en Sangre"
+                            width="600"
+                            height="396"
+                            loading="lazy"
+                            decoding="async"
+                    /></a>
+
+                    <!-- F4. CTA -->
+                    <div class="up1-cta-wrap">
+                        <a
+                            class="up1-cta pulse"
+                            href="https://www.checkout-ds24.com/answer/yes"
+                            rel="noopener"
+                            data-checkout=""
+                            ><span class="shine"></span><span class="up1-cta-main">ACTIVAR AHORA</span
+                            ><span class="up1-cta-sub">Tarifa única de activación de $27</span></a
+                        >
+                    </div>
+                    <p class="up1-sub">
+                        <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                            >¡SÍ! Activar el Programa Inicial de 14 Días para el Azúcar en Sangre en mi área privada de
+                            miembros. (Garantía de devolución del dinero de 365 días)</a
+                        >
+                    </p>
+
+                    <!-- F5. Lista de benefícios -->
+                    <p class="up1-bintro">La forma más rápida de reducir los picos y proteger tus nervios...</p>
+                    <ul class="up1-bullets">
+                        <li>
+                            <b>Observa cómo baja tu nivel matutino</b> en días en lugar de meses al aprovechar al máximo
+                            las tres palancas de fermentación: Alimentar, Ralentizar y Bloquear.
+                        </li>
+                        <li>
+                            <b>Vuelve a sentirte invencible a los 70</b> cuando entres al consultorio del médico con un
+                            registro del medidor lleno de 105, 112 y 119.
+                        </li>
+                        <li>
+                            <b>Llena tu plato de pastel de cumpleaños</b> en la fiesta de tu nieta, mídete una hora
+                            después y observa cómo el medidor sube 11 puntos en lugar de 110.
+                        </li>
+                        <li>
+                            <b>Cocina una sola vez el domingo</b> para las 14 mañanas en una única sesión de 58 minutos:
+                            sin preparación diaria ni tener que estar frente a la estufa a las 6 a. m. con las manos
+                            entumecidas.
+                        </li>
+                        <li>
+                            <b>Cambia la conversación sobre la insulina</b> mientras tu médico revisa el registro de tu
+                            medidor y te dice que es hora de comenzar a reducir algunos de estos medicamentos.
+                        </li>
+                    </ul>
+
+                    <!-- F6. CTA -->
+                    <div class="up1-cta-wrap">
+                        <a
+                            class="up1-cta pulse"
+                            href="https://www.checkout-ds24.com/answer/yes"
+                            rel="noopener"
+                            data-checkout=""
+                            ><span class="shine"></span><span class="up1-cta-main">ACTIVAR AHORA</span
+                            ><span class="up1-cta-sub">Tarifa única de activación de $27</span></a
+                        >
+                    </div>
+                    <p class="up1-sub">
+                        <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                            >¡SÍ! Activar el Programa Inicial de 14 Días para el Azúcar en Sangre en mi área privada de
+                            miembros. (Garantía de devolución del dinero de 365 días)</a
+                        >
+                    </p>
+
+                    <!-- F7. Contagem regressiva (conteúdo permanente) -->
+                    <div class="up1-cd-wrap">
+                        <p class="up1-cd-h1">¡Disponible únicamente en esta página!</p>
+                        <p class="up1-cd-h2">Esta oferta vence en</p>
+                        <div class="up1-cd">
+                            <div class="up1-cd-col">
+                                <span class="up1-cd-num" id="cd-h">00</span><span class="up1-cd-lab">Horas</span>
+                            </div>
+                            <div class="up1-cd-col">
+                                <span class="up1-cd-num" id="cd-m">29</span><span class="up1-cd-lab">Minutos</span>
+                            </div>
+                            <div class="up1-cd-col">
+                                <span class="up1-cd-num" id="cd-s">59</span><span class="up1-cd-lab">Segundos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- F8. CTA -->
+                    <div class="up1-cta-wrap">
+                        <a
+                            class="up1-cta pulse"
+                            href="https://www.checkout-ds24.com/answer/yes"
+                            rel="noopener"
+                            data-checkout=""
+                            ><span class="shine"></span><span class="up1-cta-main">ACTIVAR AHORA</span
+                            ><span class="up1-cta-sub">Tarifa única de activación de $27</span></a
+                        >
+                    </div>
+                    <p class="up1-sub">
+                        <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                            >¡SÍ! Activar el Programa Inicial de 14 Días para el Azúcar en Sangre en mi área privada de
+                            miembros. (Garantía de devolución del dinero de 365 días)</a
+                        >
+                    </p>
+
+                    <!-- F9. Decline link -->
+                    <p class="up1-decline">
+                        <a href="https://www.checkout-ds24.com/answer/no" rel="noopener" data-decline=""
+                            >No, gracias. Rechazo esta activación única. Entiendo que, al rechazarla, estoy eligiendo el
+                            «camino lento», renunciando a mi lugar reservado y perdiendo más de $500 en bonos
+                            gratuitos.</a
+                        >
+                    </p>
+                </div>
+                <!-- /coluna 2 -->
+            </div>
+            <!-- /#up1-zona-de-ofertas -->
+
+            <!-- G. Footer (unified, byte-identical to FE VSL / Privacy / Terms) -->
+            <footer class="site">
+                <p>© 2026 - Todos los derechos reservados.</p>
+                <p>
+            </footer>
+        </main>
+
+        <!-- Pop-up de intenção de saída removido intencionalmente — não há pop-up de saída nesta página.. -->
+
+        <!-- Contagem regressiva contínua (atualizada a cada carregamento — corresponde à origem cookie_policy:none) -->
+        <script data-cfasync="false" src="js/email-decode.min.js"></script>
+        <script>
+            (function () {
+                var MIN = 30;
+                var end = Date.now() + MIN * 60000;
+                var h = document.getElementById("cd-h"),
+                    m = document.getElementById("cd-m"),
+                    s = document.getElementById("cd-s");
+                function p(n) {
+                    return (n < 10 ? "0" : "") + n;
+                }
+                function t() {
+                    var r = Math.max(0, end - Date.now());
+                    var ss = Math.floor(r / 1000);
+                    if (h) h.textContent = p(Math.floor(ss / 3600));
+                    if (m) m.textContent = p(Math.floor((ss % 3600) / 60));
+                    if (s) s.textContent = p(ss % 60);
+                    if (r > 0) setTimeout(t, 250);
+                }
+                t();
+            })();
+        </script>
+
+        <!-- Exibição tardia do CTA: quando o VTurb injetar/revelar o `#vturb-beacon`, oculte o *placeholder* pendente e exiba a área da oferta. Implementação via `MutationObserver` com *fallback* de verificação (polling) a cada 0,5s. -->
+        <script>
+            (function () {
+                var BEACON = "vturb-beacon",
+                    OFFER = "up1-offer-zone",
+                    PENDING = "up1-pending-zone",
+                    done = false,
+                    obs = null,
+                    iv = null;
+                function beaconLive() {
+                    var b = document.getElementById(BEACON);
+                    return !!(b && b.offsetParent !== null);
+                }
+                function reveal() {
+                    if (done) return;
+                    done = true;
+                    var z = document.getElementById(OFFER);
+                    if (z) {
+                        z.style.display = "";
+                        z.style.opacity = "1";
+                    }
+                    var cb = document.getElementById("up1-cta-block");
+                    if (cb) {
+                        cb.style.display = "";
+                    }
+                    var st = document.getElementById("up1-cta-hide");
+                    if (st) st.remove();
+                    if (obs) obs.disconnect();
+                    if (iv) clearInterval(iv);
+                    try {
+                        console.log("[Upsell1VSL] VTurb beacon detected — offer revealed.");
+                    } catch (e) {}
+                }
+                function check() {
+                    if (!done && beaconLive()) reveal();
+                }
+                if (beaconLive()) {
+                    reveal();
+                    return;
+                }
+                if ("MutationObserver" in window) {
+                    obs = new MutationObserver(check);
+                    obs.observe(document.documentElement, {
+                        childList: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ["style", "class"],
+                    });
+                }
+                iv = setInterval(check, 500);
+                setTimeout(function () {
+                    if (obs) obs.disconnect();
+                    if (iv) clearInterval(iv);
+                }, 5400000); // 90-min safety stop
+            })();
+        </script>
+
+
+    </body>
+</html>
