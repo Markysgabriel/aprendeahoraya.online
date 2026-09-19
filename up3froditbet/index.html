@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Mejora por única vez</title>
+        <meta
+            name="description"
+            content="Una mejora lista para ti por única vez — añade la lista completa de bocadillos a tu pedido antes de que esta página se cierre."
+        />
+        <meta name="robots" content="noindex" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Mejora por única vez" />
+        <meta
+            property="og:description"
+            content="Una mejora lista para ti por única vez — añade la lista completa de bocadillos a tu pedido antes de que esta página se cierre."
+        />
+        <meta property="og:image" content="images/upsell-mockup-u3_printcards-d69ef258.webp" />
+
+        <link rel="icon" type="image/png" href="images/favicon-transparent-70f3507f.webp" />
+        <link rel="apple-touch-icon" href="images/favicon-transparent-70f3507f.webp" />
+
+        <link rel="preconnect" href="https://files.virtuclix.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
+        />
+        <style>
+            :root {
+                --bg: #ffffff;
+                --dark: #3d1f1f;
+                --headline: #7a2e2e;
+                --body: #4d5663;
+                --muted: #8993a0;
+                --accent: #7a2e2e;
+                --cta-bg: #d4a017;
+                --cta-text: #3d1f1f;
+                --rule: #e8eaee;
+                --alert: #b91c1c;
+                --cta-yellow: #ffd400;
+                --cta-navy: #0d1f2e; /* bright-yellow CTA button (matches Upsell 1 & 2) */
+                --soft: #f7f0e3;
+                --check: #7a2e2e;
+                --link-blue: #1a0dab;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--bg);
+                color: var(--body);
+            }
+            body {
+                font:
+                    400 17px/1.62 "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            a {
+                color: inherit;
+            }
+            .wrap {
+                max-width: 760px;
+                margin: 0 auto;
+                padding: 0 18px;
+            }
+            .narrow {
+                max-width: 640px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* top bars */
+            .mp-exofr {
+                background: var(--dark);
+                color: #fff;
+                text-align: center;
+                padding: 8px 14px;
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 13px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+            .mp-warn {
+                background: var(--alert);
+                color: #fff;
+                text-align: center;
+                padding: 12px 14px 13px;
+                font-family: "Inter", sans-serif;
+            }
+            .mp-warn p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.35;
+                font-weight: 700;
+            }
+            .mp-warn .w2 {
+                font-weight: 500;
+                margin-top: 3px;
+                font-size: 15.5px;
+                opacity: 0.95;
+            }
+            .mp-warn-imp {
+                color: var(--cta-bg);
+                font-weight: 800;
+            }
+
+            /* hero */
+            .mp-hero-eyebrow {
+                color: var(--alert);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                text-align: center;
+                font-size: 52px;
+                line-height: 1.06;
+                margin: 8px 0 6px;
+                text-transform: uppercase;
+                letter-spacing: 0.01em;
+            }
+            /* headline = a snug rounded box; a single gold glow arc travels AROUND the border edges
+   (CodePen technique: giant rotating conic-gradient with one colored arc + an inner
+   ::after mask covering the centre so only the thin border ring shows the moving arc). */
+            .mp-hh-box {
+                position: relative;
+                display: block;
+                width: fit-content;
+                max-width: 100%;
+                margin: 10px auto 12px;
+            }
+            .mp-hero-h {
+                position: relative;
+                z-index: 0;
+                overflow: hidden;
+                border-radius: 14px;
+                padding: 18px 36px;
+                margin: 0;
+                color: var(--headline);
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                text-align: center;
+                font-size: 64px;
+                line-height: 1;
+                white-space: nowrap;
+                letter-spacing: -0.015em;
+            }
+            /* the blurred glow layer (CodePen liyrofx/poVZeEG technique) — a glow needs a LUMINOUS colour to
+   read on white, so the halo uses a brighter gold than the (darker) brand gold of the sharp arc. */
+            .mp-hh-glow {
+                position: absolute;
+                inset: 0;
+                overflow: hidden;
+                border-radius: 14px;
+                filter: blur(26px) saturate(1.45) brightness(1.05);
+                z-index: -1;
+                pointer-events: none;
+            }
+            .mp-hero-h::before,
+            .mp-hh-glow::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 99999px;
+                height: 99999px;
+                transform: translate(-50%, -50%) rotate(0deg);
+                z-index: -2;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                animation: mp-hh-rotate 4s linear infinite;
+            }
+            .mp-hero-h::before {
+                background-image: conic-gradient(rgba(0, 0, 0, 0), var(--cta-bg), rgba(0, 0, 0, 0) 25%);
+            } /* sharp border arc — on-brand gold */
+            .mp-hh-glow::before {
+                background-image: conic-gradient(rgba(0, 0, 0, 0), #ffd24a, #fff1bd, #ffd24a, rgba(0, 0, 0, 0) 32%);
+            } /* glow halo — brighter luminous gold */
+            /* inner mask: 5px border width (matches CodePen's 5px), covers the centre */
+            .mp-hero-h::after {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 5px;
+                top: 5px;
+                width: calc(100% - 10px);
+                height: calc(100% - 10px);
+                background: var(--bg);
+                border-radius: 9px;
+            }
+            @keyframes mp-hh-rotate {
+                100% {
+                    transform: translate(-50%, -50%) rotate(1turn);
+                }
+            }
+            .mp-hero-h u {
+                text-decoration-color: var(--cta-bg);
+                text-underline-offset: 3px;
+            }
+            .mp-hero-sub {
+                text-align: center;
+                font-size: 18px;
+                line-height: 1.5;
+                margin: 0 auto 18px;
+                max-width: 620px;
+                color: var(--body);
+            }
+
+            /* hero visual: mockup + callouts */
+            .mp-hero-vis {
+                display: flex;
+                gap: 22px;
+                align-items: center;
+                margin: 14px 0 8px;
+                flex-wrap: wrap;
+            }
+            .mp-mockup-wrap {
+                flex: 1 1 280px;
+                min-width: 260px;
+            }
+            .mp-mockup {
+                width: 100%;
+                max-width: 380px;
+                margin: 0 auto;
+                filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.18));
+            }
+            .mp-callouts-col {
+                flex: 1 1 240px;
+                min-width: 230px;
+            }
+            .mp-callouts {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                counter-reset: callout;
+            }
+            /* Trustpilot-style star rating (brand colours) below the callouts */
+            .mp-rating {
+                margin: 16px 2px 0;
+                text-align: center;
+            }
+            .mp-stars {
+                display: inline-flex;
+                gap: 5px;
+            }
+            .mp-stars span {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 6px;
+                background: var(--cta-bg);
+                color: #fff;
+                font-size: 20px;
+                line-height: 1;
+            }
+            .mp-rating-meta {
+                margin: 9px 0 0;
+                font-size: 15px;
+                color: var(--body);
+                font-family: "Inter", sans-serif;
+            }
+            .mp-rating-meta strong {
+                color: var(--headline);
+                font-weight: 800;
+            }
+            .mp-callouts li {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                padding: 11px 14px;
+                margin: 0 0 10px;
+                background: var(--soft);
+                border: 1px solid var(--rule);
+                border-radius: 10px;
+                font-family: "Inter", sans-serif;
+                font-weight: 700;
+                font-size: 15px;
+                color: var(--dark);
+                box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+            }
+            .mp-callouts li::before {
+                content: "\2714";
+                flex: 0 0 auto;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                background: var(--cta-bg);
+                color: var(--cta-text);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 900;
+                font-size: 14px;
+            }
+
+            /* CTA */
+            .mp-cta-wrap {
+                text-align: center;
+                margin: 18px 0 8px;
+            }
+            .mp-cta {
+                display: block;
+                width: 100%;
+                max-width: 560px;
+                margin: 0 auto;
+                background: var(--cta-yellow);
+                color: var(--cta-navy);
+                font:
+                    900 26px/1.12 "Inter",
+                    sans-serif;
+                text-decoration: none;
+                padding: 21px 18px;
+                border-radius: 11px;
+                text-align: center;
+                box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.4);
+                position: relative;
+                overflow: hidden;
+            }
+            .mp-cta.pulse {
+                animation: mp-pulse 2s infinite;
+            }
+            .mp-cta .shine {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -150%;
+                width: 60%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                transform: skewX(-20deg);
+                animation: mp-shine 3.2s infinite;
+            }
+            .mp-cta-price {
+                display: block;
+                font:
+                    700 14px/1.3 "Inter",
+                    sans-serif;
+                margin-top: 7px;
+                opacity: 0.95;
+            }
+            /* download icon before the CTA label */
+            .mp-cta-dl {
+                width: 0.82em;
+                height: 0.82em;
+                vertical-align: -0.1em;
+                margin-right: 0.42em;
+                display: inline-block;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 2.2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            /* responsive-only CTA placements (extra mobile button below the mockup; extra desktop button below the story) */
+            .mp-only-mobile {
+                display: none;
+            }
+            .mp-only-desktop {
+                display: block;
+            }
+            @media (max-width: 767px) {
+                .mp-only-mobile {
+                    display: block;
+                }
+                .mp-only-desktop {
+                    display: none;
+                }
+            }
+            @keyframes mp-shine {
+                0% {
+                    left: -150%;
+                }
+                60% {
+                    left: 150%;
+                }
+                100% {
+                    left: 150%;
+                }
+            }
+            @keyframes mp-pulse {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 color-mix(in srgb, var(--cta-navy) 65%, transparent);
+                }
+                50% {
+                    transform: scale(1.02);
+                    box-shadow: 0 0 0 16px transparent;
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 transparent;
+                }
+            }
+            .mp-sub {
+                text-align: center;
+                margin: 8px 0 6px;
+            }
+            .mp-sub a {
+                color: var(--link-blue);
+                font-weight: 700;
+                text-decoration: underline;
+                font-size: 15px;
+                line-height: 1.45;
+            }
+            .mp-reassure {
+                text-align: center;
+                color: var(--muted);
+                font-size: 13.5px;
+                margin: 4px 0 6px;
+            }
+
+            /* checklist (inline, under hero CTA) */
+            .mp-checks {
+                list-style: none;
+                margin: 16px auto 6px;
+                padding: 0;
+                max-width: 620px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .mp-checks li {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 9px 16px 9px 12px;
+                border-radius: 999px;
+                background: var(--soft);
+                border: 1px solid var(--rule);
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--dark);
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+            }
+            .mp-checks li::before {
+                content: "\2714";
+                flex: 0 0 auto;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: var(--cta-bg);
+                color: #fff;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                font-weight: 800;
+                line-height: 1;
+            }
+
+            /* generic section */
+            .mp-sec {
+                padding: 30px 0;
+            }
+            .mp-sec.soft {
+                background: var(--soft);
+                border-top: 1px solid var(--rule);
+                border-bottom: 1px solid var(--rule);
+            }
+            .mp-h2 {
+                color: var(--headline);
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                text-align: center;
+                font-size: 25px;
+                line-height: 1.2;
+                margin: 0 0 16px;
+                text-wrap: balance;
+            }
+            /* customer compilation hero (16:9 desktop / 4:5 mobile) below the story headline */
+            .mp-compilation {
+                display: block;
+                width: 100%;
+                max-width: 720px;
+                margin: 6px auto 22px;
+            }
+            .mp-compilation img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 12px;
+            }
+            /* annotated card-showcase graphic (3 designs + hand-drawn arrows/labels), caps the hero */
+            .mp-showcase {
+                width: 100%;
+                max-width: 640px;
+                height: auto;
+                display: block;
+                margin: 18px auto 2px;
+            }
+            .mp-p {
+                font-size: 17px;
+                line-height: 1.62;
+                margin: 0 0 14px;
+            }
+            .mp-p:last-child {
+                margin-bottom: 0;
+            }
+            /* inline emphasis inside the story body: bold / underline / yellow highlighter */
+            .mp-p b,
+            .mp-p strong {
+                font-weight: 800;
+                color: var(--dark);
+            }
+            .mp-p u {
+                text-decoration-color: var(--cta-bg);
+                text-decoration-thickness: 2px;
+                text-underline-offset: 2px;
+            }
+            .mp-p .hl,
+            .mp-total-value .hl,
+            .mp-included li .hl {
+                background: linear-gradient(
+                    104deg,
+                    rgba(255, 221, 77, 0) 0.9%,
+                    rgba(255, 221, 77, 0.78) 2.2%,
+                    rgba(255, 221, 77, 0.62) 97.5%,
+                    rgba(255, 221, 77, 0) 99%
+                );
+                padding: 0.04em 0.14em;
+                border-radius: 0.1em;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+
+            /* what's-included value stack */
+            .mp-vstack {
+                text-align: center;
+            }
+            .mp-total-value {
+                font-family: "Inter", sans-serif;
+                font-weight: 900;
+                font-size: 23px;
+                line-height: 1.2;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+                color: var(--headline);
+                margin: 0 0 20px;
+            }
+            .mp-included {
+                list-style: none;
+                margin: 6px auto 0;
+                padding: 0;
+                max-width: 560px;
+                text-align: left;
+            }
+            .mp-included li {
+                position: relative;
+                padding: 0 0 15px 40px;
+                font-size: 16.5px;
+                line-height: 1.5;
+                color: var(--dark);
+            }
+            .mp-included li::before {
+                content: "\2714";
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 26px;
+                height: 26px;
+                background: var(--cta-bg);
+                color: #fff;
+                border-radius: 50%;
+                font-size: 13px;
+                font-weight: 700;
+            }
+            .mp-included li:last-child {
+                padding-bottom: 0;
+            }
+            /* inline emphasis inside the bullets (LLM-added), matching the story body */
+            .mp-included li b,
+            .mp-included li strong {
+                font-weight: 800;
+                color: var(--dark);
+            }
+            .mp-included li u {
+                text-decoration-color: var(--cta-bg);
+                text-decoration-thickness: 2px;
+                text-underline-offset: 2px;
+            }
+
+            /* guarantee */
+            .mp-guar {
+                max-width: 600px;
+                margin: 0 auto;
+                text-align: center;
+                border: 2px dashed var(--check);
+                border-radius: 14px;
+                padding: 22px 22px 20px;
+                background: var(--soft);
+            }
+            .mp-guar-h {
+                color: var(--headline);
+                font-family: "Inter", sans-serif;
+                font-weight: 800;
+                font-size: 20px;
+                margin: 0 0 10px;
+            }
+            .mp-guar p {
+                font-size: 15.5px;
+                line-height: 1.55;
+                margin: 0;
+            }
+
+            /* decline */
+            .mp-decline {
+                text-align: center;
+                margin: 22px auto 4px;
+                max-width: 560px;
+            }
+            .mp-decline a {
+                color:#f6efe2;
+                font-size: 13px;
+                line-height: 1.45;
+                text-decoration: underline;
+            }
+
+            /* footer */
+            footer.site {
+                border-top: 1px solid var(--rule);
+                margin: 24px 0 0;
+                padding: 22px 0 18px;
+                text-align: center;
+                font-size: 13px;
+                color: var(--muted);
+            }
+            footer.site p {
+                margin: 6px 0;
+                overflow-wrap: anywhere;
+            }
+            footer.site a {
+                color: var(--muted);
+                text-decoration: none;
+                margin: 0 4px;
+            }
+
+            @media (max-width: 767px) {
+                .mp-hero-eyebrow {
+                    font-size: 29px;
+                }
+                .mp-hero-h {
+                    font-size: 30px;
+                    padding: 11px 18px;
+                    border-radius: 14px;
+                }
+                .mp-hero-sub {
+                    font-size: 16px;
+                }
+                .mp-cta {
+                    font-size: 23px;
+                }
+                .mp-hero-vis {
+                    gap: 14px;
+                }
+                .mp-h2 {
+                    font-size: 21px;
+                }
+                .mp-total-value {
+                    font-size: 20px;
+                }
+            }
+        </style>
+
+<!-- VTURB -->
+       <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/56fe0ec9-958d-4581-b5c4-054142daffd2/ab-test/6aaadd8d1a6863af464bcc24/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://m3u8.vturb.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+    <!-- VTURB -->
+    
+<!-- UTMIFY -->    
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+<!-- UTMIFY -->
+
+
+    </head>
+
+    <body>
+        <div class="mp-warn">
+            <p>
+                <span class="mp-warn-imp">¡IMPORTANTE!</span> NO cierres esta ventana ni hagas clic en el botón Atrás.
+            </p>
+            <p class="w2">Si haces clic en el botón "Atrás", tu pedido se cobrará dos veces.</p>
+        </div>
+
+        <main>
+            <section class="mp-sec">
+                <div class="wrap">
+                    <p class="mp-hero-eyebrow">¡ESPERA! No olvides descargar tus…</p>
+                    <div class="mp-hh-box">
+                        <span class="mp-hh-glow" aria-hidden="true"></span>
+                        <h1 class="mp-hero-h">TARJETAS IMPRIMIBLES</h1>
+                    </div>
+                    <p class="mp-hero-sub">
+                        Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor
+                    </p>
+
+                    <div class="mp-hero-vis">
+                        <div class="mp-mockup-wrap">
+                            <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                                ><img
+                                    class="mp-mockup"
+                                    src="images/upsell-mockup-u3_printcards-d69ef258.webp"
+                                    alt="Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor"
+                                    width="380"
+                                    height="380"
+                                    loading="eager"
+                                    decoding="async"
+                            /></a>
+                            <div class="mp-cta-wrap mp-only-mobile">
+                                <a
+                                    class="mp-cta pulse"
+                                    href="https://www.checkout-ds24.com/answer/yes"
+                                    rel="noopener"
+                                    data-checkout=""
+                                    ><span class="shine"></span
+                                    ><svg class="mp-cta-dl" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3v11m-4.5-4.5L12 14l4.5-4.5M4 20h16"></path></svg
+                                    >¡SÍ! Quiero estas tarjetas<span class="mp-cta-price"
+                                        >Añadir Los 33 bocadillos que parecen un capricho, pero mantienen estable tu
+                                        medidor por solo $20</span
+                                    ></a
+                                >
+                            </div>
+                        </div>
+                        <div class="mp-callouts-col">
+                            <ul class="mp-callouts">
+                                <li><span>Los 33 bocadillos permitidos, probados previamente</span></li>
+                                <li><span>Cada porción calculada al gramo</span></li>
+                                <li><span>El medidor permanece estable desde el primer bocado</span></li>
+                                <li><span>Antojos eliminados sin provocar picos</span></li>
+                                <li><span>Marcas del supermercado, sin hacer cálculos</span></li>
+                            </ul>
+                            <div class="mp-rating">
+                                <div class="mp-stars" aria-label="4,9 de 5 estrellas">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <p class="mp-rating-meta">
+                                    <strong>4,9</strong>/5 · Adorado por <strong>16.256</strong> clientes
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mp-cta-wrap">
+                        <a
+                            class="mp-cta pulse"
+                            href="https://www.checkout-ds24.com/answer/yes"
+                            rel="noopener"
+                            data-checkout=""
+                            ><span class="shine"></span
+                            ><svg class="mp-cta-dl" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v11m-4.5-4.5L12 14l4.5-4.5M4 20h16"></path></svg
+                            >¡SÍ! Quiero estas tarjetas<span class="mp-cta-price"
+                                >Añadir Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor por
+                                solo $20</span
+                            ></a
+                        >
+                    </div>
+                    <p class="mp-sub">
+                        <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                            >¡SÍ! Añadir Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor a
+                            mi pedido por solo $20 (garantía de devolución del dinero de 365 días)</a
+                        >
+                    </p>
+                    <ul class="mp-checks">
+                        <li>Nunca más contar carbohidratos</li>
+                        <li>No requiere cocinar ni preparar nada</li>
+                        <li>Funciona desde el primer bocadillo</li>
+                        <li>Tuyo para siempre — descarga inmediata</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mp-sec soft">
+                <div class="wrap narrow">
+                    <h2 class="mp-h2">
+                        Cuando preguntamos a nuestros clientes qué era lo que realmente los frenaba, la respuesta número
+                        1 nos sorprendió
+                    </h2>
+                    <picture class="mp-compilation"
+                        ><source media="(max-width:767px)" srcset="images/adapt-compilation_mobile-v0-bf53def9.webp" />
+                        <img
+                            src="images/adapt-compilation_desktop-v1-b6c350e9.webp"
+                            alt="Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor — adorados por nuestros clientes"
+                            loading="lazy"
+                            decoding="async"
+                    /></picture>
+                    <p class="mp-p">
+                        Cuando preguntamos a nuestros clientes qué era lo que realmente los frenaba, la respuesta número
+                        1 nos dejó atónitos: «El desayuno está resuelto, pero en cuanto llegan las 3 p. m. y comienzan
+                        los antojos, estoy <span class="hl">a una galleta de una lectura de 220</span>».
+                    </p>
+                    <p class="mp-p">
+                        ¿Y sinceramente? Tiene todo el sentido. Nadie les había dado una lista real de bocadillos que
+                        <b>mantuvieran el medidor realmente estable</b> — así que, cuando llega el hambre, solo queda la
+                        fuerza de voluntad o sufrir un pico.
+                    </p>
+                    <p class="mp-p">
+                        Ese momento del bocadillo a media tarde es <b>el mayor obstáculo</b> que vemos. Comes bien,
+                        llegan las 4 p. m., los antojos ganan y vuelves a
+                        <u>ver cómo ese mismo valor superior a 200 aumenta otra vez</u> — mes tras mes.
+                        <b>Las mismas restricciones. La misma privación. El mismo ciclo.</b>
+                    </p>
+                    <p class="mp-p">
+                        ¿Y si pudieras saltarte por completo esa etapa y empezar con
+                        <b
+                            >33 bocadillos permitidos que saben a galletas, papas fritas y helado, mientras tu medidor
+                            apenas se mueve?</b
+                        >
+                        Eso es exactamente lo que te ofrece esta mejora: el bocadillo sin el pico, listo.
+                    </p>
+                    <div class="mp-cta-wrap">
+                        <a
+                            class="mp-cta pulse"
+                            href="https://www.checkout-ds24.com/answer/yes"
+                            rel="noopener"
+                            data-checkout=""
+                            ><span class="shine"></span
+                            ><svg class="mp-cta-dl" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v11m-4.5-4.5L12 14l4.5-4.5M4 20h16"></path></svg
+                            >¡SÍ! Quiero estas tarjetas<span class="mp-cta-price"
+                                >Añadir Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor por
+                                solo $20</span
+                            ></a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <section class="mp-sec">
+                <div class="wrap narrow mp-vstack">
+                    <h2 class="mp-h2">Esto es todo lo que recibirás hoy</h2>
+                    <p class="mp-total-value">Valor total de <span class="hl">$197</span></p>
+                    <img
+                        class="mp-showcase"
+                        src="images/adapt-card_showcase-v0-1a322251.webp"
+                        alt="Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor — una muestra de los diseños"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <ul class="mp-included">
+                        <li>
+                            El bocadillo más <b>sorprendente</b> de la lista — el número 14, ese bocado salado y
+                            crujiente que <b>tu médico te dijo que dejaras</b> —
+                            <span class="hl">no moverá tu medidor ni un punto</span>.
+                        </li>
+                        <li>
+                            De los 33, el bocadillo que los participantes juraron que
+                            <b>parecía <u>EL MAYOR capricho</u></b> — y aun así sus medidores permanecieron
+                            <b>más estables que después de un vaso de agua</b>.
+                        </li>
+                        <li>
+                            Lo crujiente y salado siempre provoca un pico en una persona diabética, ¿verdad?
+                            <b>FALSO</b> — uno de estos bocadillos cruje como una papa frita y tu medidor
+                            <b>ni siquiera se inmutará</b>.
+                        </li>
+                        <li>
+                            <b>LA VERDAD SOBRE EL BOCADILLO QUE TU MÉDICO PROHIBIÓ</b> — ¿realmente está prohibido o
+                            <b>se ha equivocado por completo todo este tiempo</b>?
+                        </li>
+                        <li>
+                            <b>ELIMINA EL BAJÓN DE LAS 4</b> con un puñado listo para llevar — salado, crujiente,
+                            cremoso o incluso de chocolate — mientras tu medidor <b>permanece completamente estable</b>.
+                        </li>
+                        <li>
+                            <b>ACABA CON EL BAJÓN DE LA TARDE</b> con una cucharada cremosa —
+                            <b>los antojos pierden su fuerza</b>, la niebla mental desaparece y tu monitor permanece
+                            estable.
+                        </li>
+                        <li>
+                            ¿Qué es lo <b>peor que podrías elegir</b> cuando aparecen los antojos de media tarde, y por
+                            qué <b>probablemente está ahora mismo en tu cajón</b>?
+                        </li>
+                        <li>
+                            <b>33 bocadillos que parecen un capricho</b>, cada uno clasificado según el antojo exacto
+                            que elimina — para que <b>nunca más mires el refrigerador sin saber</b> qué es seguro.
+                        </li>
+                        <li>
+                            Si alguna vez entraste en pánico frente a la despensa y elegiste lo equivocado,
+                            <b>pega esta lista dentro de la puerta</b> y <b>no vuelvas a entrar en pánico</b>.
+                        </li>
+                        <li>
+                            <b>ADEMÁS</b> — descubre exactamente en qué pasillo del supermercado se encuentra cada
+                            bocadillo, para llenar todo el cajón en <b>una sola visita y sin volver sobre tus pasos</b>.
+                        </li>
+                    </ul>
+                    <div class="mp-cta-wrap">
+                        <a
+                            class="mp-cta pulse"
+                            href="https://www.checkout-ds24.com/answer/yes"
+                            rel="noopener"
+                            data-checkout=""
+                            ><span class="shine"></span
+                            ><svg class="mp-cta-dl" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v11m-4.5-4.5L12 14l4.5-4.5M4 20h16"></path></svg
+                            >¡SÍ! Quiero estas tarjetas<span class="mp-cta-price"
+                                >Añadir Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor por
+                                solo $20</span
+                            ></a
+                        >
+                    </div>
+                    <p class="mp-sub">
+                        <a href="https://www.checkout-ds24.com/answer/yes" rel="noopener" data-checkout=""
+                            >¡SÍ! Añadir Los 33 bocadillos que parecen un capricho, pero mantienen estable tu medidor a
+                            mi pedido por solo $20 (garantía de devolución del dinero de 365 días)</a
+                        >
+                    </p>
+                </div>
+            </section>
+
+            <section class="mp-sec soft">
+                <div class="wrap">
+                    <div class="mp-guar">
+                        <p class="mp-guar-h">Tu garantía de devolución del dinero de 365 días</p>
+                        <p>
+                            Añádelo hoy, prueba los bocadillos y, si no estás encantado durante todo un año, simplemente
+                            envíanos un correo electrónico para recibir un reembolso completo. No arriesgas nada — el
+                            único riesgo es abandonar esta página sin obtenerlo.
+                        </p>
+                    </div>
+                    <p class="mp-decline">
+                        <a href="https://www.checkout-ds24.com/answer/no" rel="noopener" data-decline=""
+                            >No, gracias — rechazaré esta lista única de bocadillos y enfrentaré por mi cuenta cada
+                            antojo de la manera más lenta.</a
+                        >
+                    </p>
+                </div>
+            </section>
+
+            <footer class="site">
+                <div class="wrap">
+                    <p>
+                      © 2026 - Todos los derechos reservados.</p>
+                    <p>
+            </footer>
+        </main>
+
+    </body>
+</html>
