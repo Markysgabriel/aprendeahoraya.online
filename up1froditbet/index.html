@@ -725,7 +725,7 @@
 
         <!-- CTA com atraso: mantenha a oferta oculta e exiba o placeholder de espera até que o VTurb dispare o `#vturb-beacon`. Configure isso logo no `<head>` para evitar um efeito de cintilação (flash). -->
         <style id="up1-cta-hide">
-            #up1-offer-zone,
+            #up1-cta-revela-botao,
             #up1-cta-revela-botao {
                 display: none !important;
             }
@@ -845,8 +845,8 @@
             </section>
             <!-- /seção superior -->
 
-            <!-- F. ÁREA DE OFERTA — bloco de empilhamento de valor + coluna de mockup (oculta até o evento #vturb-beacon quando a opção delayed_cta estiver ativada) ID : up1-offer-zone -->
-            <div id="">
+            <!-- F. ÁREA DE OFERTA — bloco de empilhamento de valor + coluna de mockup (oculta até o evento #vturb-beacon quando a opção delayed_cta estiver ativada) ID : up1-cta-revela-botao -->
+            <div id="up1-cta-revela-botao">
                 <!-- F2. Título da seção de empilhamento de valor — Faixa cinza-claro de largura total (que se estende além das colunas) -->
                 <div class="up1-headband">
                     <h2 class="up1-vstack">
@@ -1025,7 +1025,7 @@
         <script>
             (function () {
                 var BEACON = "vturb-beacon",
-                    OFFER = "up1-offer-zone",
+                    OFFER = "up1-cta-revela-botao",
                     PENDING = "up1-pending-zone",
                     done = false,
                     obs = null,
