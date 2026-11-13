@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Avis sur les produits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#f8fafc',
+                        foreground: '#0f172a',
+                        primary: '#f97316',
+                        'primary-foreground': '#ffffff',
+                        card: '#ffffff',
+                        muted: '#f1f5f9',
+                        'muted-foreground': '#64748b',
+                        border: '#e2e8f0',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .animate-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <!-- Pixel Utmify -->
+<script>
+  window.pixelId = "6a972fd3518cade63c3c527d";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+</head>
+<body class="bg-background text-foreground min-h-screen pb-12">
+    <!-- Utmify UTMs -->
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer="defer"></script>
+    <header class="sticky top-0 z-20 bg-primary shadow-lg">
+        <div class="mx-auto flex max-w-xl items-center justify-between gap-3 px-4 pb-4 pt-3">
+            <div class="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/25">
+                <img src="images/logo-temu.png" alt="Logo" class="h-14 w-14 object-cover" onerror="this.src='https://placehold.co/100x100/f97316/white?text=TEMU'">
+            </div>
+            <div class="flex flex-col items-end rounded-2xl bg-white/15 px-4 py-2 ring-1 ring-white/25 backdrop-blur">
+                <span class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/80">Votre solde</span>
+                <span id="balance-display" class="text-lg font-extrabold leading-tight text-white tabular-nums">0,00 €</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="main-content" class="relative z-10 mx-auto -mt-4 max-w-xl rounded-t-[28px] bg-background px-4 pt-5">
+        <!-- JS will render here -->
+    </section>
+
+    <!-- Notification popup -->
+    <div id="notification" class="fixed inset-0 z-30 flex items-center justify-center px-4 hidden">
+        <div class="animate-in rounded-3xl bg-slate-900/95 px-8 py-6 text-center text-sm text-white shadow-2xl backdrop-blur">
+            <div id="notif-amount" class="text-3xl font-extrabold text-emerald-400 tabular-nums"></div>
+            <div class="mt-1 font-semibold">Avis envoyé</div>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { id: 'earbuds', name: 'Écouteurs Bluetooth Pro', description: 'Réduction active du bruit, son haute fidélité et jusqu’à 30 heures d’autonomie avec le boîtier de charge.', priceCents: 3999, oldPriceCents: 7299, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80', rating: '4,9', reviews: '2 814' },
+            { id: 'watch', name: 'Montre Connectée Ultra', description: 'Écran AMOLED, GPS intégré, suivi continu de la fréquence cardiaque et résistance à l’eau IP68.', priceCents: 5990, oldPriceCents: 10990, image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=500&q=80', rating: '4,8', reviews: '1 962' },
+            { id: 'robot', name: 'Aspirateur Robot Intelligent', description: 'Navigation laser, aspiration de 4000 Pa et retour automatique à la base de charge.', priceCents: 12900, oldPriceCents: 23900, image: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?w=500&q=80', rating: '4,7', reviews: '3 405' },
+            { id: 'camera', name: 'Caméra Wi-Fi HD', description: 'Vision nocturne, détection de mouvement et alertes instantanées sur votre téléphone.', priceCents: 2999, oldPriceCents: 5499, image: 'https://images.unsplash.com/photo-1557825835-70d97c4aa567?w=500&q=80', rating: '4,8', reviews: '1 274' },
+            { id: 'laptop', name: 'Ordinateur Portable Ultra-Fin', description: 'Écran Full HD 14", 16 Go de RAM et châssis en aluminium de moins de 1,3 kg.', priceCents: 49900, oldPriceCents: 89900, image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&q=80', rating: '4,9', reviews: '876' }
+        ];
+
+        const GOAL_BALANCE = 33900;
+        let currentIdx = 0;
+        let balanceCents = 0;
+
+        function formatCurrency(cents) {
+            return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(cents / 100);
+        }
+
+        function renderProduct() {
+            const container = document.getElementById('main-content');
+            document.getElementById('balance-display').innerText = formatCurrency(balanceCents);
+
+            if (currentIdx >= products.length) {
+                container.innerHTML = `
+                    <div class="animate-in rounded-[26px] bg-card p-6 text-center shadow-lg ring-1 ring-border/50">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 ring-8 ring-emerald-50 text-3xl">✓</div>
+                        <h2 class="mt-5 text-xl font-extrabold tracking-tight">AVIS TERMINÉS AVEC SUCCÈS</h2>
+                        <p class="mt-2 text-sm text-muted-foreground">Vous avez terminé vos premiers avis et gagné 339,00 €.</p>
+                        <div class="mt-6 rounded-3xl bg-primary/10 p-5 ring-1 ring-primary/15">
+                            <div class="text-xs font-medium uppercase text-primary/80">VOTRE SOLDE</div>
+                            <div class="mt-1 text-4xl font-extrabold text-primary">${formatCurrency(GOAL_BALANCE)}</div>
+                        </div>
+                        <a href="https://educayyaa.online/teste/fr/oficial/" class="mt-6 block w-full rounded-2xl bg-primary px-6 py-4 text-center text-base font-bold uppercase text-white shadow-lg transition-all active:scale-[0.98]" > Retirer maintenant </a>
+                    </div>`;
+                return;
+            }
+
+            const p = products[currentIdx];
+            const discount = Math.round((1 - p.priceCents / p.oldPriceCents) * 100);
+
+            container.innerHTML = `
+                <article class="animate-in overflow-hidden rounded-[28px] bg-card p-3 shadow-lg ring-1 ring-border/60">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-[22px] bg-muted">
+                        <img src="${p.image}" class="h-full w-full object-cover" alt="Produit">
+                        <span class="absolute right-3 top-3 rounded-full bg-primary px-3.5 py-1.5 text-sm font-extrabold text-white shadow-lg">-${discount} %</span>
+                    </div>
+                    <div class="space-y-4 px-2 pb-1 pt-5">
+                        <h2 class="text-[22px] font-extrabold leading-tight">${p.name}</h2>
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                            <span class="text-sm font-semibold">${p.rating} <span class="font-normal text-muted-foreground">(${p.reviews} avis)</span></span>
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 ring-1 ring-emerald-100">✓ Livraison gratuite</span>
+                        </div>
+                        <p class="text-[15px] text-muted-foreground line-clamp-2">${p.description}</p>
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-[32px] font-extrabold text-primary">${formatCurrency(p.priceCents)}</span>
+                            <span class="text-base text-muted-foreground line-through">${formatCurrency(p.oldPriceCents)}</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 pt-2">
+                            <button onclick="handleAction()" class="h-14 rounded-full bg-primary text-sm font-extrabold uppercase text-white shadow-lg active:scale-95">Approuver</button>
+                            <button onclick="handleAction()" class="h-14 rounded-full border bg-card text-sm font-extrabold uppercase text-muted-foreground active:scale-95">Rejeter</button>
+                        </div>
+                    </div>
+                </article>`;
+        }
+
+        let commissions = [];
+        function generateCommissions() {
+            let arr = [];
+            let sum = 0;
+            for(let i=0; i<products.length - 1; i++) {
+                let val = Math.floor(Math.random() * 3000) + 5000;
+                arr.push(val);
+                sum += val;
+            }
+            arr.push(GOAL_BALANCE - sum);
+            for(let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+        commissions = generateCommissions();
+
+        let animFrame;
+        function animateBalance(start, end) {
+            if (animFrame) cancelAnimationFrame(animFrame);
+            let startTime = performance.now();
+            const step = (now) => {
+                let progress = Math.min(1, (now - startTime) / 600);
+                let easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                let current = Math.round(start + (end - start) * easeOutCubic);
+                document.getElementById('balance-display').innerText = formatCurrency(current);
+                if (progress < 1) {
+                    animFrame = requestAnimationFrame(step);
+                }
+            };
+            animFrame = requestAnimationFrame(step);
+        }
+
+        function handleAction() {
+            try {
+                let audio = new Audio('sounds/money.wav');
+                audio.volume = 0.5;
+                audio.play().catch(e => {});
+            } catch(e) {}
+
+            const comm = commissions[currentIdx];
+            const notif = document.getElementById('notification');
+            document.getElementById('notif-amount').innerText = "+" + formatCurrency(comm);
+            notif.classList.remove('hidden');
+            
+            const nextBalance = balanceCents + comm;
+            animateBalance(balanceCents, nextBalance);
+            balanceCents = nextBalance;
+
+            setTimeout(() => {
+                notif.classList.add('hidden');
+                currentIdx++;
+                renderProduct();
+            }, 2000);
+        }
+
+        // Init
+        renderProduct();
+    </script>
+</body>
+</html>
